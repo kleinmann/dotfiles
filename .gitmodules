@@ -6,13 +6,10 @@
 	url = https://github.com/iUwe/snipmate-snippets.git
 [submodule "bash/bash_completion.d.symlink/git-flow-completion"]
 	path = bash/bash_completion.d.symlink/git-flow-completion
-	url = https://github.com/bobthecow/git-flow-completion.git/
+	url = https://github.com/bobthecow/git-flow-completion.git
 [submodule "bin/youtube-dl.git"]
 	path = bin/youtube-dl.git
 	url = https://github.com/rg3/youtube-dl.git
-[submodule "vim/vim.symlink/bundle/vundle"]
-	path = vim/vim.symlink/bundle/vundle
-	url = https://github.com/gmarik/vundle.git
 [submodule "linux-configs/config.symlink/awesome/vicious"]
 	path = linux-configs/config.symlink/awesome/vicious
 	url = http://git.sysphere.org/vicious
@@ -22,3 +19,6 @@
 [submodule "bin/spork.git"]
 	path = bin/spork.git
 	url = https://github.com/cr/spork.git
+[submodule "vim/vim.symlink/bundle/vundle"]
+	path = vim/vim.symlink/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
