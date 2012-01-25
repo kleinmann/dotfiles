@@ -46,3 +46,6 @@ bindkey '^[f' forward-word
 bindkey '^[[1;9A' beginning-of-line
 bindkey '^[[1;9B' end-of-line
 bindkey '^[[3~' delete-char
+
+# Include local settings if there are any
+[ -f $HOME/.zshrc_local ] && source $HOME/.zshrc_local
