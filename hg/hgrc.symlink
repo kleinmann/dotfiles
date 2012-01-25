@@ -1,0 +1,13 @@
+[ui]
+username = Uwe Kleinmann <u.kleinmann@googlemail.com>
+editor = vim
+ignore = ~/.hgignore
+
+[diff]
+git = true
+
+[email]
+from = Uwe Kleinmann <u.kleinmann@googlemail.com>
+
+[alias]
+u = pull --update

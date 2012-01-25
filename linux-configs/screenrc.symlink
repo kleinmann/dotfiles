@@ -1,0 +1,12 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%d.%m.%Y %{W}%c %{g}]'
+defnonblock 5
+
+crlf off
+startup_message off
+defscrollback 15000
+defutf8 on
+autodetach on
+
+termcapinfo xterm|xterms|xs|rxvt ti@:te@

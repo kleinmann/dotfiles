@@ -1,0 +1,6 @@
+style "font"
+{
+	font_name = "Lucida Grande 8"
+}
+widget_class "*" style "font"
+gtk-font-name = "Lucida Grande 8"

@@ -1,0 +1,6 @@
+# mkdir & cd to it
+function mkcd() { 
+  # create random directory if no arguments given
+  local MKCD="${@:-`uuidgen`}"
+  mkdir -p "${MKCD}" && cd "${MKCD}";
+}

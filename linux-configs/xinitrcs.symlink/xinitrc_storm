@@ -1,0 +1,22 @@
+#!/bin/bash
+
+eval `dbus-launch --sh-syntax --exit-with-session`
+eval `ssh-agent`
+
+setxkbmap -layout de -model macbook79
+xkb-switch -s macintosh_vndr
+
+[ -z `pgrep urxvtd` ] && urxvtd -q -o -f
+# [ -z `pgrep pidgin` ] && pidgin &
+# [ -z `pgrep skype` ] && skype &
+
+gnome-settings-daemon & # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
+[ -z `pgrep nm-applet` ] && sudo nm-applet &
+dropboxd &
+HOME=$HOME/.dropbox-2 dropboxd &
+HOME=$HOME/.dropbox-3 dropboxd &
+gnome-do &
+
+awsetbg ~/.config/awesome/zenburn/zenburn-background.png
+
+exec ck-launch-session awesome

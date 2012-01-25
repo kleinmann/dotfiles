@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python2.6 ~/bin/youtube-dl.git/youtube-dl --max-quality=37 "$@"

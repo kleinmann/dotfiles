@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ `uname` == "Darwin" ]]; then
+  EMACS_BIN=/Applications/Emacs.app
+fi
+
+if test -n "$DISPLAY" && [ -d $EMACS_BIN ]; then
+  open -a $EMACS_BIN $*
+else
+  /usr/bin/emacs $*
+fi

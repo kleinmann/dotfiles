@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'hirb'
+  Hirb.enable
+rescue LoadError
+end

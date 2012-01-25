@@ -1,0 +1,10 @@
+vim/vim.symlink/backups/*
+vim/vim.symlink/tmp/*
+vim/vim.symlink/bundle/**/*
+emacs.d.symlink/el-get
+emacs.d.symlink/elpa
+
+# use encrypted file here
+ssh/aliases.zsh
+ssh/authorized_keys
+ssh/id_rsa.pub

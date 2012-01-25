@@ -1,0 +1,77 @@
+#!/bin/bash
+# Base $HOME/.bashrc
+# Uwe Kleinmann
+# 2010-12-14
+
+# Append to the history file, don't overwrite it!
+shopt -s histappend
+# no completion on empty lines
+shopt -s no_empty_cmd_completion
+
+export HISTSIZE=1000
+export HISTFILESIZE=1000
+export HISTCONTROL=ignoreboth
+shopt -s cmdhist
+export HISTTIMEFORMAT=': %Y-%m-%d %I:%M:%S; '
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# programmable completion
+shopt -s progcomp
+
+# Set up editor
+export EDITOR=/usr/bin/vim
+[ "$SSH_CLIENT" == "" ] && [ `uname` == "Darwin" ] && export EDITOR='~/bin/vim -f'
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
+
+# Use CDPATH, cd searches there automatically
+export CDPATH=.:$HOME
+
+[ -f /etc/bash_completion ] && source /etc/bash_completion
+[ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
+[ -f /etc/bash_completion.d/git ] && source /etc/bash_completion.d/git
+[ -d ~/.bash_completion.d ] && source ~/.bash_completion.d/*.bash
+
+# Load colors
+if [ -x /usr/bin/dircolors ]; then
+	eval "`dircolors -b`"
+fi
+
+# Load aliases
+[ -f $HOME/.bash_aliases ] && source $HOME/.bash_aliases
+# Load paths
+[ -f $HOME/.bash_paths ] && source $HOME/.bash_paths
+
+# Homebrew
+if which brew > /dev/null 2>&1; then
+	# Load brew completion
+	[ -f $(brew --prefix)/Library/Contributions/brew_bash_completion.sh ] && source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
+	# Load git completion
+	[ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ] && source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+fi
+
+# Ruby stuff
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
+[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+
+export rvm_project_rvmrc_default=1
+export rvm_pretty_print_flag=1
+export LAYOUT_OPTS="--author:Uwe Kleinmann:--type:ruby"
+
+
+# load prompt
+[ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
+
+# load bash functions
+if [ -d $HOME/.bash_functions ]; then
+	for f in $HOME/.bash_functions/*.bash; do source $f; done
+fi
+
+# load colors
+[ -f $HOME/.bash_colors ] && source $HOME/.bash_colors
+
+# load machine specific settings
+[ -f $HOME/.bashrc_local ] && source $HOME/.bashrc_local

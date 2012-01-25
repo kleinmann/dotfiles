@@ -1,0 +1,41 @@
+[user]
+	name = Uwe Kleinmann
+	email = u.kleinmann@googlemail.com
+[core]
+	pager = less
+	excludesfile = ~/.gitignore
+	editor = ~/bin/vim
+[http]
+	sslVerify = true
+[branch]
+	autosetupmerge = true
+[alias]
+	co = checkout
+	s = status
+	wtf = !$HOME/bin/git-wtf
+	count   = !git shortlog -sn
+	promote = !$HOME/bin/git-promote
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+	pager = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[pack]
+	threads = 2
+[push]
+	default = matching

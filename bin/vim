@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ `uname` == "Darwin" ]]; then
+  GVIM_BIN=~/bin/mvim
+else
+  GVIM_BIN=gvim
+fi
+
+if test -n "$DISPLAY" && [ -x $GVIM_BIN ]; then
+  $GVIM_BIN $*
+else
+  /usr/bin/vim $*
+fi

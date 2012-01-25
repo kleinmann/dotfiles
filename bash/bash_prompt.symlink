@@ -1,0 +1,135 @@
+#!/bin/bash
+COLOR_NC="\033[0m" # No Color
+COLOR_WHITE="\033[1;37m"
+COLOR_BLACK="\033[0;30m"
+COLOR_BLUE="\033[0;34m"
+COLOR_LIGHT_BLUE="\033[1;34m"
+COLOR_GREEN="\033[0;32m"
+COLOR_LIGHT_GREEN="\033[1;32m"
+COLOR_CYAN="\033[0;36m"
+COLOR_LIGHT_CYAN="\033[1;36m"
+COLOR_RED="\033[0;31m"
+COLOR_LIGHT_RED="\033[1;31m"
+COLOR_PURPLE="\033[0;35m"
+COLOR_LIGHT_PURPLE="\033[1;35m"
+COLOR_BROWN="\033[0;33m"
+COLOR_YELLOW="\033[1;33m"
+COLOR_GRAY="\033[1;30m"
+COLOR_LIGHT_GRAY="\033[0;37m"
+
+LIGHTNING_BOLT="⚡"
+UP_ARROW="↑"
+DOWN_ARROW="↓"
+UD_ARROW="↕"
+FF_ARROW="→"
+RECYCLE="♺"
+MIDDOT="•"
+PLUSMINUS="±"
+
+function parse_git {
+	branch=$(__git_ps1 "%s")
+	if [[ -z $branch ]]; then
+		return
+	fi
+
+	local forward=$UP_ARROW
+	local behind=$DOWN_ARROW
+	local dot=$MIDDOT
+
+	remote_pattern_ahead="# Your branch is ahead of"
+	remote_pattern_behind="# Your branch is behind"
+	remote_pattern_diverge="# Your branch and (.*) have diverged"
+	
+	git_version=`git --version`
+	if [[ $git_version =~ " 1.7" ]]; then
+		status="$(git status --ignore-submodules 2>/dev/null)"
+	else
+		status="$(git status 2>/dev/null)"
+	fi
+
+	state=""
+	if [[ $status =~ "working directory clean" ]]; then
+		state="\[${COLOR_GREEN}\]${dot}\[${COLOR_NC}\]"
+	else
+		if [[ $status =~ "Untracked files" ]]; then
+			state="\[${COLOR_RED}\]${dot}\[${COLOR_NC}\]"
+		fi
+		if [[ $status =~ "Changed but not updated" ]]; then
+			state="${state}\[${COLOR_YELLOW}\]${dot}\[${COLOR_NC}\]"
+		fi
+		if [[ $status =~ "Changes to be committed" ]]; then
+			state="${state}\[${COLOR_YELLOW}\]${dot}\[${COLOR_NC}\]"
+		fi
+	fi
+
+	direction=""
+	if [[ $status =~ $remote_pattern_ahead ]]; then
+		direction="\[${COLOR_GREEN}\]${forward}\[${COLOR_NC}\]"
+	elif [[ $status =~ $remote_pattern_behind ]]; then
+		direction="\[${COLOR_RED}\]${behind}\[${COLOR_NC}\]"
+	elif [[ $status =~ $remote_pattern_diverge ]]; then
+		direction="\[${COLOR_RED}\]${forward}\[${COLOR_NC}\]\[${COLOR_GREEN}\]${behind}\[${COLOR_NC}\]"
+	fi
+
+	branch="\[${COLOR_WHITE}\]${branch}\[${COLOR_NC}\]"
+	git_bit="\[${COLOR_RED}\][\[${COLOR_NC}\]${branch}${state}${direction}\[${COLOR_RED}\]]\[${COLOR_NC}\]"
+
+	printf "%s" "$git_bit"
+}
+
+function set_titlebar {
+	case $TERM in
+		*xterm*|ansi|rxvt)
+			printf "\033]0;%s\007" "$*"
+		;;
+	esac
+}
+
+
+## Command separator and bold
+
+# Reset color for command output
+# (this one is invoked every time before a command is executed):
+if [ -z "$PS1" ]; then
+	:
+else
+	trap 'echo -ne "\033[0m"' DEBUG
+	#trap 'echo -ne "${COLOR_NC}"' DEBUG
+fi
+
+## End Command separator and bold
+
+
+
+function set_prompt {
+	local snowman=""
+	git="$(parse_git)"
+	
+	PS1="\[${COLOR_LIGHT_GREEN}\]\u@\h\[${COLOR_NC}\]:\[${COLOR_LIGHT_BLUE}\]\w\[${COLOR_NC}\]"
+	if [[ -n "$git" ]]; then
+		PS1="${PS1} ${git}"
+	else
+		PS1="${PS1}"
+	fi
+	
+	# input in the line below
+	PS1="${PS1}\n$ "
+	
+	 # create a $fill of all screen width minus the time string and a space:
+	let fillsize=${COLUMNS}-9
+	fill=""
+	while [ "$fillsize" -gt "0" ]
+	do
+		fill="-${fill}" # fill with underscores to work on 
+		let fillsize=${fillsize}-1
+	done
+	
+	command_style='\[\033[00m\]\[\033[1;29m\]' # bold black
+	PS1='\t $fill\n'"${PS1}$command_style"
+	
+	export PS1
+	
+	set_titlebar "$USER@${HOSTNAME%%.*} - $PWD"
+}
+
+export PROMPT_COMMAND=set_prompt
