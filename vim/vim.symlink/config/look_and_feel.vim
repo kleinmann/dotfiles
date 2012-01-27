@@ -42,8 +42,9 @@ set number        " Turn on line numbers
 set numberwidth=5 " Show 5 numbers max
 set cul           " Highlight current line
 
+set encoding=utf-8  " Activate unicode glyphs
 set laststatus=2    " Always show status line
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] " Set status line
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] " Set status line
 
 """ Tabulation
 

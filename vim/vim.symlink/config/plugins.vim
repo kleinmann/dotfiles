@@ -100,3 +100,6 @@ endif
 
 """ Rainbow parentheses
 nmap <Leader>ra :RainbowParenthesesToggle<CR>
+
+""" Powerline
+let g:Powerline_symbols = 'fancy'

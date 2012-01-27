@@ -69,6 +69,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'iUwe/simplenote.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-endwise.git'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Raimondi/delimitMate'
 
 " vim-scripts
 Bundle 'ack.vim'
@@ -83,6 +85,7 @@ Bundle 'haskell.vim'
 Bundle 'rainbow_parentheses.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'glsl.vim'
+Bundle "ZoomWin"
 
  "                                                                           "
 "*****************************************************************************"
