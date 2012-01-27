@@ -63,12 +63,15 @@ filetype plugin on
 filetype indent on
 
 " Soft wrap text
-
 set wrap
-map j gj
-map k gk
-map [Up] gk
-map [Down] gj
+nmap j gj       " Scroll screen lines, not file lines
+nmap k gk
+nmap <Up> gk
+nmap <Down> gj
+vmap j gj
+vmap k gk
+vmap <Up> gk
+vmap <Down> gj
 
 set backspace=2            " Backspace over everything in insert mode
 
