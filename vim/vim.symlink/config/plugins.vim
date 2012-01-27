@@ -59,47 +59,43 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubes_in_global = 1
 let g:rubycomplete_rails = 1
 
-
 """ vim-rails
 map <Leader>rc :Rcontroller<Space>
 map <Leader>rm :Rmodel<Space>
 map <Leader>rv :Rview<Space>
 map <Leader>rh :Rhelper<Space>
-
 map <Leader>rj :Rjavascript<Space>
-
 map <Leader>rl :Rlayout<Space>
-
 map <Leader>rs :Rspec<Space>
-
 map <Leader>re :Renvironment<Space>
-
 map <Leader>ri :Rinitializer<Space>
-
 
 """ tagbar
 map <Leader>t :TagbarToggle<CR>
 
-
 """ gundo
 nnoremap <C-u> :GundoToggle<CR>
-
 
 """ Snipmate
 let g:snippets_dir = "~/.vim/snippets"
 
-
 """ Tabularize
 if exists(":Tabularize")
-  nmap <Leader>c= :Tabularize /=<CR>
-  vmap <Leader>c= :Tabularize /=<CR>
-  nmap <Leader>c: :Tabularize /:<CR>
-  vmap <Leader>c: :Tabularize /:<CR>
+  nmap <Leader>t= :Tabularize /=<CR>
+  vmap <Leader>t= :Tabularize /=<CR>
+  nmap <Leader>t: :Tabularize /:\zs<CR>
+  vmap <Leader>t: :Tabularize /:\zs<CR>
+  nmap <Leader>t, :Tabularize /,\zs<CR>
+  vmap <Leader>t, :Tabularize /,\zs<CR>
+  nmap <Leader>t> :Tabularize /=>\zs<CR>
+  vmap <Leader>t> :Tabularize /=>\zs<CR>
 endif
-
 
 """ Rainbow parentheses
 nmap <Leader>ra :RainbowParenthesesToggle<CR>
 
 """ Powerline
 let g:Powerline_symbols = 'fancy'
+
+""" Indent Guides
+let g:indent_guides_enable_on_vim_startup=1
