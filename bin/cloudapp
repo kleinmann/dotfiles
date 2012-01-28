@@ -6,7 +6,7 @@
 # Uploads a file from the command line to CloudApp, drops it into your 
 # clipboard (on a Mac, at least).
 #
-# -- Uwe Kleinmann / @iUwe
+# -- Uwe Kleinmann / @kleinmann
 # Added clipboard functionality via xsel for linux.
 #
 # Example:
