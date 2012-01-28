@@ -1,6 +1,6 @@
 ## clone & setup
     chsh -s `which zsh`
-    git clone git@github.com:iUwe/dotfiles.git ~/.dotfiles
+    git clone https://github.com/kleinmann/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     git submodule init
     git submodule update
