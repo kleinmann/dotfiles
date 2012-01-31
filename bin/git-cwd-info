@@ -22,7 +22,22 @@ def git_head_commit_id
 end
 
 def git_cwd_dirty
-  " %{\e[90m%}✗%{\e[0m%}" unless git_repo_path == '.' || `git ls-files -m`.strip.empty?
+  unless git_repo_path == '.' || `git ls-files -m`.strip.empty?
+    " %{\e[31m%}✗%{\e[0m%}"
+  else
+    " %{\e[90m%}✔%{\e[0m%}"
+  end
+end
+
+def git_ahead
+  unless git_repo_path == '.' || `git remote`.match(/^origin$/).nil?
+    diffs = `git rev-list --count --left-right origin/#{git_parse_branch}...HEAD`.strip.split("\t")
+    if diffs[0] < diffs[1]
+      " %{\e[90m%}⬆%{\e[0m%}"
+    elsif diffs[0] > diffs[1]
+      " %{\e[90m%}⬇%{\e[0m%}"
+    end
+  end
 end
 
 def rebasing_etc
@@ -36,5 +51,5 @@ def rebasing_etc
 end
 
 if in_git_repo
-  print " %{\e[34m%}#{git_parse_branch}%{\e[90m%}@%{\e[33m%}#{git_head_commit_id}%{\e[0m%}#{rebasing_etc}#{git_cwd_dirty}"
+  print " %{\e[34m%}#{git_parse_branch}%{\e[90m%}@%{\e[33m%}#{git_head_commit_id}%{\e[0m%}#{rebasing_etc}#{git_cwd_dirty}#{git_ahead}"
 end
