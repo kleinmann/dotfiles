@@ -19,3 +19,6 @@
 [submodule "bin/spork.git"]
 	path = bin/spork.git
 	url = https://github.com/cr/spork.git
+[submodule "emacs.d.symlink"]
+	path = emacs.d.symlink
+	url = https://github.com/kleinmann/emacs-prelude.git
