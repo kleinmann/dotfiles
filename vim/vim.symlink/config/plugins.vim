@@ -71,7 +71,7 @@ map <Leader>re :Renvironment<Space>
 map <Leader>ri :Rinitializer<Space>
 
 """ tagbar
-map <Leader>t :TagbarToggle<CR>
+nmap <Leader>o :TagbarToggle<CR>
 
 """ gundo
 nnoremap <C-u> :GundoToggle<CR>

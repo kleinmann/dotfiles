@@ -71,6 +71,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-endwise.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
+Bundle 'wincent/Command-T'
 
 " vim-scripts
 Bundle 'ack.vim'
