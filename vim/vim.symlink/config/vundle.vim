@@ -72,6 +72,7 @@ Bundle 'tpope/vim-endwise.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kleinmann/Command-T'
+Bundle 'nanotech/jellybeans.vim'
 
 " vim-scripts
 Bundle 'ack.vim'
