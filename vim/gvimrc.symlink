@@ -29,8 +29,6 @@
 "*****************************************************************************"
  "                                                                           "
 
-colorscheme zenburn
-
 set guioptions-=T " Remove toolbar
 set guioptions=aAce
 
