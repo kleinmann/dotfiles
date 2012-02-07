@@ -32,6 +32,8 @@
 set guioptions-=T " Remove toolbar
 set guioptions=aAce
 
+set showtabline=0 " Don't show tabbar
+
 set anti " Anti-Aliasing
 
 " set transparency=0 " Little transparency is good
