@@ -99,3 +99,6 @@ let g:Powerline_symbols = 'fancy'
 
 """ Indent Guides
 let g:indent_guides_enable_on_vim_startup=1
+
+""" Command-T
+nnoremap <silent> <C-t> :CommandT<CR>
