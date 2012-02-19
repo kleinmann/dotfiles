@@ -73,6 +73,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kleinmann/Command-T'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'sjl/threesome.vim'
 
 " vim-scripts
 Bundle 'ack.vim'
