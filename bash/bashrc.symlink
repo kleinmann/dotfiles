@@ -23,7 +23,7 @@ shopt -s progcomp
 
 # Set up editor
 export EDITOR=/usr/bin/vim
-[ "$SSH_CLIENT" == "" ] && [ `uname` == "Darwin" ] && export EDITOR='~/bin/vim -f'
+[ "$SSH_CLIENT" == "" ] && [ `uname` == "Darwin" ] && export EDITOR="$HOME/bin/vim -f"
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
 
