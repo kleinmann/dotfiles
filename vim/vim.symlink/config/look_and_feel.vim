@@ -86,7 +86,7 @@ set hidden " Allow dirty unsaved buffers
 
 colorscheme zenburn         " Color theme
 set list                    " Show invisible characters
-set listchars=tab:▸\ ,eol:¬ " Use my favorite invisible characters
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
 
 """ Search
 
