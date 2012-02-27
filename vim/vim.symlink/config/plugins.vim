@@ -59,17 +59,6 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubes_in_global = 1
 let g:rubycomplete_rails = 1
 
-""" vim-rails
-map <Leader>rc :Rcontroller<Space>
-map <Leader>rm :Rmodel<Space>
-map <Leader>rv :Rview<Space>
-map <Leader>rh :Rhelper<Space>
-map <Leader>rj :Rjavascript<Space>
-map <Leader>rl :Rlayout<Space>
-map <Leader>rs :Rspec<Space>
-map <Leader>re :Renvironment<Space>
-map <Leader>ri :Rinitializer<Space>
-
 """ tagbar
 nmap <Leader>o :TagbarToggle<CR>
 

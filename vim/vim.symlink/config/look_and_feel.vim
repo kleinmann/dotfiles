@@ -64,7 +64,8 @@ filetype indent on
 
 " Soft wrap text
 set wrap
-nmap j gj       " Scroll screen lines, not file lines
+" Scroll screen lines, not file lines
+nmap j gj
 nmap k gk
 nmap <Up> gk
 nmap <Down> gj
