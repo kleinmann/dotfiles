@@ -39,7 +39,7 @@ relink .railsrc $HOME/.dotfiles/ruby/railsrc.symlink
 relink .screenrc $HOME/.dotfiles/linux-configs/screenrc.symlink
 relink .ssh/authorized_keys $HOME/.dotfiles/ssh/authorized_keys
 relink .ssh/id_rsa.pub $HOME/.dotfiles/ssh/id_rsa.pub
-relink .tmux.conf $HOME/.dotfiles/linux-configs/tmux.conf.symlink
+relink .tmux.conf $HOME/.dotfiles/tools/tmux.conf.symlink
 relink .vim $HOME/.dotfiles/vim/vim.symlink
 relink .vimrc $HOME/.dotfiles/vim/vimrc.symlink
 relink .zshrc $HOME/.dotfiles/zsh/zshrc.symlink
