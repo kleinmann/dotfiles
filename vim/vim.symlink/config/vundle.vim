@@ -74,6 +74,7 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'sjl/threesome.vim'
 Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
 
 " vim-scripts
 Bundle 'ack.vim'
