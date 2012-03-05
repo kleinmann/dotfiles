@@ -75,6 +75,8 @@ Bundle 'sjl/threesome.vim'
 Bundle 'acustodioo/vim-tmux'
 Bundle 'hallison/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'skwp/vim-rspec'
+Bundle 'tpope/vim-cucumber'
 
 " vim-scripts
 Bundle 'ack.vim'
