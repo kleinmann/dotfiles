@@ -46,8 +46,6 @@ nmap <Leader>a :Ack
 """ FuzzyFinder
 nnoremap ,ff :FufFile<CR>
 nnoremap ,fb :FufBuffer<CR>
-nnoremap ,fd :FufDir<CR>
-nnoremap ,fl :FufLine<CR>
 let g:fuf_buffer_keyDelete = '<C-S-d>'
 let g:fuf_keyOpenSplit = '<C-i>'
 let g:fuf_keyOpenVsplit = '<C-v>'
@@ -90,3 +88,9 @@ let g:indent_guides_enable_on_vim_startup=1
 
 """ Command-T
 nnoremap <silent> <C-t> :CommandT<CR>
+
+""" fugitive
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gl :Glog<CR>
