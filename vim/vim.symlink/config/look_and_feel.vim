@@ -84,7 +84,7 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-colorscheme zenburn         " Color theme
+colorscheme jellybeans         " Color theme
 set list                    " Show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
 
@@ -102,9 +102,8 @@ set nohlsearch " Don't hilight searches by default
 
 set nostartofline " Don't jump to first line
 
-" Stop beeping!
-
-set visualbell
+" Activate audible bell for WAT driven development. See http://jrom.net/wat-driven-development
+let &t_vb = "\<C-G>\e|50f"
 
 " Show 3 line after and before cursor when scrolling
 
