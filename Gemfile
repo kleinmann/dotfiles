@@ -1,0 +1,18 @@
+source :rubygems
+
+gem 'awesome_print'
+gem 'cloudapp_api'
+gem 'gollum'
+gem 'heroku'
+gem 'highline'
+gem 'hirb-unicode'
+gem 'hpricot'
+gem 'interactive_editor'
+gem 'pry'
+gem 'rake'
+gem 'rvm'
+gem 'sinatra'
+gem 'thor'
+gem 'tmuxinator'
+gem 'vagrant'
+gem 'wirble'
