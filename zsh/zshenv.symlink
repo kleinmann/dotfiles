@@ -1,0 +1,2 @@
+# Load rvm here, so it will be available in non-interactive sessions
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
