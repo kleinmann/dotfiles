@@ -3,6 +3,8 @@ vim/vim.symlink/tmp/*
 vim/vim.symlink/bundle/**/*
 emacs.d.symlink/el-get
 emacs.d.symlink/elpa
+emacs.d.symlink/auto-save-list
+emacs.d.symlink/bookmarks
 
 # use encrypted file here
 ssh/aliases.zsh
