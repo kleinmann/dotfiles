@@ -13,7 +13,9 @@
 (setq ring-bell-function
       (lambda ()
 	(unless (memq this-command
-		      '(isearch-abort abort-recursive-edit exit-minibuffer keyboard-quit))
+                '(isearch-abort abort-recursive-edit exit-minibuffer keyboard-quit
+                                mwheel-scroll down up next-line previous-line
+                                backward-char forward-char keyboard-escape-quit))
 	  (ding))))
 
 ;; Remap command to meta on OS X
