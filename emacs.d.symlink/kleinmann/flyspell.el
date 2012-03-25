@@ -8,3 +8,9 @@
                 haskell-mode-hook
                 ))
   (add-hook hook 'flyspell-prog-mode))
+
+(add-hook 'rcirc-mode-hook '(lambda ()
+                              (ispell-change-dictionary "de")
+                              (flyspell-mode)))
+(setq ispell-program-name "aspell")
+(setq ispell-extra-args '("--sug-mode=fast"))
