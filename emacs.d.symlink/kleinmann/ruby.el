@@ -11,21 +11,12 @@
                              (require 'ruby-compilation)
                              (require 'ruby-electric)
                              (ruby-electric-mode t)))
+;; fix yasnippet expand key
+(add-hook 'ruby-mode-hook '(lambda()
+                             (local-set-key (kbd "TAB") 'yas/expand)))
+
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
 (autoload 'rhtml-mode "rhtml-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
-(add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
-(add-hook 'rhtml-mode '(lambda ()
-                         (define-key rhtml-mode-map (kbd "M-s") 'save-buffer)))
-
-(autoload 'yaml-mode "yaml-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-
-
-(autoload 'css-mode "css-mode" nil t)
-(add-hook 'css-mode-hook '(lambda ()
-                            (setq css-indent-level 2)
-                            (setq css-indent-offset 2)))
 
 (setq rinari-tags-file-name "TAGS")

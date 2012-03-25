@@ -44,7 +44,7 @@
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; custom Emacs 24 color themes support
+
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
 
 ;; use zenburn as the default theme

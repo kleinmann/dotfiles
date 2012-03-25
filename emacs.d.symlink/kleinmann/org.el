@@ -1,6 +1,4 @@
 ;; -*- coding: utf-8 -*-
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-
 (define-key mode-specific-map [?a] 'org-agenda)
 
 (eval-after-load "org-agenda"
@@ -25,13 +23,15 @@
      (define-key org-agenda-mode-map "\C-n" 'next-line)
      (define-key org-agenda-keymap "\C-n" 'next-line)
      (define-key org-agenda-mode-map "\C-p" 'previous-line)
-     (define-key org-agenda-keymap "\C-p" 'previous-line)))
+     (define-key org-agenda-keymap "\C-p" 'previous-line)
+
+     (setq org-todo-keywords
+           '((sequence "TODO(t)" "STARTED(s@/!)" "WAITING(w@/!)" "DELEGATED(e@/!)" "APPT(@!)" "|" "DONE(d!)" "DEFERRED" "CANCELLED(c@)")))
+     ))
 
 (require 'remember)
 
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
-
-(define-key global-map [(control meta ?r)] 'remember)
 
 (custom-set-variables
  '(org-agenda-files (quote ("~/todo.org")))
@@ -63,7 +63,7 @@
          (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
  '(org-remember-store-without-prompt t)
  '(org-remember-templates
-   (quote ((116 "* TODO %?\n  %u" "~/todo.org" "Tasks")
-       (110 "* %u %?" "~/notes.org" "Notes"))))
+   (quote ((116 "* TODO %?\n  %U" "~/todo.org" "Tasks")
+       (110 "* %U %?" "~/notes.org" "Notes"))))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler))))

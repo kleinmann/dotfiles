@@ -9,3 +9,19 @@
 
 ;; Set default directory to ~/code if it exists.
 (if (file-exists-p "~/code") (setq default-directory "~/code"))
+
+(setq ring-bell-function
+      (lambda ()
+	(unless (memq this-command
+		      '(isearch-abort abort-recursive-edit exit-minibuffer keyboard-quit))
+	  (ding))))
+
+;; Remap command to meta on OS X
+(when *is-a-mac*
+  (setq mac-command-modifier 'meta
+        mac-option-modifier 'none
+        default-input-method "MacOSX")
+  ;; Make mouse wheel / trackpad scrolling less jerky
+  (setq mouse-wheel-scroll-amount '(0.001)))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)

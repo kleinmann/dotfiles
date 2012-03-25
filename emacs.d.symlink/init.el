@@ -13,17 +13,21 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
+;; Load packages first, so I can configure them wherever I want to
+(load "kleinmann/packages")
+
 (load "kleinmann/bindings")
+(load "kleinmann/css")
 (load "kleinmann/encoding")
 (load "kleinmann/filetypes")
+(load "kleinmann/flyspell")
 (load "kleinmann/general")
-(load "kleinmann/packages")
-(load "kleinmann/ui")
-
-(load "kleinmann/modes")
 (load "kleinmann/git")
+(load "kleinmann/misc")
+(load "kleinmann/modes")
 (load "kleinmann/org")
 (load "kleinmann/ruby")
 (load "kleinmann/shell")
+(load "kleinmann/ui")
 
 (load "scripts/taglist")

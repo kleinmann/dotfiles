@@ -10,21 +10,31 @@
 (defvar my-packages
   '(
     ack-and-a-half
+    coffee-mode
     css-mode
+    flymake
+    flymake-ruby
+    gist
     inf-ruby
+    haskell-mode
     js2-mode
+    json
     magit
     magit-simple-keys
     magithub
     markdown-mode
+    nav
     rinari
     ruby-compilation
     ruby-electric
     ruby-mode
     rvm
+    scratch
     textmate
+    undo-tree
     volatile-highlights
     yaml-mode
+    yasnippet
     zenburn-theme
     )
   "A list of packages to ensure are installed at launch.")
@@ -54,4 +64,9 @@
     (end-of-buffer) (eval-print-last-sexp)
   )
 )
-(el-get 'sync)
+
+(setq my-el-get-packages '(
+                       emacs-w3m
+                       ))
+
+(el-get 'sync my-el-get-packages)
