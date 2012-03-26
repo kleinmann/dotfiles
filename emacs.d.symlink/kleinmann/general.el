@@ -15,7 +15,8 @@
 	(unless (memq this-command
                 '(isearch-abort abort-recursive-edit exit-minibuffer keyboard-quit
                                 mwheel-scroll down up next-line previous-line
-                                backward-char forward-char keyboard-escape-quit))
+                                backward-char forward-char keyboard-escape-quit
+                                scroll-down-command scroll-up-command))
 	  (ding))))
 
 ;; Remap command to meta on OS X
