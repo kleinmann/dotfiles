@@ -18,7 +18,9 @@
 
 (load "kleinmann/bindings")
 (load "kleinmann/css")
+(load "kleinmann/defuns")
 (load "kleinmann/encoding")
+(load "kleinmann/erc")
 (load "kleinmann/filetypes")
 (load "kleinmann/flyspell")
 (load "kleinmann/general")
@@ -26,6 +28,7 @@
 (load "kleinmann/misc")
 (load "kleinmann/modes")
 (load "kleinmann/org")
+(when (file-exists-p (expand-file-name "~/.emacs.d/kleinmann/passwords.el")) (load "kleinmann/passwords"))
 (load "kleinmann/ruby")
 (load "kleinmann/shell")
 (load "kleinmann/ui")

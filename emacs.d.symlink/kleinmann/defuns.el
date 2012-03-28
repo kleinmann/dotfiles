@@ -1,0 +1,10 @@
+;; -*- coding: utf-8 -*-
+(defun large-font ()
+  (interactive)
+  (set-frame-font "Inconsolata 24"))
+(defun normal-font ()
+  (interactive)
+  (set-frame-font "Inconsolata 14"))
+(defun small-font ()
+  (interactive)
+  (set-frame-font "Inconsolata 12"))

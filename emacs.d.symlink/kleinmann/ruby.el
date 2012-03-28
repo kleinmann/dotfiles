@@ -11,10 +11,6 @@
 
 (add-hook 'ruby-mode-hook 'inf-ruby-keys)
 
-;; fix yasnippet expand key
-(add-hook 'ruby-mode-hook '(lambda()
-                             (local-set-key (kbd "TAB") 'yas/expand)))
-
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
 (autoload 'rhtml-mode "rhtml-mode" nil t)

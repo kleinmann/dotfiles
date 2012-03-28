@@ -24,6 +24,7 @@
     magithub
     markdown-mode
     nav
+    pretty-lambdada
     rinari
     ruby-compilation
     ruby-electric
