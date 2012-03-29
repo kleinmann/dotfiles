@@ -25,6 +25,8 @@
      (define-key org-agenda-mode-map "\C-p" 'previous-line)
      (define-key org-agenda-keymap "\C-p" 'previous-line)
 
+     (add-to-list 'org-modules 'org-habit)
+
      (setq org-todo-keywords
            '((sequence "TODO(t)" "STARTED(s@/!)" "WAITING(w@/!)" "DELEGATED(e@/!)" "APPT(@!)" "|" "DONE(d!)" "DEFERRED" "CANCELLED(c@)")))
      ))
@@ -33,37 +35,45 @@
 
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
-(custom-set-variables
- '(org-agenda-files (quote ("~/notes/todo.org")))
- '(org-default-notes-file "~/notes/notes.org")
- '(org-agenda-ndays 7)
- '(org-deadline-warning-days 14)
- '(org-agenda-show-all-dates t)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-start-on-weekday nil)
- '(org-reverse-note-order t)
- '(org-fast-tag-selection-single-key (quote expert))
- '(org-agenda-custom-commands
-   (quote (("d" todo "DELEGATED" nil)
-       ("c" todo "DONE|DEFERRED|CANCELLED" nil)
-       ("w" todo "WAITING" nil)
-       ("W" agenda "" ((org-agenda-ndays 21)))
-       ("A" agenda ""
-        ((org-agenda-skip-function
-          (lambda nil
-        (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
-         (org-agenda-ndays 1)
-         (org-agenda-overriding-header "Today's Priority #A tasks: ")))
-       ("u" alltodo ""
-        ((org-agenda-skip-function
-          (lambda nil
-        (org-agenda-skip-entry-if (quote scheduled) (quote deadline)
-                      (quote regexp) "\n]+>")))
-         (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
- '(org-remember-store-without-prompt t)
- '(org-remember-templates
-   (quote ((116 "* TODO %?\n  %U" "~/notes/todo.org" "Tasks")
-       (110 "* %U %?" "~/notes/notes.org" "Notes"))))
- '(remember-annotation-functions (quote (org-remember-annotation)))
- '(remember-handler-functions (quote (org-remember-handler))))
+(setq org-agenda-files (quote ("~/notes/todo.org"))
+      org-default-notes-file "~/notes/notes.org"
+      org-agenda-ndays 7
+      org-agenda-deadline-warning-days 14
+      org-agenda-show-all-dates t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-start-on-weekday nil
+      org-reverse-note-order t
+      org-agenda-window-setup (quote current-window)
+      org-directory "~/notes/"
+      org-fast-tag-selection-single-key (quote expert)
+      org-remember-store-without-prompt t
+      remember-annotation-functions (quote (org-remember-annotation))
+      remember-handler-functions (quote (org-remember-handler))
+      org-remember-templates (quote (
+                                     ("Task" ?t "* TODO %?\n  %U" "~/notes/todo.org" "Tasks")
+                                     ("Note" ?n "* %U %?" "~/notes/notes.org" "Notes")
+                                     ("Reading" ?r "* %^{Title} %T%?" "~/notes/reading.org" "Reading")
+                                     ("Movie" ?m "* %^{Title} %T%?" "~/notes/movies.org" "Movies")
+                                     ("Appointment" ?a "* APPT %?\n" "~/notes/todo.org" "Tasks")
+                                     ("Birthday" ?b "\%\%(diary-anniversary %^{Month} %^{Day} %^{Year}) Names \%d. Geburtstag" "~/notes/todo.org" "Anniversaries and Holidays")
+                                     ("Habit" ?h "* TODO %?\n  %U\nSCHEDULED: %^{Schedule}t\n## Use .+2d/4d in Schedule to do it at most every 2 days, but at least every 4 days\n:PROPERTIES:\n:STYLE: habit\n:END:")))
+      org-agenda-custom-commands (quote (
+                                         ("d" todo "DELEGATED" nil)
+                                         ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+                                         ("w" todo-add-category "WAITING" nil)
+                                         ("W" agenda "" ((org-agenda-ndays 21)))
+                                         ("A" agenda ""
+                                                        ((org-agenda-skip-function
+                                                          (lambda nil
+                                                            (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
+                                                         (org-agenda-ndays 1)
+                                                         (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+                                         ("u" alltodo ""
+                                                        ((org-agenda-skip-function
+                                                          (lambda nil
+                                                            (org-agenda-skip-entry-if
+                                                             (quote scheduled)
+                                                             (quote deadline)
+                                                             (quote regexp) "\n]+>")))
+                                                         (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
