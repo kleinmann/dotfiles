@@ -46,6 +46,8 @@
       org-reverse-note-order t
       org-agenda-window-setup (quote current-window)
       org-directory "~/notes/"
+      org-mobile-directory "~/Dropbox/MobileOrg"
+      org-mobile-inbox-for-pull "~/notes/todo.org"
       org-fast-tag-selection-single-key (quote expert)
       org-remember-store-without-prompt t
       remember-annotation-functions (quote (org-remember-annotation))
