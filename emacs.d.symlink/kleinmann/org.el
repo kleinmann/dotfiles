@@ -28,8 +28,8 @@
      (add-to-list 'org-modules 'org-habit)
 
      (setq org-todo-keywords
-           '((sequence "TODO(t)" "STARTED(s@/!)" "WAITING(w@/!)" "DELEGATED(e@/!)" "APPT(@!)" "|" "DONE(d!)" "DEFERRED" "CANCELLED(c@)")))
-     ))
+           '((sequence "TODO(t)" "STARTED(s@/!)" "WAITING(w@/!)" "DELEGATED(e@/!)" "APPT(@!)" "|" "DONE(d@/!)" "DEFERRED" "CANCELLED(c@/)")))
+           ))
 
 (require 'remember)
 
