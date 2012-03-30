@@ -50,6 +50,7 @@
       org-mobile-inbox-for-pull "~/notes/todo.org"
       org-fast-tag-selection-single-key (quote expert)
       org-remember-store-without-prompt t
+      org-completion-use-ido t
       remember-annotation-functions (quote (org-remember-annotation))
       remember-handler-functions (quote (org-remember-handler))
       org-remember-templates (quote (

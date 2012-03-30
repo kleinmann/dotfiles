@@ -1,5 +1,7 @@
 ;; -*- coding: utf-8 -*-
-(add-to-list 'auto-mode-alist '("\\.el\\'" . emacs-lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.el\\'" . (lambda ()
+                                               (emacs-lisp-mode)
+                                               (paredit-mode))))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
