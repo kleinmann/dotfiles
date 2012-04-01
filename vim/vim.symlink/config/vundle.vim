@@ -78,6 +78,8 @@ Bundle 'skwp/vim-rspec'
 Bundle 'tpope/vim-cucumber'
 Bundle 'Townk/vim-autoclose'
 Bundle 'duwanis/tomdoc.vim'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts
 Bundle 'ack.vim'
