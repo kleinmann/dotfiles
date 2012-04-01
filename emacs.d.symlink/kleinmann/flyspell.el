@@ -6,6 +6,8 @@
                 python-mode-hook
                 css-mode-hook
                 haskell-mode-hook
+                php-mode-hook
+                nxhtml-mode-hook
                 ))
   (add-hook hook 'flyspell-prog-mode))
 

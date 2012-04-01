@@ -29,6 +29,7 @@
 (load "kleinmann/modes")
 (load "kleinmann/org")
 (when (file-exists-p (expand-file-name "~/.emacs.d/kleinmann/passwords.el")) (load "kleinmann/passwords"))
+(load "kleinmann/php")
 (load "kleinmann/ruby")
 (load "kleinmann/shell")
 (load "kleinmann/ui")
