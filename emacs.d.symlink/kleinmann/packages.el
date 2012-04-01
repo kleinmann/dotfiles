@@ -13,6 +13,7 @@
     coffee-mode
     css-mode
     flymake
+    flymake-php
     flymake-ruby
     gist
     inf-ruby
@@ -25,6 +26,7 @@
     markdown-mode
     nav
     paredit
+    php-mode
     pretty-lambdada
     rinari
     ruby-compilation
@@ -32,6 +34,7 @@
     ruby-mode
     rvm
     scratch
+    solarized-theme
     textmate
     undo-tree
     volatile-highlights
@@ -68,7 +71,7 @@
 )
 
 (setq my-el-get-packages '(
-                       emacs-w3m
-                       ))
-
+                           emacs-w3m
+                           nxhtml
+                          ))
 (el-get 'sync my-el-get-packages)

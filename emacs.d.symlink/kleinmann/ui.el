@@ -49,8 +49,8 @@
 
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
 
-;; use zenburn as the default theme
-(load-theme 'zenburn t)
+;; use solarized-light as the default theme
+(load-theme 'solarized-light t)
 (set-frame-font "Inconsolata 14")
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
