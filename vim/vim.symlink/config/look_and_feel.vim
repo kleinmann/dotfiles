@@ -84,7 +84,8 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-colorscheme jellybeans         " Color theme
+colorscheme solarized         " Color theme
+set background=light
 set list                    " Show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
 
