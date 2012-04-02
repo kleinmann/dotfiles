@@ -61,12 +61,12 @@
       remember-handler-functions (quote (org-remember-handler))
       org-remember-templates (quote (
                                      ("Task" ?t "* TODO %?\n  %U" "~/notes/todo.org" "Tasks")
-                                     ("Note" ?n "* %U %?" "~/notes/notes.org" "Notes")
-                                     ("Reading" ?r "* %^{Title} %T%?" "~/notes/reading.org" "Inbox")
-                                     ("Movie" ?m "* %^{Title} %T%?" "~/notes/movies.org" "Inbox")
+                                     ("Note" ?n "* %?\n  %U" "~/notes/notes.org" "Notes")
+                                     ("Reading" ?r "* %^{Title}\n  %T\n  %?" "~/notes/reading.org" "Inbox")
+                                     ("Movie" ?m "* %^{Title}\n  %T\n  %?" "~/notes/movies.org" "Inbox")
                                      ("Appointment" ?a "* APPT %?\n" "~/notes/todo.org" "Tasks")
                                      ("Birthday" ?b "\%\%\(diary-anniversary %^{Month} %^{Day} %^{Year}\) Names \%d. Geburtstag" "~/notes/todo.org" "Anniversaries and Holidays")
-                                     ("Habit" ?h "* TODO %?\n  %U\nSCHEDULED: %^{Schedule}t\n## Use .+2d/4d in Schedule to do it at most every 2 days, but at least every 4 days\n:PROPERTIES:\n:STYLE: habit\n:END:")))
+                                     ("Habit" ?h "* TODO %?\n  %U\nSCHEDULED: %^{Schedule}\n## Use .+2d/4d in Schedule to do it at most every 2 days, but at least every 4 days\n:PROPERTIES:\n:STYLE: habit\n:END:")))
       org-agenda-custom-commands (quote (
                                          ("d" todo "DELEGATED" nil)
                                          ("c" todo "DONE|DEFERRED|CANCELLED" nil)
