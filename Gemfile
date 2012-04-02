@@ -1,6 +1,7 @@
 source :rubygems
 
 gem 'awesome_print'
+gem 'cheat'
 gem 'cloudapp_api'
 gem 'gollum'
 gem 'heroku'
