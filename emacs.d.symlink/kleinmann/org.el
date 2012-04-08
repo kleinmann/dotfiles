@@ -51,6 +51,9 @@
       org-fast-tag-selection-single-key (quote expert)
       org-remember-store-without-prompt t
       org-completion-use-ido t
+      org-refile-targets (quote (("~/notes/todo.org" :maxlevel . 2)
+                                 ("~/notes/movies.org" :level . 1)
+                                 ("~/notes/reading.org" :level . 1)))
       org-log-into-drawer t
       org-clock-into-drawer "CLOCK"
       org-agenda-start-with-clockreport-mode t
@@ -86,3 +89,10 @@
                                                              (quote deadline)
                                                              (quote regexp) "\n]+>")))
                                                          (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+
+
+ ;; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)

@@ -61,3 +61,7 @@
 (yas/global-mode)
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
+
+;; fix dired view
+(require 'ls-lisp)
+(setq ls-lisp-use-insert-directory-program nil)

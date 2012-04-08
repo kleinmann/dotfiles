@@ -5,6 +5,8 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (defvar my-packages
@@ -12,10 +14,10 @@
     ack-and-a-half
     coffee-mode
     css-mode
+    dired+
     flymake
     flymake-php
     flymake-ruby
-    gist
     inf-ruby
     haskell-mode
     js2-mode
@@ -24,13 +26,13 @@
     magit-simple-keys
     magithub
     markdown-mode
-    nav
     paredit
     php-mode
     pretty-lambdada
     rinari
     ruby-compilation
     ruby-electric
+    ruby-end
     ruby-mode
     rvm
     scratch

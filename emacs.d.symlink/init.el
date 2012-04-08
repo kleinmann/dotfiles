@@ -1,5 +1,9 @@
 ;; -*- coding: utf-8 -*-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+(setq kleinmann-emacsd-dir (expand-file-name "~/.emacs.d"))
+(setq kleinmann-config-dir (expand-file-name "kleinmann" kleinmann-emacsd-dir))
+(setq kleinmann-vendor-dir (expand-file-name "vendor" kleinmann-emacsd-dir))
+
+(add-to-list 'load-path kleinmann-emacsd-dir)
 (require 'cl)
 ;;----------------------------------------------------------------------------
 ;; Which functionality to enable (use t or nil for true and false)
@@ -13,25 +17,13 @@
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
-;; Load packages first, so I can configure them wherever I want to
-(load "kleinmann/packages")
+; Add external projects to load path
+(dolist (project (directory-files kleinmann-vendor-dir t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
 
-(load "kleinmann/bindings")
-(load "kleinmann/css")
-(load "kleinmann/defuns")
-(load "kleinmann/encoding")
-(load "kleinmann/erc")
-(load "kleinmann/filetypes")
-(load "kleinmann/flyspell")
-(load "kleinmann/general")
-(load "kleinmann/git")
-(load "kleinmann/misc")
-(load "kleinmann/modes")
-(load "kleinmann/org")
-(when (file-exists-p (expand-file-name "~/.emacs.d/kleinmann/passwords.el")) (load "kleinmann/passwords"))
-(load "kleinmann/php")
-(load "kleinmann/ruby")
-(load "kleinmann/shell")
-(load "kleinmann/ui")
+(if (file-exists-p kleinmann-config-dir)
+    (dolist (file (directory-files kleinmann-config-dir t "\.el$"))
+      (load file)))
 
 (load "scripts/taglist")

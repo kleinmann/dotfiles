@@ -7,3 +7,6 @@
 ; Same with Command+n for new frame
 (global-set-key (kbd "M-n") 'new-frame)
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; Enable windmove, use shift+arrow to switch windows
+(windmove-default-keybindings)
