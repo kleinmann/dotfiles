@@ -1,9 +1,7 @@
 ## clone & setup
     chsh -s `which zsh`
-    git clone https://github.com/kleinmann/dotfiles.git ~/.dotfiles
+    git clone --recursive https://github.com/kleinmann/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
-    git submodule init
-    git submodule update
   
 ## install rvm
     bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
