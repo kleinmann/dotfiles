@@ -55,6 +55,10 @@ let g:fuf_keyOpenVsplit = '<C-v>'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
+if !empty($MY_RUBY_HOME)
+ let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*'),"\n"),',')
+endif
+
 
 """ tagbar
 nmap <Leader>o :TagbarToggle<CR>
