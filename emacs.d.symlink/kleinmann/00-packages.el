@@ -73,7 +73,7 @@
 )
 
 (setq my-el-get-packages '(
-                           emacs-w3m
+                           calfw
                            nxhtml
                           ))
 (el-get 'sync my-el-get-packages)
