@@ -98,3 +98,7 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
+
+""" easytags
+set tags=./tags,~/tags
+let g:easytags_dynamic_files = 1
