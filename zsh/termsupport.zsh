@@ -28,20 +28,25 @@ function precmd {
 
   title $ZSH_THEME_TERM_TAB_TITLE_IDLE $ZSH_THEME_TERM_TITLE_IDLE
 
+  CLEAN_INFO=''
+  if [[ $(git rev-parse --git-dir 2> /dev/null) != "" ]] {
+    if [[ $(git ls-files -m 2> /dev/null) == "" ]] {
+      CLEAN_INFO=' %F{green}✔%f '
+    }
+  }
+  zstyle ':vcs_info:*' stagedstr ' %F{red}✗ '
+  zstyle ':vcs_info:*' unstagedstr ' %F{red}✗ '
   zstyle ':vcs_info:*' actionformats \
-    "%F{magenta}(%f%s%F{magenta})%F{yellow}-%F{magenta}%F{green}%b%F{yellow}|%F{red}%a%F{magenta}%f" \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{magenta}|%F{red}%a%f%{$CLEAN_INFO%}" \
     "zsh: %r"
-
   zstyle ':vcs_info:*' formats \
-    "%F{magenta}(%f%s%F{magenta})%F{yellow}-%F{magenta}%F{green}%b%F{red}+%Q%F{magenta}%f%}" \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{red}%f%{$CLEAN_INFO%}" \
     "zsh: %r"
-
-  zstyle ':vcs_info:git:*' actionformats \
-    "%F{magenta}%F{green}%b%F{red}%c%u%F{yellow}|%F{red}%a%F{magenta}%f" \
+  zstyle ':vcs_info:(hg*|git*):*' actionformats \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%7.7i%F{magenta}|%F{red}%a%f%{$CLEAN_INFO%}" \
     "zsh: %r"
-
-  zstyle ':vcs_info:git:*' formats \
-    "%F{magenta}%F{green}%b%F{red}%c%u%F{magenta}%f" \
+  zstyle ':vcs_info:(hg*|git*):*' formats \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%7.7i%F{red}%u%c%f%{$CLEAN_INFO%}" \
     "zsh: %r"
 
   vcs_info
