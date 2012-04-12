@@ -95,6 +95,7 @@ Bundle 'rainbow_parentheses.vim'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'glsl.vim'
 Bundle "ZoomWin"
+Bundle 'xmledit'
 
  "                                                                           "
 "*****************************************************************************"
