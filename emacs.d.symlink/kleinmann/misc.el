@@ -65,3 +65,22 @@
 ;; fix dired view
 (require 'ls-lisp)
 (setq ls-lisp-use-insert-directory-program nil)
+
+(require 'projectile)
+(projectile-global-mode)
+
+(helm-mode)
+
+(defun helm-prelude ()
+  "Preconfigured `helm'."
+  (interactive)
+  (if (projectile-get-project-root)
+      ;; add project files and buffers when in project
+      (helm-other-buffer '(helm-c-source-projectile-files-list
+                           helm-c-source-projectile-buffers-list
+                           helm-c-source-buffers-list
+                           helm-c-source-recentf
+                           helm-c-source-buffer-not-found)
+                         "*helm prelude*")
+    ;; otherwise fallback to helm-mini
+    (helm-mini)))

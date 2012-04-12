@@ -28,3 +28,8 @@
   (setq mouse-wheel-scroll-amount '(0.001)))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; no tabs and two spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default c-basic-offset 2)

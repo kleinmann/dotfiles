@@ -18,6 +18,7 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 ; Add external projects to load path
+(add-to-list 'load-path kleinmann-vendor-dir)
 (dolist (project (directory-files kleinmann-vendor-dir t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))

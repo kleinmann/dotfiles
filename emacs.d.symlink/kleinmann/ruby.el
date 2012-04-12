@@ -9,7 +9,7 @@
                              (setq ruby-use-encoding-map nil)
                              ))
 
-(add-hook 'ruby-mode-hook 'inf-ruby-keys)
+(add-hook 'ruby-mode-hook 'inf-ruby-setup-keybindings)
 
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
@@ -33,3 +33,8 @@
 
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))
+
+(require 'ruby-block)
+(ruby-block-mode t)
+
+(require 'ruby-end)

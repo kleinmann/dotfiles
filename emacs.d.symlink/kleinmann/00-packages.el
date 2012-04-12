@@ -19,7 +19,9 @@
     flymake-php
     flymake-ruby
     inf-ruby
+    haml-mode
     haskell-mode
+    helm
     js2-mode
     json
     magit
@@ -29,6 +31,8 @@
     paredit
     php-mode
     pretty-lambdada
+    projectile
+    python
     rinari
     ruby-compilation
     ruby-electric

@@ -28,6 +28,7 @@
 
 ;; nice scrolling
 (setq scroll-margin 0
+      scroll-step 1
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 

@@ -7,6 +7,9 @@
 ; Same with Command+n for new frame
 (global-set-key (kbd "M-n") 'new-frame)
 (global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c c") 'kleinmann-calendar)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c h") 'helm-prelude)
 
 ;; Enable windmove, use shift+arrow to switch windows
 (windmove-default-keybindings)
