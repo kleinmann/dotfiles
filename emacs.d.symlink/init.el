@@ -1,6 +1,7 @@
 ;; -*- coding: utf-8 -*-
 (setq kleinmann-emacsd-dir (expand-file-name "~/.emacs.d"))
 (setq kleinmann-config-dir (expand-file-name "kleinmann" kleinmann-emacsd-dir))
+(setq kleinmann-languages-dir (expand-file-name "languages" kleinmann-config-dir))
 (setq kleinmann-vendor-dir (expand-file-name "vendor" kleinmann-emacsd-dir))
 
 (add-to-list 'load-path kleinmann-emacsd-dir)
@@ -25,6 +26,10 @@
 
 (if (file-exists-p kleinmann-config-dir)
     (dolist (file (directory-files kleinmann-config-dir t "\.el$"))
+      (load file)))
+;; I need a separate directory for language-specific configuration
+(if (file-exists-p kleinmann-languages-dir)
+    (dolist (file (directory-files kleinmann-languages-dir t "\.el$"))
       (load file)))
 
 (load "scripts/taglist")

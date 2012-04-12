@@ -37,11 +37,6 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-;; make the fringe (gutter) smaller
-;; the argument is a width in pixels (the default is 8)
-(if (fboundp 'fringe-mode)
-    (fringe-mode 4))
-
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -56,18 +51,3 @@
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 2)            ;; but maintain correct appearance
-
-;; smart indenting and pairing for all
-(electric-pair-mode t)
-(electric-indent-mode t)
-(electric-layout-mode t)
-
-;; show-paren-mode: subtle highlighting of matching parens
-(show-paren-mode t)
-(setq show-paren-style 'parenthesis)
-
-;; highlight the current line
-(global-hl-line-mode +1)
-
-(require 'volatile-highlights)
-(volatile-highlights-mode t)

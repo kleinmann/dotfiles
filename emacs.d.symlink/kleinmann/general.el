@@ -10,6 +10,7 @@
 ;; Set default directory to ~/code if it exists.
 (if (file-exists-p "~/code") (setq default-directory "~/code"))
 
+;; Disable bell for several commands
 (setq ring-bell-function
       (lambda ()
 	(unless (memq this-command
@@ -26,8 +27,6 @@
         default-input-method "MacOSX")
   ;; Make mouse wheel / trackpad scrolling less jerky
   (setq mouse-wheel-scroll-amount '(0.001)))
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; no tabs and two spaces
 (setq-default indent-tabs-mode nil)

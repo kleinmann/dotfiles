@@ -12,9 +12,11 @@
 (defvar my-packages
   '(
     ack-and-a-half
+    clojure-mode
     coffee-mode
     css-mode
     dired+
+    feature-mode
     flymake
     flymake-php
     flymake-ruby
@@ -22,6 +24,7 @@
     haml-mode
     haskell-mode
     helm
+    helm-projectile
     js2-mode
     json
     magit
@@ -33,12 +36,15 @@
     pretty-lambdada
     projectile
     python
+    rainbow-mode
     rinari
     ruby-compilation
     ruby-electric
     ruby-end
     ruby-mode
     rvm
+    sass-mode
+    scss-mode
     scratch
     solarized-theme
     textmate
