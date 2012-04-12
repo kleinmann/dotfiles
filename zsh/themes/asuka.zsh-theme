@@ -32,6 +32,13 @@ ZSH_THEME_GIT_PROMPT_AHEAD="\e[1;33m$UP_ARROW\e[0m"
 # Save a smiley to a local variable if the last command didn't exit with success.
 local smiley=$'%(?,%{\e[0;32m%}%{\e[0m%},%{\e[0;31m%}☹%{\e[0m%})'
 
+function battery_charge {
+  if [[ $(ioreg -rc AppleSmartBattery 2> /dev/null) != "" ]] {
+    echo " "
+    echo `batcharge` 2>/dev/null
+  }
+}
+
 # user, host, full path, and time/date
 # on two lines for easier vgrepping
 # entry in a nice long thread on the Arch Linux forums: http://bbs.archlinux.org/viewtopic.php?pid=521888#p521888
@@ -39,4 +46,4 @@ PROMPT=$'$fill
 %{\e[0;34m%}%B┌─%{\e[0m%}%B[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;33m%}%m%{\e[0m%}%B]%b%{\e[0m%}:%b%{\e[0m%}%B[%b%{\e[1;32m%}%~%{\e[0m%}%B]%b%{\e[0m%} - %B(%b$(rvm_prompt_info)%B)%b - %B[%b${vcs_info_msg_0_}%B]%b - %{\e[0;34m%}%B[%b%{\e[0;34m%}'%D{"%a %b %d, %I:%M:%S"}%b$'%{\e[0;34m%}%B]%b%{\e[0m%}
 %{\e[0;34m%}%B└─${LIGHTNING_BOLT}%{\e[0m%}%{\e[0;37m%}%{\e[0m%}%B '
 PS2=$'%{\e[0;34m%}%B└─\e[0;34m%}%B(%b%{\e[0m%}%_%B)>%{\e[0m%}%b '
-RPROMPT=$'${smiley}$(git-cwd-info 2> /dev/null)'
+RPROMPT=$'${smiley}$(git-cwd-info 2> /dev/null)$(battery_charge)'
