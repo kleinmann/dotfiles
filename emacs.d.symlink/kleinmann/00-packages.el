@@ -39,15 +39,13 @@
     rainbow-mode
     rinari
     ruby-compilation
-    ruby-electric
-    ruby-end
     ruby-mode
     rvm
     sass-mode
     scss-mode
     scratch
+    slime-repl
     solarized-theme
-    textmate
     undo-tree
     volatile-highlights
     yaml-mode
