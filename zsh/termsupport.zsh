@@ -4,7 +4,7 @@
 #Limited support for Apple Terminal (Terminal can't set window or tab separately)
 function title {
   [ "$DISABLE_AUTO_TITLE" != "true" ] || return
-  if [[ "$TERM" == screen* ]]; then 
+  if [[ "$TERM" == screen* ]]; then
     print -Pn "\ek$1:q\e\\" #set screen hardstatus, usually truncated at 20 chars
   elif [[ "$TERM" == xterm* ]] || [[ $TERM == rxvt* ]] || [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
     print -Pn "\e]2;$2:q\a" #set window name
@@ -22,7 +22,7 @@ function precmd {
   fill=""
   while [ "$fillsize" -gt "0" ]
   do
-    fill="-${fill}" # fill with underscores to work on 
+    fill="-${fill}" # fill with underscores to work on
     let fillsize=${fillsize}-1
   done
 
@@ -30,17 +30,28 @@ function precmd {
 
   CLEAN_INFO=''
   if [[ $(git rev-parse --git-dir 2> /dev/null) != "" ]] {
+    # checks if we are in a git repository
     if [[ $(git ls-files -m 2> /dev/null) == "" ]] {
+      # checks for any changed files
       CLEAN_INFO=' %F{green}✔%f '
     }
   }
-  zstyle ':vcs_info:*' stagedstr ' %F{red}✗ '
-  zstyle ':vcs_info:*' unstagedstr ' %F{red}✗ '
+  if [[ $(git diff --name-only --cached 2> /dev/null) != "" ]] {
+    # staged files
+    CLEAN_INFO=' %F{red}✗%f'
+  }
+  if [[ $(git ls-files -m 2> /dev/null) != "" ]] {
+    # modified files
+    CLEAN_INFO=' %F{red}✗%f'
+  }
+
+  zstyle ':vcs_info:*' stagedstr '%f'
+  zstyle ':vcs_info:*' unstagedstr '%f'
   zstyle ':vcs_info:*' actionformats \
-    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{magenta}|%F{red}%a%f%{$CLEAN_INFO%}" \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{magenta}|%F{red}%a%f" \
     "zsh: %r"
   zstyle ':vcs_info:*' formats \
-    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{red}%f%{$CLEAN_INFO%}" \
+    "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%i%F{red}%f" \
     "zsh: %r"
   zstyle ':vcs_info:(hg*|git*):*' actionformats \
     "%f(%s)%F{yellow}-%F{blue}%b%f@%F{yellow}%7.7i%F{magenta}|%F{red}%a%f%{$CLEAN_INFO%}" \
