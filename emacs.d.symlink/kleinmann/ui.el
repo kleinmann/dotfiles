@@ -47,7 +47,7 @@
 
 ;; use solarized-light as the default theme
 (load-theme 'solarized-light t)
-(set-frame-font "Inconsolata 14")
+(set-frame-font "Inconsolata 13")
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 2)            ;; but maintain correct appearance
