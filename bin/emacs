@@ -1,8 +1,17 @@
 #!/bin/bash
-if test -n "$DISPLAY" && [[ `uname` == "Darwin" ]]; then
-  EMACS_BIN="open /Applications/Emacs.app --args"
+if [[ `uname` == "Darwin" ]]; then
+  if [[ $(ps -ef | grep "Emacs --daemon" | grep -v grep) == "" ]]; then
+    /Applications/Emacs.app/Contents/MacOS/Emacs --daemon
+  fi
+  if test -n "$DISPLAY"; then
+    SWITCHES='-n -c'
+    if [[ "$1" == "-t" ]]; then
+      SWITCHES='-t'
+    fi
+    exec /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "$@"
+  else
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t "$@" 
+  fi
 else
-  EMACS_BIN=/usr/bin/emacs
+  /usr/bin/emacs "$@"
 fi
-
-$EMACS_BIN $*
