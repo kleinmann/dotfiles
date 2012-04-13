@@ -1,6 +1,4 @@
 ;; -*- coding: utf-8 -*-
-(textmate-mode)
-
 (pretty-lambda-for-modes)
 
 (global-linum-mode 1)
@@ -15,7 +13,6 @@
 (require 'helm-misc)
 (require 'helm-projectile)
 
-(helm-mode)
 (defun helm-prelude ()
   "Preconfigured `helm'."
   (interactive)
