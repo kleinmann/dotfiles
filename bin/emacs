@@ -8,7 +8,13 @@ if [[ `uname` == "Darwin" ]]; then
     if [[ "$1" == "-t" ]]; then
       SWITCHES='-t'
     fi
-    exec /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "$@"
+    if [[ $SWITCHES != '-t' ]]; then
+      echo "${@:2}"
+      /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "$@"
+      exec osascript -e 'tell application "Emacs" to activate'
+    else
+      exec /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "${@:2}"
+    fi
   else
     /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t "$@" 
   fi
