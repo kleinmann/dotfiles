@@ -45,6 +45,7 @@
     scss-mode
     scratch
     slime-repl
+    smex
     solarized-theme
     undo-tree
     volatile-highlights

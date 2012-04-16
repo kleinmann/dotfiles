@@ -13,6 +13,7 @@
 (global-set-key (kbd "TAB") 'smart-tab)
 (global-set-key (kbd "C-x C-+") 'enlarge-window)
 (global-set-key (kbd "C-x C--") 'shrink-window)
+(global-set-key (kbd "M-x") 'smex)
 
 ;; Enable windmove, use shift+arrow to switch windows
 (windmove-default-keybindings)
