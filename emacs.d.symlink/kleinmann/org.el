@@ -62,6 +62,9 @@
       org-global-properties (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")))
       remember-annotation-functions (quote (org-remember-annotation))
       remember-handler-functions (quote (org-remember-handler))
+      appt-audible t
+      appt-display-format 'window
+      appt-display-duration 10
       org-remember-templates (quote (
                                      ("Task" ?t "* TODO %?\n  %U" "~/notes/todo.org" "Tasks")
                                      ("Note" ?n "* %?\n  %U" "~/notes/notes.org" "Notes")
