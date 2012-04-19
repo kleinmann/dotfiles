@@ -36,19 +36,19 @@
       (list
        (vc-mode vc-mode)))
 
-(setq-default mode-line-format
-      (list
-       my-mode-line-position
-       "  "
-       my-mode-line-major-mode
-       "  "
-       "["
-       mode-line-modified
-       "]"
-       "  "
-       my-mode-line-directory
-       my-mode-line-buffer-name
-       ))
+;(setq-default mode-line-format
+;      (list
+;       my-mode-line-position
+;       "  "
+;       my-mode-line-major-mode
+;       "  "
+;       "["
+;       mode-line-modified
+;       "]"
+;       "  "
+;       my-mode-line-directory
+;       my-mode-line-buffer-name
+;       ))
 
 (make-face 'mode-line-directory-face)
 (make-face 'mode-line-filename-face)
