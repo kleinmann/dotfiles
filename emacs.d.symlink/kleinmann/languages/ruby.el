@@ -24,6 +24,12 @@
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))
 (add-hook 'ruby-mode-hook 'flyspell-prog-mode)
+(add-hook 'ruby-mode-hook '(lambda ()
+                             (require 'ruby-block)
+                             (ruby-block-mode t)
+
+                             (require 'ruby-end)
+                             ))
 (autoload 'run-ruby "inf-ruby"
   "Run an inferior Ruby process")
 
@@ -39,12 +45,6 @@
             'js2-mode-hook))
 
 (autoload 'rhtml-mode "rhtml-mode" nil t)
-
-(require 'ruby-block)
-(ruby-block-mode t)
-
-(require 'ruby-end)
-
 
 ;; Misc
 ;; Clear the compilation buffer between test runs.

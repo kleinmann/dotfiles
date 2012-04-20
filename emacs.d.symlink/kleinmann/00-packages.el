@@ -12,6 +12,7 @@
 (defvar my-packages
   '(
     ack-and-a-half
+    auctex
     clojure-mode
     coffee-mode
     css-mode

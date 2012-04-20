@@ -1,4 +1,6 @@
 ;; -*- coding: utf-8 -*-
+(require 'jot)
+
 (pretty-lambda-for-modes)
 
 (global-linum-mode 1)

@@ -20,3 +20,5 @@
 ;; saner regex syntax
 (require 're-builder)
 (setq reb-re-syntax 'string)
+
+(require 'sr-speedbar)
