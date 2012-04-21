@@ -24,6 +24,7 @@ alias t='tmux attach'
 alias ..='cd .. ; '
 alias ...='cd ../.. ; '
 alias cdtp='cd $HOME/code/dtp-automation'
-alias cds='cd "$HOME/Dropbox/Studium Priv/Vorlesungen/5. Semester - WS1112/"'
+alias cds='cd "$HOME/Dropbox/Studium Priv/Vorlesungen/6. Semester - SS12/"'
 alias cdp='cd "$HOME/code"'
 alias cdd='cd "$HOME/.dotfiles"'
+
