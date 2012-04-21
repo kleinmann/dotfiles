@@ -15,6 +15,7 @@
 (global-set-key (kbd "C-x C--") 'shrink-window)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-c d") 'sr-speedbar-toggle)
+(global-set-key (kbd "M-E") 'er/expand-region)
 
 ;; Window manipulation
 (global-set-key (kbd "M-3") 'split-window-horizontally)

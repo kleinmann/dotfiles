@@ -10,11 +10,11 @@
 
 
 ;; Indentation
-(set (make-local-variable 'tab-width) 2)
+(add-hook 'coffee-mode-hook '(lambda ()
+                               (set (make-local-variable 'tab-width) 2)))
 
 
 ;; Minor modes
 
 
 ;; Misc
-

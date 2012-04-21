@@ -17,6 +17,7 @@
     coffee-mode
     css-mode
     dired+
+    expand-region
     feature-mode
     flymake
     flymake-php
@@ -29,7 +30,6 @@
     js2-mode
     json
     magit
-    magit-simple-keys
     magithub
     markdown-mode
     paredit
