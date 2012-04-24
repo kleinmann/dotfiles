@@ -4,7 +4,7 @@
       max-buffer-size 100000
       erc-track-exclude-types '("JOIN" "PART" "QUIT" "NICK")
       erc-hide-list 'erc-track-exclude-types
-      erc-nick '("asuka" "asuka_")
+      erc-nick '("uwe")
       erc-auto-query 'buffer
       erc-fill-function 'erc-fill-static
       erc-timestamp-format "[%H:%M:%S] ")
@@ -16,15 +16,20 @@
 (set-face-foreground 'erc-input-face "dim gray")
 (set-face-foreground 'erc-my-nick-face "blue")
 
-(defun erc-start ()
+(add-hook 'erc-join-hook 'bitlbee-identify)
+(defun bitlbee-identify ()
+  "If we're on the bitlbee server, send the identify command to the
+ &bitlbee channel."
+  (when (and (string= private/bitlbee-host erc-session-server)
+             (string= "&bitlbee" (buffer-name)))
+    (erc-message "PRIVMSG" (format "%s identify %s"
+                                   (erc-default-target)
+                                   private/bitlbee))))
+
+
+(defun kleinmann-erc ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
-  (if (get-buffer "home.hadiko.de:6667") ;; ERC already active?
-
-    (erc-track-switch-buffer 1) ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
-      ;; I use ZNC so I need to hit my server
-      (erc :server "home.hadiko.de" :port 55430 :nick "asuka" :password private/irssi)
-      (erc :server "home.hadiko.de" :port 55431 :nick "asuka_" :password private/irssi)
-      (erc :server "home.hadiko.de" :port 55432 :nick "asuka" :password private/irssi)
-)))
+      (erc :server private/bitlbee-host :port 6667 :nick "uwe")
+))

@@ -82,8 +82,14 @@
   )
 )
 
+(setq el-get-sources
+      '(
+        (:name eproject
+               :type git :url "http://github.com/jrockway/eproject.git"
+               :features (eproject eproject-extras))))
 (setq my-el-get-packages '(
                            calfw
+                           eproject
                            nxhtml
-                          ))
+                           ))
 (el-get 'sync my-el-get-packages)
