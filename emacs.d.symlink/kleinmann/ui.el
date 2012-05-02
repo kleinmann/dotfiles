@@ -51,3 +51,5 @@
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 2)            ;; but maintain correct appearance
+
+(setq transient-mark-mode t)

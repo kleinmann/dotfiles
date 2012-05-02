@@ -6,9 +6,10 @@
 ;; Hooks
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 (add-hook 'haskell-mode-hook '(lambda ()
-                                (subword-mode +1)
+                                (subword-mode 1)
                                 (turn-on-haskell-doc-mode)
-                                (turn-on-haskell-indentation)))
+                                (turn-on-eldoc-mode)
+                                (local-set-key [return] 'newline-and-indent)))
 
 
 ;; Indentation
