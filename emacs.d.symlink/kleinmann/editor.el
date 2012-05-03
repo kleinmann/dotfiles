@@ -14,6 +14,11 @@
       ido-max-prospects 10
       ido-default-file-method 'selected-window)
 
+(iswitchb-mode 1)
+(add-to-list 'iswitchb-buffer-ignore "*Messages")
+(add-to-list 'iswitchb-buffer-ignore "*Buffer")
+
+
 ;; enabled auto-fill mode in text-mode and all related modes
 ;(add-hook 'text-mode-hook 'turn-on-auto-fill)
 

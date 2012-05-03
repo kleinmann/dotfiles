@@ -96,6 +96,8 @@ GEM
       log4r (~> 1.1.9)
       net-scp (~> 1.0.4)
       net-ssh (~> 2.2.2)
+    viddl-rb (0.65)
+      nokogiri
     wirble (0.1.3)
 
 PLATFORMS
@@ -118,4 +120,5 @@ DEPENDENCIES
   thor
   tmuxinator
   vagrant
+  viddl-rb
   wirble
