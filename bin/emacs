@@ -19,5 +19,20 @@ if [[ `uname` == "Darwin" ]]; then
     /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t "$@" 
   fi
 else
-  /usr/bin/emacs "$@"
+  if [[ $(ps -ef | grep "emacs --daemon" | grep -v grep) == "" ]]; then
+    /usr/bin/emacs --daemon
+  fi
+  if test -n "$DISPLAY"; then
+    SWITCHES='-n -c'
+    if [[ "$1" == "-t" ]]; then
+      SWITCHES='-t'
+    fi
+    if [[ $SWITCHES != '-t' ]]; then
+      emacsclient $SWITCHES "$@"
+    else
+      exec emacsclient $SWITCHES "${@:2}"
+    fi
+  else
+    emacsclient -t "$@"
+  fi
 fi
