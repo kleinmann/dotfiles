@@ -33,7 +33,7 @@ URxvt*foreground:White
 URxvt*background:Black
 
 # xft fonts - anti-aliased xft font setup is nice, but can be choppy
-URxvt*font: xft:Inconsolata:pixelsize=14:antialias=true
+URxvt*font: xft:Inconsolata for Powerline:pixelsize=14:antialias=true
 
 # traditional fonts - a more traditional font setup in lieu of xft
 #URxvt*font:-*-courier-medium-r-normal-*-*-140-*-*-*-*-iso8859-1
@@ -54,15 +54,15 @@ URxvt*scrollBar:false
 URxvt*scrollBar_right:false
 
 # scrollbar style - rxvt (default), plain, next, or xterm
-URxvt*scrollstyle:xterm
+URxvt*scrollstyle:rxvt
 
 # color depth
 URxvt*depth:32
 
 # open links
 URxvt*perl-ext-common:default,matcher,tabbed,clipboard
-URxvt*urlLauncher:/usr/bin/chromium-browser
-URxvt*matcher*button
+URxvt*urlLauncher:/usr/bin/chromium
+URxvt*matcher*button: 1
 
 # don't scroll on output
 URxvt.scrollTtyOutput:false
@@ -89,6 +89,42 @@ URxvt*color13: #ec93d3
 URxvt*color14: #93e0e3
 URxvt*color15: #ffffff
 
+
+!{{{ XTERM
+xterm*internalBorder:        0
+xterm*loginShell:         true
+xterm*scrollBar:         false
+xterm*cursorBlink:       false
+!xterm*geometry:         80x26
+xterm*saveLines:         65535
+xterm*dynamicColors:        on
+xterm*highlightSelection: true
+! Appearance
+xterm*utf8:            2
+xterm*eightBitInput:   true
+xterm*metaSendsEscape: true
+xterm*faceName: Inconsolata:pixelsize=14
+xterm*cursorColor: #DCDCCC
+! Zenburn
+xterm*background:  #3f3f3f
+xterm*foreground:  #dcdccc
+xterm*color0:      #1E2320
+xterm*color1:      #705050
+xterm*color2:      #60b48a
+xterm*color3:      #dfaf8f
+xterm*color4:      #506070
+xterm*color5:      #dc8cc3
+xterm*color6:      #8cd0d3
+xterm*color7:      #dcdccc
+xterm*color8:      #709080
+xterm*color9:      #dca3a3
+xterm*color10:     #c3bf9f
+xterm*color11:     #f0dfaf
+xterm*color12:     #94bff3
+xterm*color13:     #ec93d3
+xterm*color14:     #93e0e3
+xterm*color15:     #ffffff
+!}}}
 
 
 ! xscreensaver ---------------------------------------------------------------
