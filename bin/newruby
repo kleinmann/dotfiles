@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ -e "$1.rb" ]]
+then
+    echo "$1.rb already exists"
+    exit
+fi
+echo -e "#!/usr/bin/env ruby\n\n" > "$1.rb"
+chmod a+x "$1.rb"
+vim + "$1.rb"

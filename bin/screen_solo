@@ -1,0 +1,4 @@
+#!/bin/bash
+xrandr -display :0 --output HDMI2 --off --output LVDS1 --auto --primary --rotate normal
+awsetbg -f ~/Downloads/wallpaper-retina-macbookpro.png
+

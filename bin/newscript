@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ -e "$1" ]]
+then
+    echo "$1 already exists"
+    exit
+fi
+echo -e "#!/bin/bash\n\n" > "$1"
+chmod a+x "$1"
+vim + "$1"

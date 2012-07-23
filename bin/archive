@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tar -zcvf `basename $1`-`date -I`.tar.gz $1
