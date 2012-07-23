@@ -8,3 +8,4 @@ alias brightness_minus='echo `cat /sys/class/backlight/nvidia_backlight/brightne
 alias aptu='sudo aptitude update ; sudo aptitude full-upgrade'
 alias suspend='echo -n "mem" | sudo tee -a /sys/power/state'
 
+alias yu='yaourt -Syua'
