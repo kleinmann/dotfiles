@@ -15,11 +15,11 @@ require("scratch")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/asuka/.config/awesome/zenburn/theme.lua")
+beautiful.init("/home/uwe/.config/awesome/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
-browser = "chromium-browser"
+browser = "chromium"
 colorlight = "#4b7885"
 colordark = "#223b56"
 editor = os.getenv("EDITOR") or "nano"
@@ -92,10 +92,14 @@ myawesomemenu = {
 }
 
 applicationmenu = {
-  { "Twitter", function () awful.util.spawn(browser .. " --app=https://twitter.com") end },
-  { "Google Reader", function () awful.util.spawn(browser .. " --app=https://reader.google.com") end },
+  { "Twitter", function () awful.util.spawn("hotot-gtk3") end },
+  { "RSS", function () awful.util.spawn("liferea") end },
+--  { "Gmail", function () awful.util.spawn(browser .. " --app=https://mail.google.com") end },
+--  { "Gmail MI", function () awful.util.spawn(browser .. " --app=http://mail.major-impact.com") end },
+  { "Mail", function () awful.util.spawn("thunderbird") end },
   { "Google Calendar", function () awful.util.spawn(browser .. " --app=https://calendar.google.com") end },
-  { "SimpleNote", function () awful.util.spawn(browser .. " --app=https://simple-note.appspot.com/") end }
+  { "RDP", function () awful.util.spawn("remmina") end },
+  { "Campfire", function () awful.util.spawn("snakefire") end },
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -129,6 +133,42 @@ baticon.image = image(beautiful.widget_bat)
 batwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(batwidget, vicious.widgets.bat, "$1$2%", 61, "BAT0")
+-- }}}
+
+-- {{{ Another battery widget
+mybattmon = widget({ type = "textbox", name = "mybattmon" })
+function battery_status ()
+  local output={} --output buffer
+  local fd=io.popen("acpitool -b", "r") --list present batteries
+  local line=fd:read()
+  while line do --there might be several batteries.
+    local battery_num = string.match(line, "Battery \#(%d+)")
+    local battery_load = string.match(line, " (%d*\.%d+)%%")
+    local time_rem = string.match(line, "(%d+\:%d+)\:%d+")
+    local discharging
+    if string.match(line, "Discharging")=="Discharging" then --discharging: always red
+      discharging="<span color=\"#CC7777\">"
+    elseif tonumber(battery_load)>85 then --almost charged
+      discharging="<span color=\"#77CC77\">"
+    else --charging
+      discharging="<span color=\"#CCCC77\">"
+    end
+    if battery_num and battery_load and time_rem then
+      table.insert(output,discharging..battery_load.."%, "..time_rem.."</span>")
+    elseif battery_num and battery_load then --remaining time unavailable
+      table.insert(output,discharging..battery_load.."%</span>")
+    end --even more data unavailable: we might be getting an unexpected output format, so let's just skip this line.
+    line=fd:read() --read next line
+  end
+  return table.concat(output," • ") --FIXME: better separation for several batteries. maybe a pipe?
+end
+mybattmon.text = " " .. battery_status() .. " "
+my_battmon_timer=timer({timeout=30})
+my_battmon_timer:add_signal("timeout", function()
+  --mytextbox.text = " " .. os.date() .. " "
+  mybattmon.text = " " .. battery_status() .. " "
+end)
+my_battmon_timer:start()
 -- }}}
 
 -- {{{ CPU temperature
@@ -241,7 +281,7 @@ for s = 1, screen.count() do
 
     -- Create the wibox
     wibox[s] = awful.wibox({ position = "top", screen = s,
-      fg = beautiful.fg_normal, height = 15,
+      fg = beautiful.fg_normal, height = 17,
       bg = beautiful.bg_normal, border_color = beautiful.border_focus,
       border_width = beautiful.border_width
     })
@@ -258,7 +298,8 @@ for s = 1, screen.count() do
         s== 1 and systray or nil,
         separator, datewidget, dateicon,
         separator, tempwidget, cpuwidget, tempicon,
-        separator, batwidget, baticon,
+--        separator, batwidget, baticon,
+        separator, mybattmon, baticon,
 --        separator, mpcwidget, mpcicon,
         separator, layoutbox[s],
         separator, tasklist[s],
@@ -287,15 +328,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "c", function () awful.util.spawn(browser) end),
     awful.key({ modkey,           }, "v", function () awful.util.spawn("gvim") end),
     awful.key({ modkey,           }, "b", function () awful.util.spawn("thunar") end),
+    awful.key({ modkey,           }, "y", function () awful.util.spawn("emacs") end),
 
-    awful.key({                   }, "#122", function () awful.util.spawn("amixer -D hw:0 set Master 5%-") end),
-    awful.key({                   }, "#123", function () awful.util.spawn("amixer -D hw:0 set Master 5%+") end),
-    awful.key({                   }, "#121", function () awful.util.spawn("amixer set Master toggle") end),
-    awful.key({                   }, "XF86MonBrightnessDown", function () awful.util.spawn("brightness_minus") end),
-    awful.key({                   }, "XF86MonBrightnessUp", function () awful.util.spawn("brightness_plus") end),
-    awful.key({                   }, "#171", function () mpc:previous() mpc:update() end),
-    awful.key({                   }, "#172", function () mpc:toggle_play() mpc:update() end),
-    awful.key({                   }, "#173", function () mpc:next() mpc:update() end),
+    --awful.key({                   }, "#122", function () awful.util.spawn("amixer -D hw:0 set Master 5%-") end),
+    --awful.key({                   }, "#123", function () awful.util.spawn("amixer -D hw:0 set Master 5%+") end),
+    --awful.key({                   }, "#121", function () awful.util.spawn("amixer set Master toggle") end),
+    --awful.key({                   }, "XF86MonBrightnessDown", function () awful.util.spawn("brightness_minus") end),
+    --awful.key({                   }, "XF86MonBrightnessUp", function () awful.util.spawn("brightness_plus") end),
+    --awful.key({                   }, "#171", function () mpc:previous() mpc:update() end),
+    --awful.key({                   }, "#172", function () mpc:toggle_play() mpc:update() end),
+    --awful.key({                   }, "#173", function () mpc:next() mpc:update() end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -327,7 +369,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("i3lock -d") end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -445,8 +487,16 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "Pidgin" },
       properties = { tag = tags[screen.count()][3] } },
-    { rule = { instance = "Thunderbird" },
+    { rule = { class = "Thunderbird" },
       properties = { tag = tags[screen.count()][5] } },
+    { rule = { class = "Hotot-gtk3" },
+      properties = { tag = tags[screen.count()][6] } },
+    { rule = { class = "Liferea" },
+      properties = { tag = tags[screen.count()][6] } },
+    { rule = { class = "Skype" },
+      properties = { tag = tags[screen.count()][3] } },
+    { rule = { class = "Gimp" },
+      properties = { floating = true } },
       -- Make Gloobus behave as expected
     { rule = { class = "Gloobus-preview-configuration" },
       properties = { floating = true } },
