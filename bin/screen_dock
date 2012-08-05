@@ -1,4 +1,4 @@
 #!/bin/bash
 
 xrandr -display :0 --output HDMI2 --auto --primary --left-of LVDS1 --rotate normal --output LVDS1 --auto --rotate normal
-awsetbg -f -m 2 ~/Downloads/wallpaper-retina-macbookpro.png
+DISPLAY=:0 awsetbg -f ~/Downloads/wallpaper-retina-macbookpro.png
