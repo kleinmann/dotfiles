@@ -91,6 +91,15 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
+gamesmenu = {
+   { "Urban Terror", function () awful.util.spawn("urbanterror") end },
+   { "Xonotic", function () awful.util.spawn("xonotic-glx") end },
+   { "Astromenace", function () awful.util.spawn("astromenace") end },
+   { "Powder Toy", function () awful.util.spawn("powder") end },
+   { "Super Meat Boy", function () awful.util.spawn("~/Games/SuperMeatBoy/SuperMeatBoy") end },
+   { "Warsow", function () awful.util.spawn("warsow") end },
+}
+
 applicationmenu = {
   { "Twitter", function () awful.util.spawn("hotot-gtk3") end },
   { "RSS", function () awful.util.spawn("liferea") end },
@@ -100,6 +109,9 @@ applicationmenu = {
   { "Google Calendar", function () awful.util.spawn(browser .. " --app=https://calendar.google.com") end },
   { "RDP", function () awful.util.spawn("remmina") end },
   { "Campfire", function () awful.util.spawn("snakefire") end },
+  { "UML (gaphor)", function () awful.util.spawn("gaphor") end },
+  { "Calibre", function () awful.util.spawn("calibre") end },
+  { "Games", gamesmenu },
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -497,6 +509,8 @@ awful.rules.rules = {
       properties = { tag = tags[screen.count()][3] } },
     { rule = { class = "Gimp" },
       properties = { floating = true } },
+    { rule = { class = "Chromium" },
+      properties = { floating = false } },
       -- Make Gloobus behave as expected
     { rule = { class = "Gloobus-preview-configuration" },
       properties = { floating = true } },
