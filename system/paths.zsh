@@ -19,8 +19,8 @@ export PATH=$PATH:$HOME/.cabal/bin
 # various
 export PATH=$PATH:/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin
 
-# play framework
-export PATH=$PATH:$HOME/play
+# npm
+export PATH=$PATH:$HOME/node_modules/.bin
 
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man
