@@ -1,2 +1,0 @@
-#!/bin/bash
-chromium-browser --app=https://twitter.com/
