@@ -16,7 +16,7 @@ ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%~%<<" #15 char left truncated PWD
 ZSH_THEME_TERM_TITLE_IDLE="%n@%m: %~"
 
 # Appears when you have the prompt
-function precmd {
+function prompt_hook {
   # print one line of --- before each prompt
   let fillsize=${COLUMNS}
   fill=""
@@ -62,6 +62,10 @@ function precmd {
 
   vcs_info
 }
+precmd_functions+=(prompt_hook)
+
+_Z_NO_RESOLVE_SYMLINKS=1
+. $HOME/bin/z
 
 # Appears at the beginning of (and during) of command execution
 function preexec {

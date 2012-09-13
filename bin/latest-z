@@ -1,0 +1,9 @@
+#!/bin/sh
+# 
+# Usage: latest-z
+# Grabs the latest master of Rupa Deadwyler's z
+# and puts its in your HOME/bin.
+set -e
+curl -sLo ~/bin/z https://raw.github.com/rupa/z/master/z.sh
+chmod 755 ~/bin/z
+echo "z updated"
