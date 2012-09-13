@@ -53,6 +53,7 @@ set laststatus=2    " Always show status line
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2  " Make indent equal 2 spaces
+set shiftround
 set ai            " Auto indent to current level
 set si            " Smart indent
 set stal=2
@@ -74,6 +75,14 @@ vmap k gk
 vmap <Up> gk
 vmap <Down> gj
 
+" Use sane regexes
+nnoremap / /\v
+vnoremap / /\v
+cnoremap s/ s/\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+cnoremap s? s?\v
+
 set backspace=2            " Backspace over everything in insert mode
 
 set whichwrap+=<,>,h,l,[,] " Backspace and cursors wrap lines
@@ -84,10 +93,12 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-colorscheme solarized         " Color theme
-set background=light
+"colorscheme solarized         " Color theme
+colorscheme zenburn
+set background=dark
 set list                    " Show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
+set showbreak=↪
 
 """ Search
 
@@ -104,7 +115,7 @@ set nohlsearch " Don't hilight searches by default
 set nostartofline " Don't jump to first line
 
 " Activate audible bell for WAT driven development. See http://jrom.net/wat-driven-development
-let &t_vb = "\<C-G>\e|50f"
+"let &t_vb = "\<C-G>\e|50f"
 
 " Show 3 line after and before cursor when scrolling
 

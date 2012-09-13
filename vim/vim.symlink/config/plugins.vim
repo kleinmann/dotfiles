@@ -38,10 +38,17 @@
 
 """ NERDTree
 " Ctrl+D map to toggle NERDTree
-nmap <silent> <C-D> :NERDTreeToggle<CR>
+nnoremap <silent> <C-D> :NERDTreeToggle<CR>
+
+""" NERDcommenter
+nnoremap <Leader># :call NERDComment(0, "invert")<CR>
+vnoremap <Leader># :call NERDComment(0, "invert")<CR>
+let NERDCommentWholeLinesInVMode=2
+let NERDSpaceDelims=1
+let NERDRemoveExtraSpaces=1
 
 """ Ack
-nmap <Leader>a :Ack 
+nnoremap <Leader>a :Ack!<space>
 
 """ FuzzyFinder
 nnoremap ,ff :FufFile<CR>
@@ -61,7 +68,12 @@ endif
 
 
 """ tagbar
-nmap <Leader>o :TagbarToggle<CR>
+nmap <Leader>t :TagbarToggle<CR>
+let g:tagbar_autofocus=1
+let g:tagbar_expand=1
+let g:tagbar_foldlevel=2
+let g:tagbar_ironchars=['▾', '▸']
+let g:tagbar_autoshowtag=1
 
 """ gundo
 nnoremap <C-u> :GundoToggle<CR>
@@ -88,7 +100,14 @@ nmap <Leader>ra :RainbowParenthesesToggle<CR>
 let g:Powerline_symbols = 'fancy'
 
 """ Indent Guides
+if !has('gui_running')
+    let g:indent_guides_auto_colors=0
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=237
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=239
+endif
+
 let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
 
 """ Command-T
 nnoremap <silent> <C-t> :CommandT<CR>
@@ -98,7 +117,49 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
+nnoremap <leader>gp :Git push<CR>
 
 """ easytags
 set tags=./tags,~/tags
+let g:easytags_include_members=1
 let g:easytags_dynamic_files = 1
+
+""" delimitMate
+let delimitMate_expand_cr=1
+let delimitMate_expand_space=1
+let delimitMate_balance_matchpairs=1
+
+""" VimClojure
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow=0
+
+""" hammer
+nnoremap <Leader>p :Hammer<CR>
+
+""" Syntastic
+nnoremap <Leader>s :SyntasticCheck<CR>
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_jump=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_mode_map = { 'mode': 'passive' }
+
+""" Golden Ratio
+" Disable Golden Ratio plugin when in diff mode
+if &diff
+  let g:loaded_golden_ratio=1
+endif
+let g:golden_ratio_autocommand=0
+nnoremap <Leader>g :GoldenRatioToggle<CR>
+vnoremap <Leader>g :GoldenRatioToggle<CR>
+
+""" YankRing
+nnoremap <leader>y :YRShow<cr>
+let g:yankring_replace_n_pkey = 'C-p'
+let g:yankring_replace_n_nkey = 'C-n'
+
+""" switch.vim
+nnoremap - :Switch<CR>
+vnoremap - :Switch<CR>

@@ -95,8 +95,10 @@ inoremap jj <Esc>
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-map <Leader>s :call StripWhitespace ()<CR>
+"map <Leader>s :call StripWhitespace ()<CR>
 
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>j
 
 "" Set working directory to that of the current file
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
