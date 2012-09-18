@@ -1,0 +1,2 @@
+#!/bin/bash
+mp3splt -c "$1" -d "$3" -o "@n - @p - @t" "$2"
