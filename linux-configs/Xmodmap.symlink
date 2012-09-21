@@ -1,9 +1,6 @@
-#!/bin/bash
-setxkbmap -layout de -model macbook79
-xkb-switch -s macintosh_vndr
+pointer = 1 2 3 5 4 6 7 8 9 10 11 12 13 14 15 16
 
-if [[ -z `lsusb | grep 'Apple, Inc. Aluminum Keyboard'` ]]; then
-	true
-else
-	xmodmap -e 'keycode 49 = less greater less greater bar brokenbar bar' -e 'keycode 94 = dead_circumflex degree dead_circumflex degree U2032 U2033 U2032'
-fi
+keycode  47 = 0x005b 0x007b NoSymbol NoSymbol 0x00f6 0x00d6
+keycode  48 = 0x005d 0x007d NoSymbol NoSymbol 0x00e4 0x00c4
+keycode  34 = 0x005c 0x007c NoSymbol NoSymbol 0x00fc 0x00dc
+keycode  20 = 0x007e 0x003f NoSymbol NoSymbol 0x00df 0x0060

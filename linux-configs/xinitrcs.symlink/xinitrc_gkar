@@ -27,10 +27,12 @@ export GNOME_KEYRING_PID
 export GNOME_KEYRING_SOCKET
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-nm-applet  &
+sudo nm-applet  &
 
 #xcompmgr &
 #tilda &
+
+xmodmap $HOME/.Xmodmap
 
 exec ck-launch-session dbus-launch awesome
 #exec ck-launch-session dbus-launch i3

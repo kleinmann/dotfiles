@@ -98,11 +98,12 @@ gamesmenu = {
    { "Powder Toy", function () awful.util.spawn("powder") end },
    { "Super Meat Boy", function () awful.util.spawn("~/Games/SuperMeatBoy/SuperMeatBoy") end },
    { "Warsow", function () awful.util.spawn("warsow") end },
+   { "McPixel", function () awful.util.spawn("mcpixel") end },
 }
 
 applicationmenu = {
   { "Twitter", function () awful.util.spawn("hotot-gtk3") end },
-  { "RSS", function () awful.util.spawn("liferea") end },
+  { "RSS", function () awful.util.spawn("lightread") end },
 --  { "Gmail", function () awful.util.spawn(browser .. " --app=https://mail.google.com") end },
 --  { "Gmail MI", function () awful.util.spawn(browser .. " --app=http://mail.major-impact.com") end },
   { "Mail", function () awful.util.spawn("thunderbird") end },
@@ -111,6 +112,8 @@ applicationmenu = {
   { "Campfire", function () awful.util.spawn("snakefire") end },
   { "UML (gaphor)", function () awful.util.spawn("gaphor") end },
   { "Calibre", function () awful.util.spawn("calibre") end },
+  { "mopidy", function () awful.util.spawn(terminal .. " -e ncmpcpp") end },
+  { "Spotify", function () awful.util.spawn("spotify") end },
   { "Games", gamesmenu },
 }
 
@@ -503,7 +506,9 @@ awful.rules.rules = {
       properties = { tag = tags[screen.count()][5] } },
     { rule = { class = "Hotot-gtk3" },
       properties = { tag = tags[screen.count()][6] } },
-    { rule = { class = "Liferea" },
+    { rule = { class = "Turpial" },
+      properties = { tag = tags[screen.count()][6] } },
+    { rule = { class = "Lightread" },
       properties = { tag = tags[screen.count()][6] } },
     { rule = { class = "Skype" },
       properties = { tag = tags[screen.count()][3] } },
