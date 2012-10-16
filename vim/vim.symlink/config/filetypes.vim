@@ -39,3 +39,5 @@
 
 " Build objective-c code by using rake
 autocmd FileType objc set makeprg=rake
+
+let g:tex_flavor='latex'
