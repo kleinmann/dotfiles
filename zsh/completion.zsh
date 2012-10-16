@@ -14,3 +14,5 @@ zstyle ':completion:*:kill:*' force-list always
 
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
+
+unsetopt nomatch
