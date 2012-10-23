@@ -114,6 +114,10 @@ set nohlsearch " Don't hilight searches by default
 
 set nostartofline " Don't jump to first line
 
+" Save and load folding automatically
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
+
 " Activate audible bell for WAT driven development. See http://jrom.net/wat-driven-development
 "let &t_vb = "\<C-G>\e|50f"
 
