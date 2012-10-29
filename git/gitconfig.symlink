@@ -11,16 +11,16 @@
 	autosetupmerge = true
 [alias]
 	co = checkout
-	s = status
+	s = status -sb
 	wtf = !$HOME/bin/git-wtf
 	count   = !git shortlog -sn
 	promote = !$HOME/bin/git-promote
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = auto
+	diff = 1
+	status = 1
+	branch = 1
+	interactive = 1
+	ui = 1
 	pager = true
 [color "branch"]
 	current = yellow reverse
