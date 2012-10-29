@@ -109,9 +109,6 @@ endif
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
-""" Command-T
-nnoremap <silent> <C-t> :CommandT<CR>
-
 """ fugitive
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
@@ -163,3 +160,7 @@ let g:yankring_replace_n_nkey = 'C-n'
 """ switch.vim
 nnoremap - :Switch<CR>
 vnoremap - :Switch<CR>
+
+""" ctrlp.vim
+nnoremap <Leader>t :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
