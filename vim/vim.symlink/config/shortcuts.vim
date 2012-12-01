@@ -102,3 +102,5 @@ nnoremap <leader>s <C-w>s<C-w>j
 
 "" Set working directory to that of the current file
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <Leader>m :!make ; make clean ; open *.pdf<CR>
