@@ -82,6 +82,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'gregsexton/gitv'
 
 " Themes
 Bundle 'w0ng/vim-hybrid'
@@ -100,7 +101,6 @@ Bundle 'roman/golden-ratio'
 " vim-scripts
 Bundle 'ack.vim'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
 Bundle 'easytags.vim'
 Bundle 'utl.vim'
 Bundle 'haskell.vim'

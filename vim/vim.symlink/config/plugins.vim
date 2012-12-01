@@ -50,13 +50,6 @@ let NERDRemoveExtraSpaces=1
 """ Ack
 nnoremap <Leader>a :Ack!<space>
 
-""" FuzzyFinder
-nnoremap ,ff :FufFile<CR>
-nnoremap ,fb :FufBuffer<CR>
-let g:fuf_buffer_keyDelete = '<C-S-d>'
-let g:fuf_keyOpenSplit = '<C-i>'
-let g:fuf_keyOpenVsplit = '<C-v>'
-
 """ Vim-Ruby
 " Autocomplete setup
 let g:rubycomplete_buffer_loading = 1
