@@ -11,3 +11,11 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# ctags / etags
+TAGS
+tags
