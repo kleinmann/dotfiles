@@ -75,3 +75,5 @@ fi
 
 # load machine specific settings
 [ -f $HOME/.bashrc_local ] && source $HOME/.bashrc_local
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

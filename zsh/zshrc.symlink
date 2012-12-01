@@ -24,3 +24,5 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 
 # Fix rvm-prompt-info
 [ -f "$HOME/.rvm/scripts/rvm" ] && rvm use default 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
