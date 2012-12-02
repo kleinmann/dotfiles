@@ -21,6 +21,12 @@ task :install do
   backup_all = false
 
   linkables.each do |linkable|
+    # Early exit if on Mac OS X: Don't link linux-only configuration files.
+    if `uname` =~ /Darwin/ && linkable =~ /linux\-configs/
+      puts 'Skipping linux-only configuration on Mac OS X system.'
+      next
+    end
+
     overwrite = false
     backup = false
 
