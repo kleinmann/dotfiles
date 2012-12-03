@@ -13,6 +13,7 @@
 
 ## initialize
     cd ~/.dotfiles
+    bundle
     rake install
     cd ~/.vim/bundles
     git clone https://github.com/gmarik/vundle.git vundle
