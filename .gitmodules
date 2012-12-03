@@ -16,9 +16,6 @@
 [submodule "linux-configs/config.symlink/awesome/obvious"]
 	path = linux-configs/config.symlink/awesome/obvious
 	url = https://github.com/farhaven/obvious
-[submodule "bin/spork.git"]
-	path = bin/spork.git
-	url = https://github.com/cr/spork.git
 [submodule "emacs.d.symlink/vendor/gist.el"]
 	path = emacs.d.symlink/vendor/gist.el
 	url = https://github.com/defunkt/gist.el.git
