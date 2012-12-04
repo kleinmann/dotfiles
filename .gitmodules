@@ -1,9 +1,6 @@
 [submodule "bin/sshuttle.git"]
 	path = bin/sshuttle.git
 	url = https://github.com/apenwarr/sshuttle.git
-[submodule "vim/vim.symlink/snippets"]
-	path = vim/vim.symlink/snippets
-	url = https://github.com/kleinmann/snipmate-snippets.git
 [submodule "bash/bash_completion.d.symlink/git-flow-completion"]
 	path = bash/bash_completion.d.symlink/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion.git
