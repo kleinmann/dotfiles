@@ -184,7 +184,10 @@ let g:syntastic_auto_jump=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode': 'passive',
+                          \ 'active_filetypes': ['ruby', 'php'],
+                          \ 'passive_filetypes': [] }
+
 
 """ Golden Ratio
 " Disable Golden Ratio plugin when in diff mode
