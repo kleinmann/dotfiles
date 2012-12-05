@@ -50,7 +50,6 @@ Bundle 'gmarik/vundle'
 
 " Github Repositories
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
@@ -82,6 +81,11 @@ Bundle 'vim-scripts/YankRing.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'gregsexton/gitv'
+
+" Snippets
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
+Bundle 'kleinmann/snipmate-snippets'
 
 " Themes
 Bundle 'w0ng/vim-hybrid'

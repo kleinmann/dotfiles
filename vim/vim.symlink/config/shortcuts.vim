@@ -77,15 +77,9 @@ function! ToggleMaxWins()
 endfunction
 map <Leader>max :call ToggleMaxWins()<CR>
 
-"" Snipmate
-let g:snippetsEmu_key = "<Leader-Tab>" " activate snippets with leader+tab
-
 "" Move block of text
 vmap <C-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
-
-"" Autocomplete
-imap <C-y> <C-x><C-o>
 
 "" Get to normal mode from insert mode via jj
 inoremap jj <Esc>
