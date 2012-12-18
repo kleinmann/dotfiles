@@ -118,4 +118,4 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-map <silent> <C-d> :call ToggleVExplorer()<CR>
+" map <silent> <C-d> :call ToggleVExplorer()<CR>
