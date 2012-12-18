@@ -38,7 +38,7 @@
 
 """ NERDTree
 " Ctrl+D map to toggle NERDTree
-nnoremap <silent> <C-D> :NERDTreeToggle<CR>
+" nnoremap <silent> <C-D> :NERDTreeToggle<CR>
 
 """ NERDcommenter
 nnoremap <Leader># :call NERDComment(0, "invert")<CR>

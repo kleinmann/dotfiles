@@ -87,7 +87,12 @@ set backspace=2            " Backspace over everything in insert mode
 
 set whichwrap+=<,>,h,l,[,] " Backspace and cursors wrap lines
 
-let g:netrw_liststyle=3
+" netrw
+let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_preview=1 " preview window shown in a vertically split
+let g:netrw_altv=1 " split to right
+let g:netrw_winsize=40
 
 """ Buffers
 
