@@ -87,6 +87,8 @@ set backspace=2            " Backspace over everything in insert mode
 
 set whichwrap+=<,>,h,l,[,] " Backspace and cursors wrap lines
 
+let g:netrw_liststyle=3
+
 """ Buffers
 
 set hidden " Allow dirty unsaved buffers
