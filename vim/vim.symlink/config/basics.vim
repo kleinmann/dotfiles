@@ -48,6 +48,8 @@ set nolazyredraw
 set clipboard+=unnamed
 set autoread
 
+set shell=bash
+
 set report=0 " Tell me changes
 
 scriptencoding utf-8 " Activate utf-8
