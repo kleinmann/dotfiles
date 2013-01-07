@@ -5,9 +5,6 @@
 alias l='ls -lah'
 alias l.='l -d .[^.]*'
 
-# use mvim if I'm using Mac and this isn't a ssh session
-[ "$SSH_CLIENT" = "" ] && [ `uname` = "Darwin" ] && alias vim='mvim'
-
 if [[ -x "`which src-hilite-lesspipe.sh`" ]]; then
   export LESSOPEN="| `which src-hilite-lesspipe.sh` %s"
   export LESS=' -R '
