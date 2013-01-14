@@ -100,8 +100,9 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-"colorscheme solarized         " Color theme
-colorscheme zenburn
+" colorscheme solarized         " Color theme
+" colorscheme zenburn
+colorscheme jellybeans
 set background=dark
 set list                    " Show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
