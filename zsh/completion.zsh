@@ -16,3 +16,5 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*' insert-tab pending
 
 unsetopt nomatch
+
+fpath=(/usr/local/share/zsh-completions $fpath)
