@@ -81,6 +81,11 @@ Bundle 'vim-scripts/YankRing.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'gregsexton/gitv'
+Bundle 'myusuf3/numbers.vim'
+Bundle 'rodjek/vim-puppet'
+Bundle 'tpope/vim-sleuth'
+Bundle 'othree/html5.vim'
+Bundle 'tpope/vim-ragtag'
 
 " Snippets
 Bundle 'Shougo/neocomplcache'

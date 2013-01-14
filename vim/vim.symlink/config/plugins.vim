@@ -210,3 +210,6 @@ vnoremap - :Switch<CR>
 """ ctrlp.vim
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+
+""" numbers.vim
+nnoremap <F3> :NumbersToggle<CR>
