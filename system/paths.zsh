@@ -8,7 +8,7 @@ PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 export PATH=$HOME/bin:$PATH
 
 # add java bin
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_09.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_11.jdk/Contents/Home
 export PATH=$PATH:$JAVA_HOME/bin
 
 # add python bin
