@@ -4,6 +4,9 @@ ZSHRC_COMPILE=1
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+# Prevent OS X from creating ._ files.
+export COPYFILE_DISABLE=true
+
 fpath=($ZSH/zsh/functions $fpath)
 
 autoload -U $ZSH/zsh/functions/*(:t)
