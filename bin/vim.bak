@@ -1,0 +1,29 @@
+#!/bin/bash
+if [[ `uname` == "Darwin" ]]; then
+  GVIM_BIN=~/bin/mvim
+  VIM_BIN=/Applications/MacVim.app/Contents/MacOS/Vim
+  DISPLAY=":1"
+else
+  GVIM_BIN=gvim
+  VIM_BIN=/usr/bin/vim
+fi
+
+# If we use -t as a parameter, use terminal vim in any case
+TERMINAL=""
+while getopts "t" OPTIONS ; do
+  case ${OPTIONS} in
+    t) TERMINAL="yes" ;;
+  esac
+done
+
+if test -z "$DISPLAY" || test -n "$SSH_CLIENT" || test -n "$TERMINAL"; then
+  VIM=$VIM_BIN
+else
+  VIM=$GVIM_BIN
+fi
+
+if test -n "$TERMINAL"; then
+  $VIM ${*:2}
+else
+  $VIM $*
+fi
