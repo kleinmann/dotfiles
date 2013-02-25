@@ -40,4 +40,8 @@
 " Build objective-c code by using rake
 autocmd FileType objc set makeprg=rake
 
+autocmd FileType ruby,haml,eruby,yaml,html,xml,javascript,sass set ai sw=2 sts=2 et
+
+autocmd FileType python set sw=4 sts=4 et
+
 let g:tex_flavor='latex'
