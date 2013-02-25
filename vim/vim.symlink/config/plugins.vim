@@ -48,7 +48,7 @@ let NERDSpaceDelims=1
 let NERDRemoveExtraSpaces=1
 
 """ Ack
-nnoremap <Leader>a :Ack!<space>
+nnoremap <Leader>a :Ack<space>
 
 """ Vim-Ruby
 " Autocomplete setup
@@ -59,14 +59,6 @@ if !empty($MY_RUBY_HOME)
  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/ruby/site_ruby/*'),"\n"),',')
 endif
 
-
-""" tagbar
-nmap <Leader>t :TagbarToggle<CR>
-let g:tagbar_autofocus=1
-let g:tagbar_expand=1
-let g:tagbar_foldlevel=2
-let g:tagbar_ironchars=['▾', '▸']
-let g:tagbar_autoshowtag=1
 
 """ gundo
 nnoremap <C-u> :GundoToggle<CR>
@@ -169,10 +161,6 @@ let delimitMate_expand_cr=1
 let delimitMate_expand_space=1
 let delimitMate_balance_matchpairs=1
 
-""" VimClojure
-let vimclojure#HighlightBuiltins=1
-let vimclojure#ParenRainbow=0
-
 """ hammer
 nnoremap <Leader>p :Hammer<CR>
 
@@ -198,18 +186,12 @@ let g:golden_ratio_autocommand=0
 nnoremap <Leader>g :GoldenRatioToggle<CR>
 vnoremap <Leader>g :GoldenRatioToggle<CR>
 
-""" YankRing
-nnoremap <leader>y :YRShow<cr>
-let g:yankring_replace_n_pkey = 'C-p'
-let g:yankring_replace_n_nkey = 'C-n'
-
-""" switch.vim
-nnoremap - :Switch<CR>
-vnoremap - :Switch<CR>
-
 """ ctrlp.vim
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_dotfiles = 0
 
 """ numbers.vim
 nnoremap <F3> :NumbersToggle<CR>

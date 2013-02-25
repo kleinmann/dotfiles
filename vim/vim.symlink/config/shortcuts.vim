@@ -119,3 +119,6 @@ function! ToggleVExplorer()
   endif
 endfunction
 " map <silent> <C-d> :call ToggleVExplorer()<CR>
+
+"" Save with :W
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
