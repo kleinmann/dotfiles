@@ -12,6 +12,7 @@
 #     set $_Z_DATA in .bashrc/.zshrc to change the datafile (default ~/.z).
 #     set $_Z_NO_RESOLVE_SYMLINKS to prevent symlink resolution.
 #     set $_Z_NO_PROMPT_COMMAND if you're handling PROMPT_COMMAND yourself.
+#     set $_Z_EXCLUDE_DIRS to an array of directories to exclude.
 #
 # USE:
 #   * z foo     # cd to most frecent dir matching foo
@@ -19,6 +20,11 @@
 #   * z -r foo  # cd to highest ranked dir matching foo
 #   * z -t foo  # cd to most recently accessed dir matching foo
 #   * z -l foo  # list all dirs matching foo (by frecency)
+
+case $- in
+ *i*) ;;
+   *) echo 'ERROR: z.sh is meant to be sourced, not directly executed.'
+esac
 
 _z() {
 
@@ -33,6 +39,12 @@ _z() {
 
   # $HOME isn't worth matching
   [ "$*" = "$HOME" ] && return
+
+  # don't track excluded dirs
+  local exclude
+  for exclude in "${_Z_EXCLUDE_DIRS[@]}"; do
+   [ "$*" = "$exclude" ] && return
+  done
 
   # maintain the file
   local tempfile
@@ -55,8 +67,8 @@ _z() {
     count += $2
    }
    END {
-    if( count > 1000 ) {
-     for( i in rank ) print i "|" 0.9*rank[i] "|" time[i] # aging
+    if( count > 6000 ) {
+     for( i in rank ) print i "|" 0.99*rank[i] "|" time[i] # aging
     } else for( i in rank ) print i "|" rank[i] "|" time[i]
    }
   ' 2>/dev/null >| "$tempfile"
