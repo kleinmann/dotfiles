@@ -81,8 +81,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'xolox/vim-easytags'
 
 " Snippets
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
+Bundle "SirVer/ultisnips"
 Bundle 'kleinmann/snipmate-snippets'
 
 " Themes

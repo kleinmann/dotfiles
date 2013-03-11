@@ -44,4 +44,11 @@ autocmd FileType ruby,haml,eruby,yaml,html,xml,javascript,sass set ai sw=2 sts=2
 
 autocmd FileType python set sw=4 sts=4 et
 
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
 let g:tex_flavor='latex'

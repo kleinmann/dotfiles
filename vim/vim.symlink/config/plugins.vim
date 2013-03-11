@@ -63,59 +63,6 @@ endif
 """ gundo
 nnoremap <C-u> :GundoToggle<CR>
 
-""" neocomplcache
-let g:acp_enableAtStartup = 0
-let g:neocomplcache_disable_auto_complete = 1
-" Launches neocomplcache automatically on vim startup.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underscore completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Define keyword, for minor languages
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-" Enable omni completion. Not required if they are already set elsewhere in .vimrc
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-" Enable heavy omni completion, which require computational power and may stall the vim. 
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>neocomplcache_cr_function()<CR>
-function! s:neocomplcache_cr_function()
-  " return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-inoremap <expr><C-y> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
-function! s:check_back_space()"{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~ '\s'
-endfunction"}}
-
-""" neosnippet
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
-let g:neosnippet#enable_snipmate_compatibility=1
-
 """ Tabularize
 if exists(":Tabularize")
   nmap <Leader>t= :Tabularize /=<CR>
@@ -195,3 +142,10 @@ let g:ctrlp_dotfiles = 0
 
 """ numbers.vim
 nnoremap <F3> :NumbersToggle<CR>
+
+""" ultisnips
+let g:UltiSnipsSnippetsDir = '~/.vim/bundle/snipmate-snippets/snippets'
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
