@@ -2,7 +2,7 @@
 --type-add=css=.sass,.less,.scss
 --type-add=html=.html.erb,.html.haml,.hbs
 --type-add=js=.js.erb,json
---type-add=ruby=.haml,.rake,.rsel,.builder,Capfile,Rakefile,Gemfile,Gemfile.lock
+--type-add=ruby=.haml,.rake,.rsel,.builder,Capfile,Rakefile,Gemfile,Gemfile.lock,.gemspec,.rb,.ru
 --type-add=vim=.vim,vimrc
 
 # new types
