@@ -1,4 +1,7 @@
-[[ -x `which ruby` ]] && alias git=hub
+[[ -x `which ruby` ]] && alias git=hub && alias hub=$HOME/bin/hub
+if type compdef >/dev/null; then
+   compdef hub=git
+fi
 alias gs='git status -sb'
 alias gd='git diff'
 alias gp='git pull'
