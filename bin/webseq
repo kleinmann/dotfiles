@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
 ## Usage: webseq [-s|--style=<style>] <file>
 ## Generate a sequence diagram from text in <file> using the
 ## websequencediagrams.com API and write the result as a PNG

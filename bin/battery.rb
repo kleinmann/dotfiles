@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
 def getFileValue(filename)
   file = File.new(filename,"r")
   content = file.gets

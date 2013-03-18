@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -rubygems -wKU
+#!/usr/bin/ruby -rubygems -wKU
 
 help = <<-MSG
 Usage: gorgeous [-i] [-F <in-format>] [-T <out-format>] [-q <query>] [-o <destination>] FILE ...
