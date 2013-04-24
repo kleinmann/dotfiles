@@ -122,3 +122,6 @@ endfunction
 
 "" Save with :W
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
+"" Completion
+inoremap <C-c> <C-x><C-o>

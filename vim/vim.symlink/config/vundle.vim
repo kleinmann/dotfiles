@@ -62,23 +62,25 @@ Bundle 'airblade/vim-rooter'
 Bundle 'tpope/vim-endwise.git'
 Bundle 'hallison/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'skwp/vim-rspec'
-Bundle 'tpope/vim-cucumber'
+Bundle 'thoughtbot/vim-rspec'
+" Bundle 'tpope/vim-cucumber'
 Bundle 'Raimondi/delimitMate'
 Bundle 'duwanis/tomdoc.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'matthias-guenther/hammer.vim'
-Bundle 'scrooloose/syntastic'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'matthias-guenther/hammer.vim'
+" Bundle 'scrooloose/syntastic'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'rodjek/vim-puppet'
+" Bundle 'rodjek/vim-puppet'
 Bundle 'tpope/vim-sleuth'
 Bundle 'othree/html5.vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'xolox/vim-easytags'
+" Bundle 'mattn/zencoding-vim'
+" Bundle 'xolox/vim-easytags'
+" Bundle 'tpope/vim-dispatch'
+Bundle 'sjl/splice.vim'
 
 " Snippets
 Bundle "SirVer/ultisnips"
@@ -87,7 +89,7 @@ Bundle 'kleinmann/snipmate-snippets'
 " Themes
 Bundle 'Zenburn'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
+" Bundle 'nanotech/jellybeans.vim'
 Bundle 'CSApprox'
 
 " Visuals
@@ -95,13 +97,13 @@ Bundle 'rainbow_parentheses.vim'
 " Installed via pip install --user git+git://github.com/Lokaltog/powerline
 python from powerline.bindings.vim import source_plugin; source_plugin()
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'roman/golden-ratio'
+" Bundle 'roman/golden-ratio'
 
 " vim-scripts
 Bundle 'ack.vim'
 Bundle 'L9'
 Bundle 'utl.vim'
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+" Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'xmledit'
 Bundle 'matchit.zip'
 

@@ -40,3 +40,5 @@ set anti " Anti-Aliasing
 
 "set guifont=Inconsolata\ for\ Powerline\ 10 " Set font
 set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+
+" colorscheme zenburn

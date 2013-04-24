@@ -31,3 +31,4 @@
 set nocompatible " Turn off vi compatible
 
 runtime! config/entrance_point.vim
+colorscheme solarized

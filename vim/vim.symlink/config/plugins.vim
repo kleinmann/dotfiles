@@ -109,29 +109,29 @@ let delimitMate_expand_space=1
 let delimitMate_balance_matchpairs=1
 
 """ hammer
-nnoremap <Leader>p :Hammer<CR>
+" nnoremap <Leader>p :Hammer<CR>
 
-""" Syntastic
-nnoremap <Leader>s :SyntasticCheck<CR>
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_auto_jump=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_mode_map = { 'mode': 'passive',
-                          \ 'active_filetypes': ['ruby', 'php'],
-                          \ 'passive_filetypes': [] }
+"" Syntastic
+" nnoremap <Leader>s :SyntasticCheck<CR>
+" let g:syntastic_enable_signs=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_auto_jump=1
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+" let g:syntastic_mode_map = { 'mode': 'passive',
+                          " \ 'active_filetypes': ['ruby', 'php'],
+                          " \ 'passive_filetypes': [] }
 
 
-""" Golden Ratio
+"" Golden Ratio
 " Disable Golden Ratio plugin when in diff mode
-if &diff
-  let g:loaded_golden_ratio=1
-endif
-let g:golden_ratio_autocommand=0
-nnoremap <Leader>g :GoldenRatioToggle<CR>
-vnoremap <Leader>g :GoldenRatioToggle<CR>
+" if &diff
+  " let g:loaded_golden_ratio=1
+" endif
+" let g:golden_ratio_autocommand=0
+" nnoremap <Leader>g :GoldenRatioToggle<CR>
+" vnoremap <Leader>g :GoldenRatioToggle<CR>
 
 """ ctrlp.vim
 nnoremap <Leader>t :CtrlP<CR>
@@ -149,3 +149,7 @@ let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+""" vim-rspec
+nnoremap <Leader>r :RunSpec<CR>
+nnoremap <Leader>rl :RunSpecLine<CR>
