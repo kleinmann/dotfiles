@@ -26,3 +26,10 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 [ -f "$HOME/.rvm/scripts/rvm" ] && rvm use default 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
