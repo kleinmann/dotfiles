@@ -10,21 +10,29 @@ export PATH=$HOME/bin:$PATH
 # add java bin
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_11.jdk/Contents/Home
 export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$JAVA_HOME/bin:$PATH
 
 # add python bin
-export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.6/bin
-export PATH=$PATH:/usr/local/share/python
+export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
+export PATH=/usr/local/share/python:$PATH
 
 # haskell
-export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$HOME/.cabal/bin:$PATH
 
 # various
-export PATH=$PATH:/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin
+export PATH=/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin:$PATH
 
 # npm
-export PATH=$PATH:$HOME/node_modules/.bin
-export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$HOME/node_modules/.bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+
+# php
+export PATH=$(brew --prefix josegonzalez/php/php54)/bin:$PATH
+
+# go
+export GOROOT=$(brew --prefix go)
+export GOPATH=$HOME/code/go
+export PATH=$GOPATH/bin:$PATH
 
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man
