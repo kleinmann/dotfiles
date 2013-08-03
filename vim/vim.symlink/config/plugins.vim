@@ -95,10 +95,7 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <leader>gp :Git push<CR>
 
-""" easytags
 set tags=./tags,~/tags
-let g:easytags_include_members=1
-let g:easytags_dynamic_files = 1
 
 "" Syntastic
 " nnoremap <Leader>s :SyntasticCheck<CR>
