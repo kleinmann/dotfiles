@@ -78,9 +78,6 @@ endif
 """ Rainbow parentheses
 nmap <Leader>ra :RainbowParenthesesToggle<CR>
 
-""" Powerline
-let g:Powerline_symbols = 'fancy'
-
 """ Indent Guides
 if !has('gui_running')
     let g:indent_guides_auto_colors=0
@@ -103,14 +100,6 @@ set tags=./tags,~/tags
 let g:easytags_include_members=1
 let g:easytags_dynamic_files = 1
 
-""" delimitMate
-let delimitMate_expand_cr=1
-let delimitMate_expand_space=1
-let delimitMate_balance_matchpairs=1
-
-""" hammer
-" nnoremap <Leader>p :Hammer<CR>
-
 "" Syntastic
 " nnoremap <Leader>s :SyntasticCheck<CR>
 " let g:syntastic_enable_signs=1
@@ -123,15 +112,6 @@ let delimitMate_balance_matchpairs=1
                           " \ 'active_filetypes': ['ruby', 'php'],
                           " \ 'passive_filetypes': [] }
 
-
-"" Golden Ratio
-" Disable Golden Ratio plugin when in diff mode
-" if &diff
-  " let g:loaded_golden_ratio=1
-" endif
-" let g:golden_ratio_autocommand=0
-" nnoremap <Leader>g :GoldenRatioToggle<CR>
-" vnoremap <Leader>g :GoldenRatioToggle<CR>
 
 """ ctrlp.vim
 nnoremap <Leader>t :CtrlP<CR>
@@ -153,3 +133,20 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 """ vim-rspec
 nnoremap <Leader>r :RunSpec<CR>
 nnoremap <Leader>rl :RunSpecLine<CR>
+
+""" CoVim
+nnoremap <Leader>cvs :CoVim start PORT NAME
+nnoremap <Leader>cvc :CoVim connect HOST PORT NAME
+
+""" vim-bufferline
+let g:bufferline_echo=0
+
+""" vim-airline
+let g:airline_powerline_fonts=1
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_fugitive_prefix = ' '
+  let g:airline_readonly_symbol = ''
+  let g:airline_linecolumn_prefix = ' '
