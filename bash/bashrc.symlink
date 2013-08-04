@@ -27,9 +27,6 @@ export EDITOR=/usr/bin/vim
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
 
-# Use CDPATH, cd searches there automatically
-export CDPATH=.:$HOME
-
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 [ -f /etc/profile.d/bash-completion ] && source /etc/profile.d/bash-completion
 [ -f /etc/bash_completion.d/git ] && source /etc/bash_completion.d/git
