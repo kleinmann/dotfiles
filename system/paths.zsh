@@ -27,10 +27,10 @@ export PATH=$HOME/node_modules/.bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 # php
-export PATH=$(brew --prefix josegonzalez/php/php54)/bin:$PATH
+[[ -x `which brew` ]] && export PATH=$(brew --prefix josegonzalez/php/php54)/bin:$PATH
 
 # go
-export GOROOT=$(brew --prefix go)
+[[ -x `which brew` ]] && export GOROOT=$(brew --prefix go)
 export GOPATH=$HOME/code/go
 export PATH=$GOPATH/bin:$PATH
 
