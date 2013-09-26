@@ -1,19 +1,18 @@
 ## clone & setup
+	brew install zsh # I assume you're on a Mac
     chsh -s `which zsh`
     git clone --recursive https://github.com/kleinmann/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
   
-## install rvm
-    bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-    if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-    rvm get head
-    rvm reload
-    rvm install 1.9.3
-    rvm use 1.9.3 --default
+## install rbenv
+	brew install rbenv ruby-build # I assume you're on a Mac
+	rbenv install 2.0.0-p247
+	rbenv global 2.0.0-p247
+	~/.rbenv/shims/gem install bundler
 
 ## initialize
     cd ~/.dotfiles
-    bundle
+    ~/.rbenv/shims/bundle
     rake install
     cd ~/.vim/bundles
     git clone https://github.com/gmarik/vundle.git vundle
