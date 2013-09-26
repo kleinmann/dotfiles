@@ -78,6 +78,7 @@ Bundle 'FredKSchott/CoVim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+Bundle 'Raimondi/delimitMate'
 
 " Snippets
 Bundle "SirVer/ultisnips"

@@ -39,6 +39,6 @@ set anti " Anti-Aliasing
 " set transparency=0 " Little transparency is good
 
 "set guifont=Inconsolata\ for\ Powerline\ 10 " Set font
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 
 " colorscheme zenburn
