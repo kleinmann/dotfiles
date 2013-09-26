@@ -22,7 +22,6 @@
 
 --sort-files
 --smart-case
---all-types
 --color
 --follow
 --group
