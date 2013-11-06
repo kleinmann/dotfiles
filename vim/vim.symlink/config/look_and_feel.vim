@@ -66,14 +66,35 @@ filetype indent on
 " Soft wrap text
 set wrap
 " Scroll screen lines, not file lines
-nmap j gj
-nmap k gk
-nmap <Up> gk
-nmap <Down> gj
-vmap j gj
-vmap k gk
-vmap <Up> gk
-vmap <Down> gj
+" mapping to make movements operate on 1 screen line in wrap mode
+function! ScreenMovement(movement)
+   if &wrap
+      return "g" . a:movement
+   else
+      return a:movement
+   endif
+endfunction
+onoremap <silent> <expr> j ScreenMovement("j")
+onoremap <silent> <expr> <Down> ScreenMovement("j")
+onoremap <silent> <expr> k ScreenMovement("k")
+onoremap <silent> <expr> <Up> ScreenMovement("k")
+onoremap <silent> <expr> 0 ScreenMovement("0")
+onoremap <silent> <expr> ^ ScreenMovement("^")
+onoremap <silent> <expr> $ ScreenMovement("$")
+nnoremap <silent> <expr> j ScreenMovement("j")
+nnoremap <silent> <expr> <Down> ScreenMovement("j")
+nnoremap <silent> <expr> k ScreenMovement("k")
+nnoremap <silent> <expr> <Up> ScreenMovement("k")
+nnoremap <silent> <expr> 0 ScreenMovement("0")
+nnoremap <silent> <expr> ^ ScreenMovement("^")
+nnoremap <silent> <expr> $ ScreenMovement("$")
+vnoremap <silent> <expr> j ScreenMovement("j")
+vnoremap <silent> <expr> <Down> ScreenMovement("j")
+vnoremap <silent> <expr> k ScreenMovement("k")
+vnoremap <silent> <expr> <Up> ScreenMovement("k")
+vnoremap <silent> <expr> 0 ScreenMovement("0")
+vnoremap <silent> <expr> ^ ScreenMovement("^")
+vnoremap <silent> <expr> $ ScreenMovement("$")
 
 " Use sane regexes
 nnoremap / /\v
@@ -100,8 +121,7 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-colorscheme solarized         " Color theme
-" colorscheme zenburn
+colorscheme zenburn         " Color theme
 " colorscheme jellybeans
 set background=light
 set list                    " Show invisible characters

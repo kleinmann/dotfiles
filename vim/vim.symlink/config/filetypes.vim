@@ -44,6 +44,9 @@ autocmd FileType ruby,haml,eruby,yaml,html,xml,javascript,sass set ai sw=2 sts=2
 
 autocmd FileType python set sw=4 sts=4 et
 
+" Sort CSS properties alphabetically
+autocmd FileType css nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>)"
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS

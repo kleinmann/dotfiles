@@ -69,16 +69,17 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tpope/vim-repeat'
 Bundle 'kien/ctrlp.vim'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'rodjek/vim-puppet'
 Bundle 'tpope/vim-sleuth'
 Bundle 'othree/html5.vim'
-Bundle 'sjl/splice.vim'
-Bundle 'FredKSchott/CoVim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'Raimondi/delimitMate'
+Bundle 'webgefrickel/vim-typoscript'
+Bundle 'tpope/vim-dispatch'
+Bundle 'rking/ag.vim'
+Bundle 'vim-scripts/taglist.vim'
 
 " Snippets
 Bundle "SirVer/ultisnips"
@@ -96,7 +97,6 @@ Bundle 'bling/vim-bufferline'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " vim-scripts
-Bundle 'ack.vim'
 Bundle 'L9'
 Bundle 'utl.vim'
 Bundle 'xmledit'

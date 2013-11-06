@@ -39,6 +39,10 @@
 """ NERDTree
 " Ctrl+D map to toggle NERDTree
 nnoremap <silent> <C-d> :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeMinimalUI=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:nerdtree_tabs_open_on_console_startup=1
 
 """ NERDcommenter
 nnoremap <Leader># :call NERDComment(0, "invert")<CR>
@@ -47,8 +51,14 @@ let NERDCommentWholeLinesInVMode=2
 let NERDSpaceDelims=1
 let NERDRemoveExtraSpaces=1
 
-""" Ack
-nnoremap <Leader>a :Ack<space>
+""" Ag
+nnoremap <Leader>a :Ag<space>
+
+""" taglist.vim
+map <Leader>l :TlistToggle<CR>
+
+""" ctags
+map <Leader>ct :!ctags -R --exclude=.git --exclude=log --exclude=.svn --verbose=yes * <CR>
 
 """ Vim-Ruby
 " Autocomplete setup
@@ -117,23 +127,12 @@ let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
 
-""" numbers.vim
-nnoremap <F3> :NumbersToggle<CR>
-
 """ ultisnips
 let g:UltiSnipsSnippetsDir = '~/.vim/bundle/snipmate-snippets/snippets'
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-""" vim-rspec
-nnoremap <Leader>r :RunSpec<CR>
-nnoremap <Leader>rl :RunSpecLine<CR>
-
-""" CoVim
-nnoremap <Leader>cvs :CoVim start PORT NAME
-nnoremap <Leader>cvc :CoVim connect HOST PORT NAME
 
 """ vim-bufferline
 let g:bufferline_echo=0
@@ -148,3 +147,27 @@ let g:airline_enable_branch = 1
 let g:airline_branch_prefix = ' '
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ' '
+
+""" selecta
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, vim_command)
+  try
+    silent! exec a:vim_command . " " . system(a:choice_command . " | selecta")
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+  endtry
+  redraw!
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
+
+""" vim-dispatch
+autocmd FileType java let b:dispatch = 'javac %'
+autocmd FileType coffee let b:dispatch = 'coffee -c %'
+autocmd FileType html let b:dispatch = 'open %'
+autocmd FileType ruby let b:dispatch = 'rspec %'
+nnoremap <leader>d :Dispatch<CR>
