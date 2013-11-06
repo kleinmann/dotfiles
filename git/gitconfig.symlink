@@ -42,10 +42,5 @@
 	threads = 2
 [push]
 	default = tracking
-[merge]
-	tool = splice
-[mergetool "splice"]
-	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
 [diff]
 	algorithm = patience
