@@ -41,6 +41,6 @@
 [pack]
 	threads = 2
 [push]
-	default = tracking
+	default = simple
 [diff]
 	algorithm = patience

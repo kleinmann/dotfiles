@@ -1,9 +1,6 @@
-[[ -x `which ruby` ]] && [[ `ruby -v` != *jruby* ]] && alias git=hub && alias hub=$HOME/bin/hub
-if type compdef >/dev/null; then
-   compdef hub=git
-fi
 alias gs='git status -sb'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gp='git pull'
 alias gpr='git stash ; git pull --rebase ; git stash pop'
 alias git-amend='git commit --amend'
