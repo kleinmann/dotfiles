@@ -12,7 +12,9 @@ GEM
       mime-types
     coderay (1.0.9)
     diff-lcs (1.2.4)
+    fastri (0.3.1.1)
     ffi (1.7.0)
+    gem-ctags (1.0.6)
     github-markdown (0.5.3)
     github-markup (0.7.5)
     gollum (2.4.13)
@@ -63,6 +65,7 @@ GEM
       rack
     rak (1.4)
     rake (10.0.4)
+    rcodetools (0.8.5.0)
     redcarpet (2.2.2)
     sanitize (2.0.3)
       nokogiri (>= 1.4.4, < 1.6)
@@ -88,6 +91,8 @@ DEPENDENCIES
   bundler-audit
   cheat
   cloudapp_api
+  fastri
+  gem-ctags
   github-markup
   gollum
   highline
@@ -97,6 +102,7 @@ DEPENDENCIES
   pry
   rak
   rake
+  rcodetools
   redcarpet
   sinatra
   tilt
