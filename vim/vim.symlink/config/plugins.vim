@@ -55,10 +55,10 @@ let NERDRemoveExtraSpaces=1
 nnoremap <Leader>a :Ag<space>
 
 """ taglist.vim
-map <Leader>l :TlistToggle<CR>
+map <Leader>l :TagbarToggle<CR>
 
 """ ctags
-map <Leader>ct :!ctags -R --exclude=.git --exclude=log --exclude=.svn --verbose=yes * <CR>
+map <Leader>ct :!ctags -e -R --extra=+fq --exclude=db --exclude=.git --exclude=.svn --exclude=log --exclude=logs --exclude=public -f TAGS --verbose=yes *<CR>
 
 """ Vim-Ruby
 " Autocomplete setup
@@ -171,3 +171,10 @@ autocmd FileType coffee let b:dispatch = 'coffee -c %'
 autocmd FileType html let b:dispatch = 'open %'
 autocmd FileType ruby let b:dispatch = 'rspec %'
 nnoremap <leader>d :Dispatch<CR>
+
+""" vim-ruby-xmpfilter
+autocmd FileType ruby nmap <buffer> <C-m> <Plug>(xmpfilter-mark)
+autocmd FileType ruby xmap <buffer> <C-m> <Plug>(xmpfilter-mark)
+
+autocmd FileType ruby nmap <buffer> <C-n> <Plug>(xmpfilter-run)
+autocmd FileType ruby xmap <buffer> <C-n> <Plug>(xmpfilter-run)

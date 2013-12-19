@@ -46,6 +46,7 @@ set noswapfile
 set nolazyredraw
 
 set clipboard+=unnamed
+
 set autoread
 
 set shell=bash

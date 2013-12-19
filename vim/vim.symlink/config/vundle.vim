@@ -79,7 +79,11 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'tpope/vim-dispatch'
 Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/taglist.vim'
+Bundle 'slim-template/vim-slim'
+Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'spf13/PIV'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-bundler'
 
 " Snippets
 Bundle "SirVer/ultisnips"
@@ -97,11 +101,8 @@ Bundle 'bling/vim-bufferline'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " vim-scripts
-Bundle 'L9'
-Bundle 'utl.vim'
 Bundle 'xmledit'
 Bundle 'matchit.zip'
-Bundle 'paredit.vim'
 
  "                                                                           "
 "*****************************************************************************"

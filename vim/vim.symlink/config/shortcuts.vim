@@ -125,3 +125,12 @@ cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W')
 
 "" Completion
 inoremap <C-c> <C-x><C-o>
+
+""" Ruby
+"" Convert Ruby 1.8 hashes to Ruby 1.9 syntax
+nnoremap <leader>: :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<CR>
+"" Add whitespace inside of braces
+nnoremap <leader>{ :%s/{\([^ ]\)/{ \1/gc<CR>
+
+""" Tags
+nnoremap t <C-]>
