@@ -1,45 +1,3 @@
-"*****************************************************************************"
-"
-"     ______        _____
-"   ||      |     ||     |
-"    \\     /     \\     |
-"     ||   |       /    /
-"     ||   |      /    /
-"     ||   |     /    /
-"      ||   |   /    /
-"      ||   | _/   _/
-"      ||   |/    |_|
-"      ||        / ___ __              ___    ___
-"       ||     _/ \\ | \\ \−-_−-_    ||  _/ // _|
-"   _   ||    /   || | || /\ /\ |    || |  || |_
-"  |_|   ||__/    ||_| ||_||_||_|_   ||_|   \\__|
-"
-"
-"                                         by Aleksandr Koss (http://nocorp.me)
-"
-"*****************************************************************************"
-
-"                                                                           "
-"*****************************************************************************"
-"
-" $ cat ~/.vimrc
-"
-" My ~/.vimrc run this file, so if you want to use my vim config you
-" should type in rc file just a one line below
-"
-" runtime! config/entrance_point.vim
-"
-"*****************************************************************************"
- "                                                                           "
-
- "                                                                           "
-"*****************************************************************************"
-"
-" Vundle
-"
-"*****************************************************************************"
- "                                                                           "
-
 filetype on
 filetype off 
 set rtp+=~/.vim/bundle/vundle/
@@ -49,44 +7,44 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Github Repositories
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-git'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-rails'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'airblade/vim-rooter'
-Bundle 'tpope/vim-endwise.git'
-Bundle 'hallison/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'duwanis/tomdoc.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'tpope/vim-repeat'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rodjek/vim-puppet'
-Bundle 'tpope/vim-sleuth'
-Bundle 'othree/html5.vim'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'Raimondi/delimitMate'
-Bundle 'webgefrickel/vim-typoscript'
-Bundle 'tpope/vim-dispatch'
 Bundle 'rking/ag.vim'
-Bundle 'slim-template/vim-slim'
-Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'sjl/gundo.vim'
+Bundle 'othree/html5.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'spf13/PIV'
+Bundle 'scrooloose/syntastic'
+Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
+Bundle 'duwanis/tomdoc.vim'
 Bundle 'tpope/vim-bundler'
-" Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-endwise.git'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'tpope/vim-haml'
+Bundle 'hallison/vim-markdown'
+Bundle 'rodjek/vim-puppet'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-repeat'
+Bundle 'airblade/vim-rooter'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'tpope/vim-sleuth'
+Bundle 'slim-template/vim-slim'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'kana/vim-textobj-user'
+Bundle 'webgefrickel/vim-typoscript'
+Bundle 'tpope/vim-unimpaired'
+" Bundle 'tpope/vim-vinegar'
 
 " Snippets
 Bundle "SirVer/ultisnips"
