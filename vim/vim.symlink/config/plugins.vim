@@ -105,19 +105,20 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <leader>gp :Git push<CR>
 
-set tags=./tags,~/tags
+set tags=./tags,~/tags,./TAGS,TAGS;
 
 "" Syntastic
-" nnoremap <Leader>s :SyntasticCheck<CR>
-" let g:syntastic_enable_signs=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_auto_jump=1
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-" let g:syntastic_mode_map = { 'mode': 'passive',
-                          " \ 'active_filetypes': ['ruby', 'php'],
-                          " \ 'passive_filetypes': [] }
+nnoremap <Leader>s :SyntasticCheck<CR>
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_jump=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_mode_map = { 'mode': 'passive',
+                          \ 'active_filetypes': ['ruby', 'php'],
+                          \ 'passive_filetypes': [] }
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 
 """ ctrlp.vim

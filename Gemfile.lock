@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (1.1.0)
     awesome_print (1.1.0)
     bundler-audit (0.1.2)
       bundler (~> 1.2)
@@ -52,6 +53,9 @@ GEM
     mustache (0.99.4)
     nokogiri (1.5.9)
     pager (1.0.1)
+    parser (2.0.0.beta5)
+      ast (~> 1.0)
+      slop (~> 3.4)
     posix-spawn (0.3.6)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
@@ -63,10 +67,14 @@ GEM
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
+    rainbow (1.99.1)
     rak (1.4)
     rake (10.0.4)
     rcodetools (0.8.5.0)
     redcarpet (2.2.2)
+    rubocop (0.8.3)
+      parser (= 2.0.0.beta5)
+      rainbow (>= 1.1.4)
     sanitize (2.0.3)
       nokogiri (>= 1.4.4, < 1.6)
     sinatra (1.4.2)
@@ -104,6 +112,7 @@ DEPENDENCIES
   rake
   rcodetools
   redcarpet
+  rubocop
   sinatra
   tilt
   wirble
