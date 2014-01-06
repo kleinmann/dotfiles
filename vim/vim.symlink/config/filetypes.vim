@@ -54,4 +54,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go compiler go
+
 let g:tex_flavor='latex'

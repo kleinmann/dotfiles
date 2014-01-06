@@ -84,6 +84,9 @@ Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'spf13/PIV'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-bundler'
+" Bundle 'tpope/vim-vinegar'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'jnwhiteh/vim-golang'
 
 " Snippets
 Bundle "SirVer/ultisnips"

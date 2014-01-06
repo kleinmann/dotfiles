@@ -30,9 +30,9 @@ export PATH=/usr/local/share/npm/bin:$PATH
 [[ -x `which brew` ]] && export PATH=$(brew --prefix josegonzalez/php/php54)/bin:$PATH
 
 # go
-[[ -x `which brew` ]] && export GOROOT=$(brew --prefix go)
 export GOPATH=$HOME/code/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/bin
 
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man
