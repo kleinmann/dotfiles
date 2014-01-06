@@ -14,12 +14,12 @@ set laststatus=2    " Always show status line
 
 set tabstop=2
 set softtabstop=2
-set shiftwidth=2  " Make indent equal 2 spaces
+set shiftwidth=2          " Make indent equal 2 spaces
 set shiftround
-set ai            " Auto indent to current level
-set si            " Smart indent
-set stal=2
-set expandtab     " Use spaces
+set autoindent            " Auto indent to current level
+set smartindent           " Smart indent
+set showtabline=2
+set expandtab             " Use spaces
 
 filetype on
 filetype plugin on
@@ -71,10 +71,10 @@ set backspace=2            " Backspace over everything in insert mode
 set whichwrap+=<,>,h,l,[,] " Backspace and cursors wrap lines
 
 " netrw
-let g:netrw_liststyle=3 " Use tree-mode as default view
+let g:netrw_liststyle=3    " Use tree-mode as default view
 let g:netrw_browse_split=4 " Open file in previous buffer
-let g:netrw_preview=1 " preview window shown in a vertically split
-let g:netrw_altv=1 " split to right
+let g:netrw_preview=1      " preview window shown in a vertically split
+let g:netrw_altv=1         " split to right
 let g:netrw_winsize=40
 
 """ Buffers
@@ -114,11 +114,3 @@ au BufWinEnter ?* silent loadview
 " Show 3 line after and before cursor when scrolling
 
 set scrolloff=3
-
- "                                                                           "
-"*****************************************************************************"
-"
-" GUI settings
-"
-"*****************************************************************************"
- "                                                                           "

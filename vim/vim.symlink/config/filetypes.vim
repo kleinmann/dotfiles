@@ -18,4 +18,5 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go compiler go
 
+autocmd FileType tex nnoremap <buffer> <Leader>m :!make ; make clean ; open *.pdf<CR>
 let g:tex_flavor='latex'

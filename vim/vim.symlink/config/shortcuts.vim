@@ -13,7 +13,6 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
 vnoremap <Space> zf
 
 "" Windows
-
 " Navigate between windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -54,13 +53,12 @@ function! StripWhitespace ()
 endfunction
 "map <Leader>s :call StripWhitespace ()<CR>
 
+"" Split current file vertically (h) or horizontally (v)
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>s <C-w>s<C-w>j
+nnoremap <leader>h <C-w>s<C-w>j
 
 "" Set working directory to that of the current file
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
-
-nnoremap <Leader>m :!make ; make clean ; open *.pdf<CR>
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
@@ -96,4 +94,5 @@ nnoremap <leader>: :%s/:\([^ ]*\)\(\s*\)=>/\1:/gc<CR>
 nnoremap <leader>{ :%s/{\([^ ]\)/{ \1/gc<CR>
 
 """ Tags
+"" Pop tag stack
 nnoremap t <C-]>
