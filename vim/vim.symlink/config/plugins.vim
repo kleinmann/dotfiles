@@ -20,7 +20,7 @@ nnoremap <Leader>a :Ag<space>
 map <Leader>l :TagbarToggle<CR>
 
 """ ctags
-map <Leader>ct :!ctags -e -R --extra=+fq --exclude=db --exclude=.git --exclude=.svn --exclude=log --exclude=logs --exclude=public -f TAGS --verbose=yes *<CR>
+map <Leader>ct :!ctags -R *<CR>
 
 """ Vim-Ruby
 " Autocomplete setup
@@ -67,7 +67,7 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <leader>gp :Git push<CR>
 
-set tags=./tags,~/tags,./TAGS,TAGS;
+set tags=./tags,~/tags,tags;,./TAGS,TAGS;
 
 "" Syntastic
 nnoremap <Leader>s :SyntasticCheck<CR>
@@ -91,11 +91,11 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 let g:ctrlp_dotfiles = 0
 
 """ ultisnips
-let g:UltiSnipsSnippetsDir = '~/.vim/bundle/snipmate-snippets/snippets'
-let g:UltiSnipsEditSplit = 'horizontal'
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnips = {}
+let g:UltiSnips.ExpandTrigger = '<Tab>'
+let g:UltiSnips.JumpForwardTrigger = '<Tab>'
+let g:UltiSnips.JumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnips.always_use_first_snippet = 1
 
 """ vim-bufferline
 let g:bufferline_echo=0
