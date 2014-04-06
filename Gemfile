@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem 'awesome_print'
+gem 'bropages'
 gem 'bundler-audit'
 gem 'cheat'
 gem 'cloudapp_api'
@@ -13,6 +14,7 @@ gem 'hirb-unicode'
 gem 'hpricot'
 gem 'interactive_editor'
 gem 'pry'
+gem 'pry-doc'
 gem 'rak'
 gem 'rake'
 gem 'rcodetools'
