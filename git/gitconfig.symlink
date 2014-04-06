@@ -44,3 +44,19 @@
 	default = simple
 [diff]
 	algorithm = patience
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+
+# URL shorthands
+# gh:paulmillr/dotfiles
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "gh:"
+  pushInsteadOf = "git://github.com/"
+
+# gist:3928760
+[url "git@gist.github.com:"]
+  insteadOf = "gist:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"

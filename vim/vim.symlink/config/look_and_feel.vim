@@ -17,7 +17,6 @@ set softtabstop=2
 set shiftwidth=2          " Make indent equal 2 spaces
 set shiftround
 set autoindent            " Auto indent to current level
-set smartindent           " Smart indent
 set showtabline=2
 set expandtab             " Use spaces
 
@@ -83,9 +82,8 @@ set hidden " Allow dirty unsaved buffers
 
 """ Appearance
 
-colorscheme zenburn         " Color theme
-" colorscheme jellybeans
-set background=light
+colorscheme jellybeans
+set background=dark
 set list                    " Show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ " Use my favorite invisible characters
 set showbreak=↪
@@ -107,6 +105,8 @@ set nostartofline " Don't jump to first line
 " Save and load folding automatically
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
+
+set foldmethod=marker
 
 " Activate audible bell for WAT driven development. See http://jrom.net/wat-driven-development
 "let &t_vb = "\<C-G>\e|50f"

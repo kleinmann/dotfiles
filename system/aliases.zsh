@@ -20,8 +20,10 @@ alias t='tmux attach'
 # cd aliases
 alias ..='cd .. ; '
 alias ...='cd ../.. ; '
-alias cdtp='cd $HOME/code/dtp-automation'
-alias cds='cd "$HOME/Dropbox/Studium Priv/Vorlesungen/6. Semester - SS12/"'
+alias cdw='cd $HOME/code/codekunst'
 alias cdp='cd "$HOME/code"'
+alias cdc='cd "$HOME/code/checkout"'
 alias cdd='cd "$HOME/.dotfiles"'
+
+alias smile='curl http://smiley.meatcub.es:1337'
 

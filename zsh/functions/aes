@@ -1,0 +1,9 @@
+# aes-enc file.zip
+function aes-enc() {
+  openssl enc -aes-256-cbc -e -in $1 -out "$1.aes"
+}
+
+# aes-dec file.zip.aes
+function aes-dec() {
+  openssl enc -aes-256-cbc -d -in $1 -out "${1%.*}"
+}

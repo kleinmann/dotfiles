@@ -1,0 +1,3 @@
+function size() {
+  du -sh "$@" 2>&1 | grep -v '^du:'
+}

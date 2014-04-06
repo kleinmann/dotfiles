@@ -27,7 +27,7 @@ export PATH=$HOME/node_modules/.bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 # php
-[[ -x `which brew` ]] && export PATH=$(brew --prefix josegonzalez/php/php54)/bin:$PATH
+[[ -x `which brew` ]] && export PATH=$(brew --prefix php54)/bin:$PATH
 
 # go
 export GOPATH=$HOME/code/go
@@ -39,5 +39,6 @@ export PATH=$PATH:/usr/local/opt/go/bin
 
 export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
 
+[[ -x `which brew` ]] && export ANDROID_HOME=$(brew --prefix android-sdk)
 
 export ECLIPSE_HOME='/Applications/eclipse'

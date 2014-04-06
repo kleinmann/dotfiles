@@ -6,12 +6,9 @@ let NERDTreeMinimalUI=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_console_startup=1
 
-""" NERDcommenter
-nnoremap <Leader># :call NERDComment(0, "invert")<CR>
-vnoremap <Leader># :call NERDComment(0, "invert")<CR>
-let NERDCommentWholeLinesInVMode=2
-let NERDSpaceDelims=1
-let NERDRemoveExtraSpaces=1
+""" vim-commentary
+nmap <Leader># <Plug>CommentaryLine
+vmap <Leader># <Plug>Commentary
 
 """ Ag
 nnoremap <Leader>a :Ag<space>
@@ -51,12 +48,6 @@ endif
 nmap <Leader>ra :RainbowParenthesesToggle<CR>
 
 """ Indent Guides
-if !has('gui_running')
-    let g:indent_guides_auto_colors=0
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=237
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=239
-endif
-
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
@@ -78,7 +69,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_stl_format='[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_mode_map = { 'mode': 'passive',
-                          \ 'active_filetypes': ['ruby', 'php'],
+                          \ 'active_filetypes': ['ruby'],
                           \ 'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
@@ -89,13 +80,13 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
+let g:ctrlp_max_files = 0
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 """ ultisnips
-let g:UltiSnips = {}
-let g:UltiSnips.ExpandTrigger = '<Tab>'
-let g:UltiSnips.JumpForwardTrigger = '<Tab>'
-let g:UltiSnips.JumpBackwardTrigger = '<S-Tab>'
-let g:UltiSnips.always_use_first_snippet = 1
+let g:UltiSnipsExpandTrigger = '<Tab>'
+let g:UltiSnipsJumpForwardTrigger = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
 """ vim-bufferline
 let g:bufferline_echo=0
@@ -135,9 +126,15 @@ autocmd FileType html let b:dispatch = 'open %'
 autocmd FileType ruby let b:dispatch = 'rspec %'
 nnoremap <leader>d :Dispatch<CR>
 
+""" vim-rspec
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+
 """ vim-ruby-xmpfilter
 autocmd FileType ruby nmap <buffer> <C-m> <Plug>(xmpfilter-mark)
 autocmd FileType ruby xmap <buffer> <C-m> <Plug>(xmpfilter-mark)
 
 autocmd FileType ruby nmap <buffer> <C-n> <Plug>(xmpfilter-run)
 autocmd FileType ruby xmap <buffer> <C-n> <Plug>(xmpfilter-run)
+
+""" vim-latex
+let g:tex_flavor='latex'

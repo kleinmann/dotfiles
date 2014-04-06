@@ -6,7 +6,7 @@ map <C-S-Left> :bprev<CR>
 map <C-S-Right> :bnext<CR>
 
 "" Delete buffer
-map <Leader>bd :bd<CR>
+map <Leader>bd :Bdelete<CR>
 
 "" Folding
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':'l')<CR>
