@@ -1,3 +1,8 @@
+if (( $+commands[rbenv] ))
+then
+  eval "$(rbenv init -)"
+fi
+
 function rbenv_prompt_info() {
   version_string=$(rbenv version-name)
   [ -f "$(pwd)/.rbenv-gemsets" ] && gemset_string=" ⟡$(rbenv gemset active | cut -d' ' -f1)"
