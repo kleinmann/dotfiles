@@ -2,7 +2,9 @@
 # PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # standard order
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+# PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+#
+export PATH=/usr/local/bin:$PATH
 
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH
@@ -31,8 +33,8 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 # go
 export GOPATH=$HOME/code/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/bin
+export PATH=$GOPATH/bin:$PATH
+export PATH=/usr/local/opt/go/bin:$PATH
 
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man

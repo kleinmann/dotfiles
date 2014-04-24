@@ -1,5 +1,4 @@
-if (( $+commands[rbenv] ))
-then
+if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
 
