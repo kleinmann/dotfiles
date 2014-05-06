@@ -87,6 +87,21 @@ let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnipsListSnippets = '<C-Tab>'
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res == 0
+    if pumvisible()
+      return "\<C-N>"
+    else
+      return "\<TAB>"
+    endif
+  endif
+
+  return ""
+endfunction
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 """ vim-bufferline
 let g:bufferline_echo=0
