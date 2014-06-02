@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pear config-set auto_discover 1; pear channel-discover pear.phpqatools.org ; pear install pear.phpqatools.org/phpqatools ; pear channel-discover pear.netpirates.net ; pear install pear.netpirates.net/phpDox-0.6.3
