@@ -1,5 +1,5 @@
 #!/bin/bash
-brew tap phinze/homebrew-cask
+brew tap caskroom/cask
 brew update
 brew install brew-cask
 
@@ -7,9 +7,11 @@ brew cask install adobe-reader
 brew cask install airmail-beta
 brew cask install bit-slicer
 brew cask install bodega
+brew cask install cakebrew
 brew cask install calibre
 brew cask install cord
 brew cask install cyberduck
+brew cask install disk-inventory-x
 brew cask install dropbox
 brew cask install firefox
 brew cask install fluid
@@ -19,12 +21,15 @@ brew cask install github
 brew cask install google-chrome
 brew cask install google-hangouts
 brew cask install heroku-toolbelt
+brew cask install hex-fiend
 brew cask install hipchat
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install knock
+brew cask install lastpass-universal
 brew cask install league-of-legends
 brew cask install libreoffice
+brew cask install lighttable
 brew cask install mactex
 brew cask install mou
 brew cask install movist
@@ -32,12 +37,14 @@ brew cask install pandoc
 brew cask install paparazzi
 brew cask install pckeyboardhack
 brew cask install pgadmin3
+brew cask install protege
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlprettypatch
 brew cask install qlstephen
 brew cask install quicklook-csv
 brew cask install quicklook-json
+brew cask install rdm
 brew cask install screenhero
 brew cask install sequel-pro
 brew cask install skype
@@ -45,12 +52,13 @@ brew cask install sourcetree
 brew cask install spotify
 brew cask install steam
 brew cask install suspicious-package
+brew cask install sweet-home3d
 brew cask install teamspeak-client
-brew cask install truecrypt
 brew cask install tuxguitar
 brew cask install vagrant
 brew cask install virtualbox
 brew cask install vlc
 brew cask install webp-quicklook
 brew cask install wineskin-winery
+brew cask install wireshark
 brew cask install xtrafinder
