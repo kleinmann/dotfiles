@@ -2,6 +2,7 @@
 *~
 .hg
 .netrwhist
+.idea
 
 # Mac OS X specific
 .DS_Store

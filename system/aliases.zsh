@@ -24,6 +24,8 @@ alias cdw='cd $HOME/code/codekunst'
 alias cdp='cd "$HOME/code"'
 alias cdc='cd "$HOME/code/checkout"'
 alias cdd='cd "$HOME/.dotfiles"'
+alias cdv='cd "$HOME/.vim/config"'
+alias cdgo='cd "$GOPATH"'
 
 alias smile='curl http://smiley.meatcub.es:1337'
 

@@ -77,13 +77,17 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 """ ctrlp.vim
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>. :CtrlPTag<CR>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
 
 """ ultisnips
+let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets/UltiSnips'
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
@@ -107,15 +111,14 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=
 let g:bufferline_echo=0
 
 """ vim-airline
-let g:airline_powerline_fonts=1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_enable_branch = 1
+let g:airline_enable_branch=1
 let g:airline_branch_prefix = ' '
 let g:airline_readonly_symbol = ''
 let g:airline_linecolumn_prefix = ' '
+let g:airline_theme='powerlineish'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_section_z=''
 
 """ selecta
 " Run a given vim command on the results of fuzzy selecting from a given shell
@@ -132,7 +135,7 @@ endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
+" map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
 
 """ vim-dispatch
 autocmd FileType java let b:dispatch = 'javac %'
@@ -153,3 +156,14 @@ autocmd FileType ruby xmap <buffer> <C-n> <Plug>(xmpfilter-run)
 
 """ vim-latex
 let g:tex_flavor='latex'
+
+""" calendar
+let g:calendar_google_calendar = 1
+
+""" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+""" SplitJoin
+nmap sj :SplitjoinSplit<CR>
+nmap sk :SplitjoinJoin<CR>

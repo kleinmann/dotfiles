@@ -1,2 +1,1 @@
-export DOCKER_HOST=localhost
-eval "$(dvm env)"
+export DOCKER_HOST=tcp://localhost:4243

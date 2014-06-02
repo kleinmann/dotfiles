@@ -4,7 +4,7 @@
 # standard order
 # PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 #
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH

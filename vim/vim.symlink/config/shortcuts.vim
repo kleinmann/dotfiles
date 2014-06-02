@@ -60,7 +60,7 @@ nnoremap <leader>h <C-w>s<C-w>j
 "" Set working directory to that of the current file
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 
-" Toggle Vexplore with Ctrl-E
+" Toggle Vexplore with Ctrl-E (or use :Lexplore)
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
       let expl_win_num = bufwinnr(t:expl_buf_num)
@@ -96,3 +96,11 @@ nnoremap <leader>{ :%s/{\([^ ]\)/{ \1/gc<CR>
 """ Tags
 "" Pop tag stack
 nnoremap t <C-]>
+
+""" Leader shortcuts
+nnoremap <Leader>w :w<CR>
+" Format XML
+nnoremap nmap <leader>xml :%!xmllint --format -<CR>
+" Format JSON, thanks to:
+" http://blog.realnitro.be/2010/12/20/format-json-in-vim-using-pythons-jsontool-module/
+nnoremap <leader>js :%!python -m json.tool<cr>:%s/ \{4\}/  /<CR>:noh<CR>gg
