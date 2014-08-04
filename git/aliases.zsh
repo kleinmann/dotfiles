@@ -1,6 +1,7 @@
 alias gs='git status -sb'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gm='git merge --no-ff --no-commit'
 alias gp='git pull'
 alias gpr='git stash ; git pull --rebase ; git stash pop'
 alias git-amend='git commit --amend'

@@ -16,8 +16,41 @@
 	assume   = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
 	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 	standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)"  ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+
+	; BEGIN KALEIDOSCOPE SECTION
+	; GAZE INTO THE ABYSS
+
+	; Find all commits in the given ref that aren't also in master
+	; TODO: Make this take a second optional argument
+      find-unmerged-commits = "!sh -c 'git log $1 --format='''%H''' --not master --' -"
+      find-unmerged-commits-for = "!sh -c 'git log $1 --format='''%H''' --not $2 --' -"
+
+	; ksdiff is the bare kaleidoscope difftool alias
+	; ksdiffid is the one that expects $KSID to be set
+      ksdiff = difftool -y -t Kaleidoscope
+      ksdiffid = difftool -y -t KaleidoscopeWithId
+
+	; ksdiffwith opens a diff of (current revision)->(given revision)
+      ksdiffwith = "!sh -c 'git ksdiff HEAD..$1' -"
+
+	; ksshow will open a single specific commit in kaleidoscope
+	; it includes the commit log info as a separate file
+      ksshow = "!sh -c 'export KSID=`uuidgen`; git log -n1 $1 > .git/LOG_MESSAGE; ksdiff --partial-changeset --UUID $KSID -- /dev/null .git/LOG_MESSAGE; git ksdiffid $1^..$1; ksdiff --mark-changeset-as-closed $KSID' -"
+
+	; ksreview takes a branch, finds all commits in that branch that aren't
+	; merged into master, and opens them one-by-one with ksshow.  It's good for
+	; reviewing pull requests.
+      ksreview = "!sh -c 'git find-unmerged-commits $1 | xargs -n1 git ksshow' -"
+      ksreviewfor = "!sh -c 'git find-unmerged-commits-for $1 $2 | xargs -n1 git ksshow' -"
+
+	; review takes a pull request URL and reviews it
+	; only works if you have the PR-fetching turned on and shit
+      review = "!sh -c 'git fetch upstream && git ksreviewfor `echo $1 | sed -Ee \"s_.*pull/([0-9]+)_refs/pull/upstream/\\1_\"` upstream/master' -"
+
+	; END KALEIDOSCOPE SECTION
 [color]
 	diff = 1
 	status = 1
@@ -47,6 +80,21 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[difftool "KaleidoscopeWithId"]
+	cmd = ksdiff --partial-changeset --UUID \"$KSID\" --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[merge]
+	tool = splice
+[mergetool "splice"]
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	trustExitCode = true
+[diff "sqlite3"]
+	textconv=/bin/sh -c 'sqlite3 "$0" .dump'
 
 # URL shorthands
 # gh:paulmillr/dotfiles
