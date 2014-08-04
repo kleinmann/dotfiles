@@ -57,6 +57,13 @@ endfunction
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>h <C-w>s<C-w>j
 
+noremap H ^
+noremap L g_
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
 "" Set working directory to that of the current file
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 
@@ -104,3 +111,18 @@ nnoremap nmap <leader>xml :%!xmllint --format -<CR>
 " Format JSON, thanks to:
 " http://blog.realnitro.be/2010/12/20/format-json-in-vim-using-pythons-jsontool-module/
 nnoremap <leader>js :%!python -m json.tool<cr>:%s/ \{4\}/  /<CR>:noh<CR>gg
+
+" Source
+vnoremap <leader>S y:execute @@<CR>
+nnoremap <leader>S ^vg_y:execute @@<CR>
+
+" Calculator as seen in @sjl's vimrc
+inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" Write with sudo
+cmap w!! w !sudo tee % >/dev/null
+
+" Filetype switching {{{
+nnoremap _rb :set ft=ruby<CR>
+nnoremap _php :set ft=php<CR>
+" }}}

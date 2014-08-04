@@ -167,3 +167,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 """ SplitJoin
 nmap sj :SplitjoinSplit<CR>
 nmap sk :SplitjoinJoin<CR>
+
+""" taglist.vim
+let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' .
+      \ 'v:variable;f:function'

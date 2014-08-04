@@ -1,8 +1,9 @@
 syntax on        " Turn on syntax highlight
 set mouse=a      " Mouse everywhere
 
-set nobackup          " Disable creation of backup file.
-set nowritebackup     " Disable creation of write backup files
+set backup
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
 
 set noswapfile
 
@@ -30,4 +31,4 @@ set wildmenu
 
 set wildmode=list:longest " Make cmdline tab completion similar to bash
 
-set completeopt=longest,menu " (only complete to the longest unambiguous match, and show a menu)
+set completeopt=longest,menuone,preview
