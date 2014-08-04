@@ -5,7 +5,7 @@
 " This was heavily inspired by @sjl from whose vimrc I borrowed some parts as
 " well.
 "
-" Author: Uwe Kleinmann <uwe@kleinmann.org
+" Author: Uwe Kleinmann <uwe@kleinmann.org>
 " Source: https://github.com/kleinmann/dotfiles/vim/vimrc.symlink
 "
 " }}}
@@ -66,7 +66,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rbenv'
 Bundle 'tpope/vim-repeat'
 Bundle 'airblade/vim-rooter'
-" Bundle 'tpope/vim-rsi'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 't9md/vim-ruby-xmpfilter'
@@ -75,6 +74,7 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'slim-template/vim-slim'
 Bundle 'justinmk/vim-sneak'
 Bundle 'tpope/vim-speeddating'
+Bundle 'sjl/splice.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'jimenezrick/vimerl'
@@ -116,6 +116,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set modelines=0
 set autoindent
+set smartindent
 set clipboard+=unnamed
 set showmode
 set showcmd
@@ -144,6 +145,7 @@ set shiftround
 set title
 set linebreak
 set colorcolumn=+1
+fixdel
 
 set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,tabpages,winsize,winpos " activate session saving
 
@@ -258,9 +260,9 @@ set colorcolumn=+1
 set backup                        " enable backups
 set noswapfile                    " it's 2013, Vim.
 
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+set undodir=~/.vimundo//     " undo files
+set backupdir=~/.vimbackup// " backups
+set directory=~/.vimswap//   " swap files
 
 " Make those folders automatically if they don't already exist.
 if !isdirectory(expand(&undodir))
@@ -906,6 +908,30 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 " map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
+
+" }}}
+" Splice {{{
+
+let g:splice_prefix = "-"
+
+let g:splice_initial_mode = "grid"
+
+let g:splice_initial_layout_grid = 0
+let g:splice_initial_layout_loupe = 0
+let g:splice_initial_layout_compare = 0
+let g:splice_initial_layout_path = 0
+
+let g:splice_initial_diff_grid = 1
+let g:splice_initial_diff_loupe = 0
+let g:splice_initial_diff_compare = 1
+let g:splice_initial_diff_path = 0
+
+let g:splice_initial_scrollbind_grid = 0
+let g:splice_initial_scrollbind_loupe = 0
+let g:splice_initial_scrollbind_compare = 0
+let g:splice_initial_scrollbind_path = 0
+
+let g:splice_wrap = "nowrap"
 
 " }}}
 " SplitJoin  {{{
