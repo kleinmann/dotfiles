@@ -1,36 +1,77 @@
-# This configuration is heavily inspired by github.com/aziz
+set -g prefix C-a
+unbind C-b
+bind a send-prefix
 
-set-option -g prefix C-a
+# Relax!
+set -sg escape-time 0
+set -sg repeat-time 600
+
+# Shut up.
+set -g quiet on
+
+# Mouse
+set -g mode-mouse copy
+setw -g mouse-select-window on
+setw -g mouse-select-pane on
+
+# This is hilariously absurd.  How many nerds use tmux on OS X every day and
+# it's still fundamentally broken?
+set -g default-command "reattach-to-user-namespace -l zsh"
 
 unbind %
-bind-key |      split-window -h
-bind-key -      split-window -v
-bind-key C-a    last-window
-bind-key a      send-prefix # reach nested sessions
-bind-key Escape copy-mode -u
-bind-key ,      previous-window
-bind-key .      next-window
-bind-key <      swap-window -t :-
-bind-key >      swap-window -t :+
-bind-key C-h    resize-pane -L 5
-bind-key C-l    resize-pane -R 5
-bind-key C-k    resize-pane -U 5
-bind-key C-j    resize-pane -D 5
-
-setw -g aggressive-resize on
+bind |      split-window -h -c '#{pane_current_path}'
+bind -      split-window -v -c '#{pane_current_path}'
+bind S choose-session
+bind C-a    last-window
+bind Escape copy-mode -u
+bind ,      previous-window
+bind .      next-window
+bind <      swap-window -t :-
+bind >      swap-window -t :+
+bind -r C-h    resize-pane -L 5
+bind -r C-l    resize-pane -R 5
+bind -r C-k    resize-pane -U 5
+bind -r C-j    resize-pane -D 5
 
 set -g base-index 1 # start window numbering at 1
+setw -g pane-base-index 1
 
-# Set status bar
-set-option -g status-utf8 on
-set-option -g status-bg black
-set-option -g status-fg white
+# Pane movement
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
-set-option -g status-left ' #[bold]❐ #S#[default] ⡇'
-set-option -g status-right '#[bold]#(whoami) ● #H#[default] '
+# Layouts
+set -g main-pane-width 260
+bind M select-layout main-vertical
+bind E select-layout even-horizontal
 
-set-option -g status-right-length 60
-set-option -g status-left-length 60
+# 256 colors please
+set -g default-terminal "screen-256color"
+
+# Bad Wolf
+set -g status-fg white
+set -g status-bg colour234
+set -g window-status-activity-attr bold
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour39
+set -g message-fg colour16
+set -g message-bg colour221
+set -g message-attr bold
+
+# Custom status bar
+# Powerline symbols: ⮂ ⮃ ⮀ ⮁ ⭤
+set -g status-left-length 32
+set -g status-right-length 150
+set -g status-interval 5
+
+set -g status-left '#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour238,nobold]⮀#[fg=colour15,bg=colour238,bold] #[fg=colour238,bg=colour234,nobold]⮀'
+
+set -g status-right "#[fg=colour245]⮃ #(date -u +%%H:%%M) UTC ⮃ %d %b #[fg=colour254,bg=colour234,nobold]⮂#[fg=colour16,bg=colour254,bold] #h "
+
+set -g window-status-format "#[fg=white,bg=colour234] #I #W "
+set -g window-status-current-format "#[fg=colour234,bg=colour39]⮀#[fg=colour16,bg=colour39,noreverse,bold] #I ⮁ #W #[fg=colour39,bg=colour234,nobold]⮀"
 
 ## highlight active window
 set-window-option -g window-status-current-bg colour166
@@ -39,25 +80,23 @@ set-window-option -g window-status-current-attr bold
 set-window-option -g window-status-current-format ' #I #W '
 
 ## set window notifications
-set-option -g visual-activity on
+set-option -g visual-activity off
 set-option -g visual-content on
 set-window-option -g monitor-activity on
-set-window-option -g automatic-rename off
-
-## tmux window titling for X
-set-option -g set-titles on
-set-option -g set-titles-string '[#I] #W'
 set-window-option -g automatic-rename on
-set-window-option -g window-status-format ' #I #W '
-set-window-option -g window-status-attr bold
 
-## pane border and colors
-set-option -g pane-active-border-fg yellow
-set-option -g pane-border-fg white
+# Copy mode
+setw -g mode-keys vi
+bind ` copy-mode
+unbind [
+unbind p
+bind p paste-buffer
+bind -t vi-copy H start-of-line
+bind -t vi-copy L end-of-line
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind -t vi-copy Escape cancel
+bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 
 ## activate mouse-mode
 set-option -g mode-mouse on
-
-set -g default-terminal "screen-256color"
-
-new-session # creates new session if attach is called but no session exists
