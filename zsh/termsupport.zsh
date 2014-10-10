@@ -62,7 +62,12 @@ function prompt_hook {
 
   vcs_info
 }
-precmd_functions+=(prompt_hook)
+
+
+# For Timing.app
+timingprompt() { eval 'echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"' }
+
+precmd_functions+=(prompt_hook timingprompt)
 
 _Z_NO_RESOLVE_SYMLINKS=1
 . $HOME/bin/z
