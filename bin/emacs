@@ -10,13 +10,13 @@ if [[ `uname` == "Darwin" ]]; then
     fi
     if [[ $SWITCHES != '-t' ]]; then
       echo "${@:2}"
-      /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "$@"
+      /usr/local/bin/emacsclient $SWITCHES "$@"
       exec osascript -e 'tell application "Emacs" to activate'
     else
-      exec /Applications/Emacs.app/Contents/MacOS/bin/emacsclient $SWITCHES "${@:2}"
+      exec /usr/local/bin/emacsclient $SWITCHES "${@:2}"
     fi
   else
-    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t "$@" 
+    /usr/local/bin/emacsclient -t "$@"
   fi
 else
   if [[ $(ps -ef | grep "emacs --daemon" | grep -v grep) == "" ]]; then
