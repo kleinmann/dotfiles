@@ -44,3 +44,6 @@ export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
 [[ -x `which brew` ]] && export ANDROID_HOME=$(brew --prefix android-sdk)
 
 export ECLIPSE_HOME='/Applications/eclipse'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
