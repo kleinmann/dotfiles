@@ -30,8 +30,6 @@ Bundle 'rking/ag.vim'
 Bundle 'moll/vim-bbye'
 Bundle 'itchyny/calendar.vim'
 Bundle 'sjl/clam.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'Raimondi/delimitMate'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'terryma/vim-expand-region'
@@ -60,6 +58,7 @@ Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-haml'
 Bundle 'vim-scripts/listmaps.vim'
 Bundle 'hallison/vim-markdown'
+Bundle 'jceb/vim-orgmode'
 Bundle 'rodjek/vim-puppet'
 Bundle 'klen/python-mode'
 Bundle 'tpope/vim-rails'
@@ -72,10 +71,10 @@ Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'vim-scripts/scratch.vim'
 Bundle 'tpope/vim-sleuth'
 Bundle 'slim-template/vim-slim'
-Bundle 'justinmk/vim-sneak'
 Bundle 'tpope/vim-speeddating'
 Bundle 'sjl/splice.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'mhinz/vim-startify'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -84,7 +83,13 @@ Bundle 'beyondwords/vim-twig'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'gcmt/wildfire.vim'
-Bundle 'vim-scripts/YankRing.vim'
+
+" Unite
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'junkblocker/unite-codesearch'
+Plugin 'Shougo/unite-outline'
+Bundle 'tsukkee/unite-tag'
 
 " Snippets
 Bundle 'honza/vim-snippets'
@@ -139,13 +144,13 @@ set matchtime=3
 set showbreak=↪
 set splitbelow
 set splitright
+set switchbuf=useopen
 set autowrite
 set autoread
 set shiftround
 set title
 set linebreak
 set colorcolumn=+1
-fixdel
 
 set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,tabpages,winsize,winpos " activate session saving
 
@@ -429,6 +434,7 @@ noremap <leader>v <C-w>v
 " Folding ------------------------------------------------------------------ {{{
 
 set foldlevelstart=0
+set foldcolumn=1
 set foldmethod=marker
 
 " Toggle folds with space
@@ -459,14 +465,12 @@ set foldtext=MyFoldText()
 " }}}
 " Filetype-specific -------------------------------------------------------- {{{
 
-
 " All ---------------------------------------------------------------------- {{{
 
 " Remove trailing whitespaces and \^M chars
 autocmd BufWritePre * :%s/\s\+$//e
 
 " }}}
-
 " CSS ---------------------------------------------------------------------- {{{
 
 augroup ft_css
@@ -487,7 +491,6 @@ augroup ft_css
 augroup END
 
 " }}}
-
 " Docker ------------------------------------------------------------------- {{{
 
 augroup ft_docker
@@ -496,7 +499,6 @@ augroup ft_docker
 augroup END
 
 " }}}
-
 " HTML --------------------------------------------------------------------- {{{
 
 augroup ft_html
@@ -517,7 +519,6 @@ augroup ft_html
 augroup END
 
 " }}}
-
 " Javascript --------------------------------------------------------------- {{{
 
 augroup ft_javascript
@@ -539,7 +540,6 @@ augroup ft_javascript
 augroup END
 
 " }}}
-
 " Objective C -------------------------------------------------------------- {{{
 
 augroup ft_objectivec
@@ -549,7 +549,6 @@ augroup ft_objectivec
 augroup END
 
 " }}}
-
 " PHP ---------------------------------------------------------------------- {{{
 
 augroup ft_php
@@ -559,7 +558,6 @@ augroup ft_php
 augroup END
 
 " }}}
-
 " Puppet ------------------------------------------------------------------- {{{
 
 augroup ft_puppet
@@ -570,7 +568,6 @@ augroup ft_puppet
 augroup END
 
 " }}}
-
 " Python ------------------------------------------------------------------- {{{
 
 augroup ft_python
@@ -580,13 +577,13 @@ augroup ft_python
 augroup END
 
 " }}}
-
 " Ruby --------------------------------------------------------------------- {{{
 
 augroup ft_ruby
     au!
     au FileType ruby,haml,eruby,yaml setlocal ai sw=2 sts=2 et
     au FileType ruby setlocal foldmethod=syntax
+    au FileType ruby normal zR
 
     au BufNewFile,BufReadPost Capfile setlocal filetype=ruby
     au BufNewFile,BufReadPost Cheffile setlocal filetype=ruby
@@ -603,16 +600,14 @@ augroup ft_ruby
 augroup END
 
 " }}}
-
 " TeX ---------------------------------------------------------------------- {{{
 
 augroup ft_tex
     au!
-    au FileType tex nnoremap <buffer> <Leader>m :!make ; make clean ; open -g *.pdf<CR>
+    au FileType tex nnoremap <buffer> <Leader>m :Make<CR>Make clean<CR>!open -g *.pdf<CR>
 augroup END
 
 " }}}
-
 " Vim ---------------------------------------------------------------------- {{{
 
 augroup ft_vim
@@ -624,7 +619,6 @@ augroup ft_vim
 augroup END
 
 " }}}
-
 " XML ---------------------------------------------------------------------- {{{
 
 augroup ft_xml
@@ -640,7 +634,7 @@ augroup ft_xml
     au FileType xml nnoremap <buffer> <localleader>= Vat=
 
     " Format XML
-    nnoremap nmap <leader>xml :%!xmllint --format -<CR>
+    au FileType xml nnoremap <leader>xml :%!xmllint --format -<CR>
 augroup END
 
 " }}}
@@ -650,8 +644,8 @@ augroup END
 
 " Ag  {{{
 
-nnoremap <Leader>a :Ag<space>
-let g:agprg='ag --smart-case --nogroup --nocolor --column'
+" nnoremap <Leader>a :Ag<space>
+" let g:agprg='ag --smart-case --nogroup --nocolor --column'
 
 " }}}
 " Airline  {{{
@@ -697,27 +691,6 @@ augroup plugin_commentary
     au FileType puppet setlocal commentstring=#\ %s
     au FileType fish setlocal commentstring=#\ %s
 augroup END
-
-" }}}
-" Ctrl-P  {{{
-
-nnoremap <Leader>t :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>. :CtrlPTag<CR>
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_max_files = 0
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard', 'find %s "(" -type f -or -type l ")" -maxdepth 15 -not -path "*/\.*/*"']
-let g:ctrlp_use_caching = 0
-let g:ctrlp_dont_split = 'NERD_tree_2'
-let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_split_window = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_extensions = ['tag']
 
 " }}}
 " DelimitMate  {{{
@@ -800,7 +773,7 @@ augroup ps_nerdtree
     au Filetype nerdtree setlocal nolist
     au Filetype nerdtree nnoremap <buffer> H :vertical resize -10<cr>
     au Filetype nerdtree nnoremap <buffer> L :vertical resize +10<cr>
-    " au Filetype nerdtree nnoremap <buffer> K :q<cr>
+    au Filetype nerdtree nnoremap <buffer> K :q<cr>
 augroup END
 
 " }}}
@@ -1002,20 +975,64 @@ endfunction
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " }}}
-" YankRing {{{
+" Unite {{{
+let g:unite_split_rule = "botright"
+let g:unite_update_time = 300
+let g:unite_cursor_line_highlight = "CursorLine"
+let g:unite_prompt = "➜ "
+let g:unite_source_rec_async_command = 'ag -l .'
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --line-numbers'
+let g:unite_source_grep_recursive_opt = ''
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
-function! YRRunAfterMaps()
-    " Make Y yank to end of line.
-    nnoremap Y :<C-U>YRYankCount 'y$'<CR>
+" Set up some custom ignores
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.(hg|git|bzr)/',
+      \ '\.(o|swp|pyc|wav|mp3|ogg|blend)',
+      \ 'tmp/',
+      \ 'node_modules/',
+      \ 'bower_components/',
+      \ '.sass-cache',
+      \ ], '\|'))
 
-    " Fix L and H in operator-pending mode, so yH and such works.
-    omap <expr> L YRMapsExpression("", "$")
-    omap <expr> H YRMapsExpression("", "^")
+" nnoremap <silent> <C-d> :Unite -buffer-name=browse file<cr>
+nnoremap <silent> <Leader>a :Unite -buffer-name=ag grep:.<cr>
+nnoremap <silent> <Leader>b :Unite -start-insert -buffer-name=buffers -quick-match buffer<cr>
+nnoremap <silent> <Leader>t :Unite -start-insert -buffer-name=files file_rec/async<cr>
+nnoremap <silent> <Leader>. :Unite -buffer-name=tags tag<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <silent> <Leader>p :Unite -buffer-name=yanks history/yank<cr>
+nnoremap <silent> <leader>o :Unite -buffer-name=outline -vertical outline<cr>
+nnoremap <silent> <leader>s :Unite -buffer-name=cs codesearch<cr>
 
-    " Don't clobber the yank register when pasting over text in visual mode.
-    vnoremap p :<c-u>YRPaste 'p', 'v'<cr>gv:YRYankRange 'v'<cr>
+" Function that only triggers when unite opens
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+
+  " exit with esc
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+  imap <buffer> <ESC> <Plug>(unite_exit)
+
+  " Ctrl jk mappings
+  imap <buffer> <c-j> <Plug>(unite_insert_leave)
+  imap <buffer> <c-k> <Plug>(unite_insert_leave)
+  nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
+  nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
+
+  " refresh unite
+  nmap <buffer> <C-r> <Plug>(unite_redraw)
+  imap <buffer> <C-r> <Plug>(unite_redraw)
+
+  " split control
+  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+
 endfunction
-
 " }}}
 
 " }}}
@@ -1233,4 +1250,3 @@ if filereadable(expand("~/.vimrc_local"))
 endif
 
 " }}}
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
