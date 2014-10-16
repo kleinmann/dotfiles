@@ -1,0 +1,3 @@
+#!/bin/sh -e
+curl https://raw.githubusercontent.com/sjl/friendly-find/master/ffind > ~/bin/ffind
+chmod +x ~/bin/ffind
