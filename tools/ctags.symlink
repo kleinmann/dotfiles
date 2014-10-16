@@ -1,6 +1,7 @@
 --extra=+f+q
 --verbose=yes
 --tag-relative=yes
+--fields=+l
 
 --exclude=*.min.js
 --exclude=*.sqlite3

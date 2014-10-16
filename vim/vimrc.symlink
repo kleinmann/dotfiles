@@ -50,6 +50,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'honza/dockerfile.vim'
+Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise.git'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-fugitive'
@@ -74,7 +75,6 @@ Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-speeddating'
 Bundle 'sjl/splice.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'mhinz/vim-startify'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -82,6 +82,7 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'beyondwords/vim-twig'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'Shougo/vimfiler.vim'
 Bundle 'gcmt/wildfire.vim'
 
 " Unite
@@ -113,6 +114,7 @@ Bundle 'matchit.zip'
 Bundle 'xmledit'
 
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 " }}}
 " Basics ------------------------------------------------------------------- {{{
@@ -173,8 +175,8 @@ set ttimeoutlen=10
 set backupskip=/tmp/*,/private/tmp/*"
 
 " Better Completion
-set complete=.,w,b,u,t
-set completeopt=longest,menuone,preview
+set complete=.,b,u,t,i
+set completeopt=longest,menu,preview
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
@@ -555,6 +557,7 @@ augroup ft_php
     au!
     au FileType php setlocal sw=4 sts=4 et
     au FileType php setlocal foldmethod=syntax
+    au FileType php setlocal foldlevelstart=99
 augroup END
 
 " }}}
@@ -583,6 +586,7 @@ augroup ft_ruby
     au!
     au FileType ruby,haml,eruby,yaml setlocal ai sw=2 sts=2 et
     au FileType ruby setlocal foldmethod=syntax
+    au FileType ruby setlocal foldlevelstart=99
     au FileType ruby normal zR
 
     au BufNewFile,BufReadPost Capfile setlocal filetype=ruby
@@ -750,7 +754,7 @@ let g:tex_flavor='latex'
 " NERDTree  {{{
 
 " Ctrl+D map to toggle NERDTree
-nnoremap <silent> <C-d> :NERDTreeToggle<CR>
+" nnoremap <silent> <C-d> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeMinimalUI=1
 let g:nerdtree_tabs_focus_on_files=1
@@ -1033,6 +1037,49 @@ function! s:unite_settings()
   nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
 
 endfunction
+" }}}
+" Vimfiler {{{
+
+nnoremap <silent> <C-d> :VimFilerExplorer<CR>
+" Disable netrw.vim
+let g:loaded_netrwPlugin = 1
+let g:vimfiler_as_default_explorer = 1
+function! s:vimfiler_on_enter() "{{{
+  let context = vimfiler#get_context()
+
+  if context.explorer
+    let mapping = vimfiler#mappings#smart_cursor_map(
+          \ "\<Plug>(vimfiler_expand_tree)",
+          \ "\<Plug>(vimfiler_edit_file)"
+          \ )
+  else
+    let mapping = vimfiler#mappings#smart_cursor_map(
+          \ "\<Plug>(vimfiler_cd_file)",
+          \ "\<Plug>(vimfiler_edit_file)"
+          \ )
+  endif
+
+  execute "normal " . mapping
+endfunction "}}}
+
+augroup ps_vimfiler
+    au!
+
+    au Filetype vimfiler setlocal nolist
+    au Filetype vimfiler nnoremap <buffer> H :vertical resize -10<cr>
+    au Filetype vimfiler nnoremap <buffer> L :vertical resize +10<cr>
+    au Filetype vimfiler nnoremap <buffer> K :q<cr>
+    au FileType vimfiler nmap <buffer><silent> <Enter> :call <SID>vimfiler_on_enter()<CR>
+augroup END
+
+" }}}
+" YouCompleteMe {{{
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+
+" TODO: Make arrow keys not jump in result list but actually move around in the
+" file.
 " }}}
 
 " }}}
