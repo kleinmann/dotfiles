@@ -57,6 +57,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'fatih/vim-go'
 Bundle 'tpope/vim-haml'
+Bundle 'haya14busa/incsearch.vim'
 Bundle 'vim-scripts/listmaps.vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'jceb/vim-orgmode'
@@ -102,6 +103,7 @@ Bundle 'Zenburn'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'CSApprox'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'nice/sweater'
 
 " Visuals
 Bundle 'rainbow_parentheses.vim'
@@ -304,11 +306,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Searching and moving ----------------------------------------------------- {{{
 
 " Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v
 cnoremap s/ s/\v
-nnoremap ? ?\v
-vnoremap ? ?\v
 cnoremap s? s?\v
 
 set ignorecase
@@ -739,6 +737,13 @@ let g:gundo_preview_bottom = 1
 let g:gundo_tree_statusline = "Gundo"
 let g:gundo_preview_statusline = "Gundo Preview"
 
+" }}}
+" Incsearch.vim {{{
+let g:incsearch#magic = '\v'
+let g:incsearch#consistent_n_direction = 1
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 " }}}
 " Indent guides  {{{
 
@@ -1253,7 +1258,7 @@ map <leader>header :call MakeBlockHeader()<cr>
 if has('gui_running')
     " GUI Vim
 
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
     " Remove all the UI cruft
     set go-=T
@@ -1270,10 +1275,8 @@ if has('gui_running')
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 
-    " Different cursors for different modes.
-    set guicursor=n-c:block-Cursor-blinkon0
-    set guicursor+=v:block-vCursor-blinkon0
-    set guicursor+=i-ci:ver20-iCursor
+    color sweater
+    set bg=light
 
     if has("gui_macvim")
         " Full screen means FULL screen
