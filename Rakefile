@@ -5,7 +5,7 @@ require 'highline/import'
 
 desc "Hook our dotfiles into system-standard positions."
 task :install do
-  encrypted = Dir.glob('*/**{.gpg}') | Dir.glob('*.gpg')
+  encrypted = Dir.glob('*/*/**{.gpg}') | Dir.glob('*/**{.gpg}') | Dir.glob('*.gpg')
   passphrase = nil
   encrypted.each do |encrypted_file|
     passphrase ||= ask("Enter passphrase for encrypted files: ") { |q| q.echo = false }
@@ -14,7 +14,7 @@ task :install do
     `gpg --batch --yes --passphrase "#{passphrase}" $PWD/#{encrypted_file}`
   end
 
-  linkables = Dir.glob('*/**{.symlink}') | Dir.glob('*.symlink')
+  linkables = Dir.glob('*/*/**{.symlink}') | Dir.glob('*/**{.symlink}') | Dir.glob('*.symlink')
 
   skip_all = false
   overwrite_all = false
@@ -53,8 +53,9 @@ task :install do
 end
 
 task :uninstall do
+  linkables = Dir.glob('*/*/**{.symlink}') | Dir.glob('*/**{.symlink}') | Dir.glob('*.symlink')
 
-  Dir.glob('**/*.symlink').each do |linkable|
+  linkables.each do |linkable|
 
     file = linkable.split('/').last.split('.symlink').last
     target = "#{ENV["HOME"]}/.#{file}"
@@ -63,10 +64,10 @@ task :uninstall do
     if File.symlink?(target)
       FileUtils.rm(target)
     end
-    
+
     # Replace any backups made during installation
     if File.exists?("#{ENV["HOME"]}/.#{file}.backup")
-      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"` 
+      `mv "$HOME/.#{file}.backup" "$HOME/.#{file}"`
     end
 
   end
