@@ -31,6 +31,7 @@ Bundle 'moll/vim-bbye'
 Bundle 'itchyny/calendar.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'Raimondi/delimitMate'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'terryma/vim-expand-region'
 Bundle 'Konfekt/FastFold'
@@ -40,7 +41,6 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'scrooloose/nerdtree'
 Bundle 'spf13/PIV'
 Bundle 'scrooloose/syntastic'
-Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 Bundle 'duwanis/tomdoc.vim'
 Bundle 'KurtPreston/vim-autoformat-rails'
@@ -710,6 +710,13 @@ autocmd FileType ruby let b:dispatch = 'rspec %'
 nnoremap <leader>d :Dispatch<CR>
 
 " }}}
+" Easy Align {{{
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap t <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
+nmap <Leader>a <Plug>(EasyAlign)
+" }}}
 " Expand Region  {{{
 
 vmap v <Plug>(expand_region_expand)
@@ -939,20 +946,6 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_jsl_conf = '$HOME/.vim/config/jsl.conf'
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-
-" }}}
-" Tabularize  {{{
-
-if exists(":Tabularize")
-  nmap <Leader>t= :Tabularize /=<CR>
-  vmap <Leader>t= :Tabularize /=<CR>
-  nmap <Leader>t: :Tabularize /:\zs<CR>
-  vmap <Leader>t: :Tabularize /:\zs<CR>
-  nmap <Leader>t, :Tabularize /,\zs<CR>
-  vmap <Leader>t, :Tabularize /,\zs<CR>
-  nmap <Leader>t> :Tabularize /=>\zs<CR>
-  vmap <Leader>t> :Tabularize /=>\zs<CR>
-endif
 
 " }}}
 " taglist.vim  {{{
