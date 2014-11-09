@@ -1,0 +1,16 @@
+[database]
+path=/Users/uwe/Mail/Gmail
+
+[user]
+name=Uwe Kleinmann
+primary_email=u.kleinmann@googlemail.com
+
+[new]
+tags=unread;inbox;
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true

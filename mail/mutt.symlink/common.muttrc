@@ -1,0 +1,199 @@
+###############################################################################
+## General
+###############################################################################
+
+# Various paths
+set header_cache=~/.muttlocal/cache/headers
+set message_cachedir=~/.muttlocal/cache/messages
+set certificate_file=~/.mutt/certificates
+
+set editor = "vim"        # Use terminal Vim to compose email.
+
+# Always quote in replies
+set include = yes
+# Don't wait after running external command
+set wait_key = no
+# Look for email after three seconds of inactivity
+set timeout = 3
+# Minimum time between email checks
+set mail_check = 0
+
+# Shut up
+set wait_key = no
+
+# Mailbox type
+set mbox_type = Maildir
+
+set delete               # don't ask, just do
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+
+# Gmail
+unset move
+
+# Don't update read counts very frequently when loading large mailboxes
+set read_inc = 1000
+
+# Strip HTML tags from HTML emails
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html                                   # view html automatically
+alternative_order text/plain text/enriched text/html  # save html for last
+
+# Open an HTML attachment in Chrome
+macro pager H <view-attachments>/html<enter><view-mailcap><exit>
+
+# Only move read emails when they're actually looked at, not simply because we
+# saw them in the list
+set mark_old = no
+
+# Hitting C-b while viewing a message opens links
+macro index,pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+# Organize into threads, sorting the threads by sender
+set sort=threads
+set sort_aux=reverse-date-sent
+
+###############################################################################
+## Folders
+###############################################################################
+
+###############################################################################
+## Navigation
+###############################################################################
+
+# GMail-style folder navigation shortcuts
+macro index,pager gl "<change-folder>"
+macro index,pager gi "<change-folder>=$my_inbox<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=$my_archive<enter>" "Go to all mail"
+macro index,pager gd "<change-folder>=$my_drafts<enter>" "Go to drafts"
+macro index,pager gt "<change-folder>=$my_sent<enter>" "Go to sent mail"
+macro index,pager gs "<change-folder>=$my_spam<enter>" "Go to sent mail"
+
+###############################################################################
+## Index View Options
+###############################################################################
+
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+#set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+###############################################################################
+## Pager View Options
+###############################################################################
+
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+###############################################################################
+## Pager Key Bindings
+###############################################################################
+
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
+bind pager R  group-reply
+
+bind pager N search-opposite
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+###############################################################################
+## Index Key Bindings
+###############################################################################
+
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
+bind index p recall-message
+
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+bind index N search-opposite
+
+macro index a "<limit>all\n" "show all messages (undo limit)"
+
+###############################################################################
+## Compose View Options
+###############################################################################
+
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+bind compose p postpone-message
+
+# needs brew install contacts
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
+###############################################################################
+## Beautification
+###############################################################################
+
+# Status Bar (from Steve Losh)
+set status_chars  = " *%A"
+# No idea what most of this is
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Header (from Steve Losh)
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+###############################################################################
+## Sidebar Patch
+###############################################################################
+
+set sidebar_delim   = '  │'
+set sidebar_visible = yes
+set sidebar_width   = 24
+color sidebar_new color221 color233
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+source ~/.mutt/zenburn

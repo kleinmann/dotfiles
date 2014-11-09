@@ -1,0 +1,16 @@
+[database]
+path=/Users/uwe/Mail/codekunst
+
+[user]
+name=codekunst · Uwe Kleinmann
+primary_email=uwe@codekunst.com
+
+[new]
+tags=unread;inbox;
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true

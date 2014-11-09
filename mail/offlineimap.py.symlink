@@ -1,0 +1,13 @@
+import os
+
+def get_keychain_password(key):
+  cmd = "/usr/local/bin/lpass show --password '%s'" % key
+  password = os.popen(cmd).readline()
+  return password
+
+def get_imap_password(account):
+  return {
+    "Gmail": get_keychain_password("Google Account"),
+    "kleinmann.org": get_keychain_password("Google Apps kleinmann.org"),
+    "codekunst": get_keychain_password("Google Apps codekunst")
+  }.get(account, "")

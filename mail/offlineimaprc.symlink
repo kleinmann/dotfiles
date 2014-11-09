@@ -1,0 +1,109 @@
+[general]
+ui = ttyui
+pythonfile = ~/.offlineimap.py
+accounts = Gmail, kleinmann, codekunst
+socktimeout = 60
+maxsyncaccounts = 3
+fsync = false
+
+[Account Gmail]
+localrepository = GmailLocal
+remoterepository = GmailRemote
+status_backend = sqlite
+postsynchook = NOTMUCH_CONFIG=~/.notmuch-config-gmail notmuch new
+
+[Repository GmailLocal]
+localfolders = ~/Mail/Gmail
+type = GmailMaildir
+nametrans = lambda folder: {'drafts':  '[Google Mail]/Entw&APw-rfe',
+                            'sent':    '[Google Mail]/Gesendet',
+                            'flagged': '[Google Mail]/Markiert',
+                            'trash':   '[Google Mail]/Papierkorb',
+                            'archive': '[Google Mail]/Alle Nachrichten',
+                            }.get(folder, folder)
+
+[Repository GmailRemote]
+type = Gmail
+maxconnections = 1
+remoteuser = u.kleinmann
+remotepasseval = get_imap_password("Gmail")
+realdelete = no
+sslcacertfile = ~/.dotfiles/mail/CA.pem
+nametrans = lambda folder: {'[Google Mail]/Entw&APw-rfe':     'drafts',
+                            '[Google Mail]/Gesendet':         'sent',
+                            '[Google Mail]/Markiert':         'flagged',
+                            '[Google Mail]/Papierkorb':       'trash',
+                            '[Google Mail]/Alle Nachrichten': 'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Google Mail]/Papierkorb',
+                                             '[Google Mail]/Wichtig',
+                                             '[Google Mail]/Spam',
+                                             ]
+
+[Account kleinmann]
+localrepository = kleinmannLocal
+remoterepository = kleinmannRemote
+status_backend = sqlite
+postsynchook = NOTMUCH_CONFIG=~/.notmuch-config-kleinmann.org notmuch new
+
+[Repository kleinmannLocal]
+localfolders = ~/Mail/kleinmann.org
+type = GmailMaildir
+nametrans = lambda folder: {'drafts':  '[Gmail]/Entw&APw-rfe',
+                            'sent':    '[Gmail]/Gesendet',
+                            'flagged': '[Gmail]/Markiert',
+                            'trash':   '[Gmail]/Papierkorb',
+                            'archive': '[Gmail]/Alle Nachrichten',
+                            }.get(folder, folder)
+
+[Repository kleinmannRemote]
+type = Gmail
+maxconnections = 1
+remoteuser = uwe@kleinmann.org
+remotepasseval = get_imap_password("kleinmann.org")
+realdelete = no
+sslcacertfile = ~/.dotfiles/mail/CA.pem
+nametrans = lambda folder: {'[Gmail]/Entw&APw-rfe':     'drafts',
+                            '[Gmail]/Gesendet':         'sent',
+                            '[Gmail]/Markiert':         'flagged',
+                            '[Gmail]/Papierkorb':       'trash',
+                            '[Gmail]/Alle Nachrichten': 'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Papierkorb',
+                                             '[Gmail]/Wichtig',
+                                             '[Gmail]/Spam',
+                                             ]
+
+[Account codekunst]
+localrepository = codekunstLocal
+remoterepository = codekunstRemote
+status_backend = sqlite
+postsynchook = NOTMUCH_CONFIG=~/.notmuch-config-codekunst notmuch new
+
+[Repository codekunstLocal]
+localfolders = ~/Mail/codekunst
+type = GmailMaildir
+nametrans = lambda folder: {'drafts':  '[Gmail]/Entw&APw-rfe',
+                            'sent':    '[Gmail]/Gesendet',
+                            'flagged': '[Gmail]/Markiert',
+                            'trash':   '[Gmail]/Papierkorb',
+                            'archive': '[Gmail]/Alle Nachrichten',
+                            }.get(folder, folder)
+
+[Repository codekunstRemote]
+type = Gmail
+maxconnections = 1
+remoteuser = uwe@codekunst.com
+remotepasseval = get_imap_password("codekunst")
+realdelete = no
+sslcacertfile = ~/.dotfiles/mail/CA.pem
+nametrans = lambda folder: {'[Gmail]/Entw&APw-rfe':     'drafts',
+                            '[Gmail]/Gesendet':         'sent',
+                            '[Gmail]/Markiert':         'flagged',
+                            '[Gmail]/Papierkorb':       'trash',
+                            '[Gmail]/Alle Nachrichten': 'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Papierkorb',
+                                             '[Gmail]/Wichtig',
+                                             '[Gmail]/Spam',
+                                             ]
