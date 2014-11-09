@@ -33,6 +33,7 @@ Bundle 'sjl/clam.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'terryma/vim-expand-region'
+Bundle 'Konfekt/FastFold'
 Bundle 'sjl/gundo.vim'
 Bundle 'othree/html5.vim'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
@@ -554,7 +555,7 @@ augroup END
 augroup ft_php
     au!
     au FileType php setlocal sw=4 sts=4 et
-    au FileType php setlocal foldmethod=syntax
+    au FileType php setlocal foldmethod=indent
     au FileType php setlocal foldlevelstart=99
 augroup END
 
