@@ -428,7 +428,6 @@ noremap <leader>v <C-w>v
 " }}}
 " Folding ------------------------------------------------------------------ {{{
 
-set foldlevelstart=0
 set foldcolumn=1
 set foldmethod=marker
 
@@ -550,7 +549,7 @@ augroup ft_php
     au!
     au FileType php setlocal sw=4 sts=4 et
     au FileType php setlocal foldmethod=indent
-    au FileType php setlocal foldlevelstart=99
+    au FileType php normal zR
 augroup END
 
 " }}}
@@ -579,7 +578,6 @@ augroup ft_ruby
     au!
     au FileType ruby,haml,eruby,yaml setlocal ai sw=2 sts=2 et
     au FileType ruby setlocal foldmethod=syntax
-    au FileType ruby setlocal foldlevelstart=99
     au FileType ruby normal zR
 
     au BufNewFile,BufReadPost Capfile setlocal filetype=ruby
