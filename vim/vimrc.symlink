@@ -1059,6 +1059,8 @@ augroup ps_vimfiler
     au Filetype vimfiler setlocal nolist
     au Filetype vimfiler nnoremap <buffer> H :vertical resize -10<cr>
     au Filetype vimfiler nnoremap <buffer> L :vertical resize +10<cr>
+    au FileType vimfiler nnoremap <silent><buffer><expr> s vimfiler#do_action('vsplit')
+    au FileType vimfiler nnoremap <silent><buffer><expr> i vimfiler#do_action('split')
     au Filetype vimfiler nnoremap <buffer> K :q<cr>
     au FileType vimfiler nmap <buffer><silent> <Enter> :call <SID>vimfiler_on_enter()<CR>
 augroup END
