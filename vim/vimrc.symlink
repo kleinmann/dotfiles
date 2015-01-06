@@ -91,6 +91,7 @@ Bundle 'sirver/ultisnips'
 Bundle 'Valloric/YouCompleteMe'
 
 " Themes
+Bundle 'chriskempson/base16-vim'
 Bundle 'Zenburn'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'CSApprox'
@@ -282,8 +283,9 @@ endif
 " Color scheme {{{
 
 syntax on
-set background=dark
-colorscheme jellybeans
+set background=light
+let base16colorspace=256
+colorscheme base16-solarized
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -1261,7 +1263,7 @@ if has('gui_running')
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 
-    color sweater
+    color solarized
     set bg=light
 
     if has("gui_macvim")
