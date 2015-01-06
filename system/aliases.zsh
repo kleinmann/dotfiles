@@ -28,4 +28,5 @@ alias cdv='cd "$HOME/.vim/config"'
 alias cdgo='cd "$GOPATH"'
 
 alias smile='curl http://smiley.meatcub.es:1337'
-
+alias ip6="curl -6 icanhazip.com"
+alias ip4="curl -4 icanhazip.com"
