@@ -13,8 +13,8 @@ You need:
 
 ## install rbenv
     brew install rbenv ruby-build
-    rbenv install 2.0.0-p353
-    rbenv global 2.0.0-p353
+    rbenv install 2.2.0
+    rbenv global 2.2.0
     ~/.rbenv/shims/gem install bundler
 
 ## initialize
