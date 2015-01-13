@@ -1,5 +1,5 @@
 ## Prerequisites
-I assume you're on a Mac, currently with Mac OS X Mavericks (10.9).
+I assume you're on a Mac, currently with Mac OS X Yosemite (10.10).
 
 You need:
 
