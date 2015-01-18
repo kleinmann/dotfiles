@@ -1,5 +1,5 @@
 if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
+  eval "$(rbenv init - --no-rehash)"
 fi
 
 function rbenv_prompt_info() {

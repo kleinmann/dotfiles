@@ -6,7 +6,9 @@ ZSH_THEME="asuka"
 source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
 
 # Source all .zsh files in my dotfiles
-for config_file ($ZSH/**/*.zsh) source $config_file
+for config_file ($ZSH/**/*.zsh); do
+  source $config_file
+done
 
 # Include local configuration which doesn't go into the repo
 # (can also be machine-specific)
