@@ -14,6 +14,9 @@ export PATH=$HOME/bin:$PATH
 export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
+# rbenv (non-homebrew)
+[ -d $HOME/.rbenv ] && export PATH=$HOME/.rbenv/bin:$PATH
+
 # add python bin
 export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
 export PATH=/usr/local/share/python:$PATH
