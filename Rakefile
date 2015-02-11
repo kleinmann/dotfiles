@@ -27,6 +27,11 @@ task :install do
       next
     end
 
+    if `uname` !~ /Darwin/ && linkable =~ /\/mac\//
+      puts 'Skipping mac-only configuration on non-mac system.'
+      next
+    end
+
     overwrite = false
     backup = false
 
