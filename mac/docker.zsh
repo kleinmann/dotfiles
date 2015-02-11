@@ -1,1 +1,1 @@
-export DOCKER_HOST=tcp://localhost:4243
+[ `uname` == "Darwin" ] && export DOCKER_HOST=tcp://localhost:4243
