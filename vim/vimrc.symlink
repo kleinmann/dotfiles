@@ -30,11 +30,14 @@ Bundle 'rking/ag.vim'
 Bundle 'moll/vim-bbye'
 Bundle 'itchyny/calendar.vim'
 Bundle 'sjl/clam.vim'
+Bundle 'chrisbra/csv.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'JazzCore/ctrlp-cmatcher'
 Bundle 'Raimondi/delimitMate'
 Bundle 'junegunn/vim-easy-align'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'terryma/vim-expand-region'
 Bundle 'Konfekt/FastFold'
-Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'spf13/PIV'
 Bundle 'scrooloose/syntastic'
@@ -46,6 +49,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise.git'
+Bundle 'kopischke/vim-fetch'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'junegunn/goyo.vim'
@@ -53,6 +57,7 @@ Bundle 'haya14busa/incsearch.vim'
 Bundle 'vim-scripts/listmaps.vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'jceb/vim-orgmode'
+Bundle 'junegunn/vim-peekaboo'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'klen/python-mode'
 Bundle 'tpope/vim-rails'
@@ -75,15 +80,11 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'beyondwords/vim-twig'
 Bundle 'webgefrickel/vim-typoscript'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'mbbill/undotree'
 Bundle 'Shougo/vimfiler.vim'
-Bundle 'gcmt/wildfire.vim'
-
-" Unite
-Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'junkblocker/unite-codesearch'
-Plugin 'Shougo/unite-outline'
-Bundle 'tsukkee/unite-tag'
+Bundle 'gcmt/wildfire.vim'
+Bundle 'amix/vim-zenroom2'
 
 " Snippets
 Bundle 'honza/vim-snippets'
@@ -688,6 +689,27 @@ augroup plugin_commentary
 augroup END
 
 " }}}
+" Ctrl-P  {{{
+
+nnoremap <Leader>t :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>. :CtrlPTag<CR>
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_max_files = 0
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard', 'find %s "(" -type f -or -type l ")" -maxdepth 15 -not -path "*/\.*/*"']
+let g:ctrlp_use_caching = 1
+let g:ctrlp_dont_split = 'NERD_tree_2'
+let g:ctrlp_jump_to_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_extensions = ['tag']
+
+" }}}
 " DelimitMate  {{{
 
 let delimitMate_excluded_ft = "clojure,lisp"
@@ -730,14 +752,6 @@ augroup ft_fugitive
 augroup END
 
 " }}}
-" Gundo  {{{
-
-nnoremap <C-u> :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-let g:gundo_tree_statusline = "Gundo"
-let g:gundo_preview_statusline = "Gundo Preview"
-
-" }}}
 " Incsearch.vim {{{
 let g:incsearch#magic = '\v'
 let g:incsearch#consistent_n_direction = 1
@@ -759,7 +773,7 @@ let g:tex_flavor='latex'
 " NERDTree  {{{
 
 " Ctrl+D map to toggle NERDTree
-" nnoremap <silent> <C-d> :NERDTreeToggle<CR>
+nnoremap <silent> <C-d> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeMinimalUI=1
 let g:nerdtree_tabs_focus_on_files=1
@@ -970,106 +984,15 @@ endfunction
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " }}}
-" Unite {{{
-let g:unite_split_rule = "botright"
-let g:unite_update_time = 300
-let g:unite_cursor_line_highlight = "CursorLine"
-let g:unite_prompt = "➜ "
-let g:unite_source_rec_async_command = 'ag -l .'
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--smart-case --nogroup --nocolor --line-numbers'
-let g:unite_source_grep_recursive_opt = ''
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+" Undotree {{{
 
-" Set up some custom ignores
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.(hg|git|bzr)/',
-      \ '\.(o|swp|pyc|wav|mp3|ogg|blend)',
-      \ 'tmp/',
-      \ 'node_modules/',
-      \ 'bower_components/',
-      \ '.sass-cache',
-      \ ], '\|'))
-
-" nnoremap <silent> <C-d> :Unite -buffer-name=browse file<cr>
-nnoremap <silent> <Leader>a :Unite -buffer-name=ag grep:.<cr>
-nnoremap <silent> <Leader>b :Unite -start-insert -buffer-name=buffers -quick-match buffer<cr>
-nnoremap <silent> <Leader>t :Unite -start-insert -buffer-name=files file_rec/async<cr>
-nnoremap <silent> <Leader>. :Unite -buffer-name=tags tag<cr>
-let g:unite_source_history_yank_enable = 1
-nnoremap <silent> <Leader>y :Unite -buffer-name=yanks history/yank<cr>
-nnoremap <silent> <leader>o :Unite -buffer-name=outline -vertical outline<cr>
-nnoremap <silent> <leader>s :Unite -buffer-name=cs codesearch<cr>
-
-" Function that only triggers when unite opens
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-
-  " exit with esc
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-  imap <buffer> <ESC> <Plug>(unite_exit)
-
-  " Ctrl jk mappings
-  imap <buffer> <c-j> <Plug>(unite_insert_leave)
-  imap <buffer> <c-k> <Plug>(unite_insert_leave)
-  nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
-  nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
-
-  " refresh unite
-  nmap <buffer> <C-r> <Plug>(unite_redraw)
-  imap <buffer> <C-r> <Plug>(unite_redraw)
-
-  " split control
-  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
-  nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
-  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-
-endfunction
-" }}}
-" Vimfiler {{{
-
-nnoremap <silent> <C-d> :VimFilerExplorer<CR>
-" Disable netrw.vim
-let g:loaded_netrwPlugin = 1
-let g:vimfiler_as_default_explorer = 1
-function! s:vimfiler_on_enter() "{{{
-  let context = vimfiler#get_context()
-
-  if context.explorer
-    let mapping = vimfiler#mappings#smart_cursor_map(
-          \ "\<Plug>(vimfiler_expand_tree)",
-          \ "\<Plug>(vimfiler_edit_file)"
-          \ )
-  else
-    let mapping = vimfiler#mappings#smart_cursor_map(
-          \ "\<Plug>(vimfiler_cd_file)",
-          \ "\<Plug>(vimfiler_edit_file)"
-          \ )
-  endif
-
-  execute "normal " . mapping
-endfunction "}}}
-
-augroup ps_vimfiler
-    au!
-
-    au Filetype vimfiler setlocal nolist
-    au Filetype vimfiler nnoremap <buffer> H :vertical resize -10<cr>
-    au Filetype vimfiler nnoremap <buffer> L :vertical resize +10<cr>
-    au FileType vimfiler nnoremap <silent><buffer><expr> s vimfiler#do_action('vsplit')
-    au FileType vimfiler nnoremap <silent><buffer><expr> i vimfiler#do_action('split')
-    au Filetype vimfiler nnoremap <buffer> K :q<cr>
-    au FileType vimfiler nmap <buffer><silent> <Enter> :call <SID>vimfiler_on_enter()<CR>
-augroup END
+nnoremap <C-u> :UndotreeToggle<cr>
 
 " }}}
 " YouCompleteMe {{{
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_key_list_select_completion = ['<C-n>', '<TAB>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<S-TAB>']
 
 " TODO: Make arrow keys not jump in result list but actually move around in the
 " file.
@@ -1263,7 +1186,7 @@ if has('gui_running')
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 
-    color solarized
+    color base16-solarized
     set bg=light
 
     if has("gui_macvim")
