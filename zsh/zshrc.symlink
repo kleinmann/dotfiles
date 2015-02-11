@@ -1,10 +1,6 @@
 # Path to dotfiles
 ZSH=$HOME/.dotfiles
 
-# Set zsh theme
-ZSH_THEME="asuka"
-source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
-
 # Source all .zsh files in my dotfiles
 for config_file ($ZSH/**/*.zsh); do
   source $config_file
@@ -23,3 +19,7 @@ compinit -i
 
 # Load all completion files in my dotfiles after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
+
+# Set zsh theme
+ZSH_THEME="asuka"
+source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"

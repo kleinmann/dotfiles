@@ -35,7 +35,7 @@ local smiley=$'%(?,%{\e[0;32m%}%{\e[0m%},%{\e[0;31m%}☹%{\e[0m%})'
 function battery_charge {
   if [[ $(ioreg -rc AppleSmartBattery 2> /dev/null) != "" ]] {
     echo " "
-    echo `batcharge` 2>/dev/null
+    echo `$HOME/bin/batcharge` 2>/dev/null
   }
 }
 
