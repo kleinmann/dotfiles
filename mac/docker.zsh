@@ -1,1 +1,1 @@
-[ `uname` = "Darwin" ] && export DOCKER_HOST=tcp://localhost:4243
+[ `uname` = "Darwin" ] && eval `boot2docker shellinit 2>/dev/null`
