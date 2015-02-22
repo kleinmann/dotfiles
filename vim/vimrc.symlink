@@ -46,6 +46,7 @@ Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-commentary'
+Bundle 'rizzatti/dash.vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'tpope/vim-endwise.git'
@@ -710,6 +711,9 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_extensions = ['tag']
 
 " }}}
+" Dash.vim {{{
+nmap <silent> <leader>f <Plug>DashSearch
+" }}}
 " DelimitMate  {{{
 
 let delimitMate_excluded_ft = "clojure,lisp"
@@ -1030,6 +1034,9 @@ nnoremap <leader>V V`]
 
 " Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" Switch to last buffer, like alt+tab
+nnoremap <Leader><Tab> :b#<CR>
 
 " Filetype switching {{{
 nnoremap _rb :set ft=ruby<CR>
