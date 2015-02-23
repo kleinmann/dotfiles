@@ -22,7 +22,6 @@ You need:
     brew install gnupg
     ~/.rbenv/shims/bundle
     rake install
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-    vim +BundleInstall +qall
+    vim +PlugInstall +qall
 
 ## all done, enjoy working!
