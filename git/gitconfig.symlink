@@ -111,3 +111,6 @@
   pushInsteadOf = "git://gist.github.com/"
 [init]
   templatedir = ~/.git_template
+[rerere]
+	enabled = true
+	autoupdate = true
