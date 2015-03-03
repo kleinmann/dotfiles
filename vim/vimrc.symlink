@@ -65,6 +65,7 @@ Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 't9md/vim-ruby-xmpfilter', { 'for': 'ruby' }
 Plug 'vim-scripts/scratch.vim'
 Plug 'tpope/vim-sleuth'
+Plug 'jpalardy/vim-slime'
 Plug 'ajh17/Spacegray.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'sjl/splice.vim'
@@ -909,6 +910,12 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 " map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
+
+" }}}
+" Slime {{{
+
+let g:slime_target = "tmux"
+let g:slime_default_config = { "socket_name": "default", "target_pane": "1" }
 
 " }}}
 " Splice {{{
