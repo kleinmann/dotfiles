@@ -1,0 +1,6 @@
+#!/bin/bash
+# Using https://github.com/chrippa/livestreamer
+#
+# $ sudo pip install livestreamer
+
+livestreamer -p mpv -n "$1" best
