@@ -1,0 +1,9 @@
+# ~/.tmuxinator/sys.yml
+
+name: sys
+root: ~
+
+windows:
+  - glances: sudo glances
+  - iftop: sudo iftop
+  - slurm: sudo slurm -i en0
