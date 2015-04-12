@@ -83,7 +83,8 @@ set-window-option -g window-status-current-format ' #I #W '
 set-option -g visual-activity off
 set-option -g visual-content on
 set-window-option -g monitor-activity on
-set-window-option -g automatic-rename on
+set-window-option -g automatic-rename off
+set-window-option -g allow-rename off
 
 # Copy mode
 setw -g mode-keys vi
