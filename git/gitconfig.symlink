@@ -19,6 +19,7 @@
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 	standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)"  ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+	submodule-update = !"git pull --recurse-submodules && git submodule update --recursive"
 
 	; BEGIN KALEIDOSCOPE SECTION
 	; GAZE INTO THE ABYSS
