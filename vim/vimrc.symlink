@@ -100,6 +100,7 @@ Plug 'CSApprox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'goirijo/vim-jgg-colorscheme'
 Plug 'nice/sweater'
+Plug 'romainl/Apprentice'
 
 " Visuals
 Plug 'rainbow_parentheses.vim'
@@ -184,6 +185,18 @@ au VimResized * :wincmd =
 " Leader
 let mapleader = ","
 let maplocalleader = "\\"
+
+" Disable ex-mode
+nnoremap Q <nop>
+
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=1200
+
+" The "Press ENTER or type command to continue" prompt is jarring and usually unnecessary.
+set shortmess=atI
+
+" C-c to leave insert mode
+inoremap <C-c> <Esc>
 
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
@@ -701,6 +714,7 @@ augroup END
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>. :CtrlPTag<CR>
+nnoremap <Leader>fu :CtrlPFunky<Cr>
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
@@ -714,7 +728,8 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 20
-let g:ctrlp_extensions = ['tag']
+let g:ctrlp_extensions = ['tag', 'funky']
+let g:ctrlp_funky_multi_buffers = 1
 
 " }}}
 " Dash.vim {{{
