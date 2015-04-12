@@ -16,45 +16,47 @@ set nocompatible
 set shell=/bin/bash
 
 " }}}
-" Plugins ------------------------------------------------------------------- {{{
+" Plugins ------------------------------------------------------------------ {{{
 
 filetype off
 call plug#begin('~/.vim/bundle')
 
 " Github Repositories
 Plug 'rking/ag.vim'
+Plug 'KurtPreston/vim-autoformat-rails', { 'for': 'ruby' }
 Plug 'moll/vim-bbye'
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'itchyny/calendar.vim'
+Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
 Plug 'sjl/clam.vim'
+Plug 'tpope/vim-commentary'
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'kien/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'Raimondi/delimitMate'
-Plug 'junegunn/vim-easy-align'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'terryma/vim-expand-region'
-Plug 'Konfekt/FastFold'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'spf13/PIV', { 'for': 'php' }
-Plug 'scrooloose/syntastic'
-Plug 'majutsushi/tagbar'
-Plug 'KurtPreston/vim-autoformat-rails', { 'for': 'ruby' }
-Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
-Plug 'tpope/vim-commentary'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'rizzatti/dash.vim'
+Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-dispatch'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-endwise'
+Plug 'terryma/vim-expand-region'
+Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-fetch'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
+Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'junegunn/goyo.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'haya14busa/incsearch.vim'
+Plug 'vim-scripts/LargeFile'
 Plug 'vim-scripts/listmaps.vim'
 Plug 'hallison/vim-markdown', { 'for': 'markdown' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/vim-peekaboo'
+Plug 'spf13/PIV', { 'for': 'php' }
 Plug 'sheerun/vim-polyglot'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
@@ -70,6 +72,8 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'sjl/splice.vim'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TagHighlight'
 Plug 'vim-scripts/taglist.vim'
 Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
