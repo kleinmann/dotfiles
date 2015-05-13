@@ -1,0 +1,3 @@
+#!/bin/bash
+# This lists all explicitly installed apt-packages
+aptitude search '~i!~M'
