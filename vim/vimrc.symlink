@@ -49,7 +49,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'junegunn/goyo.vim'
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'justinmk/vim-gtfo'
 Plug 'haya14busa/incsearch.vim'
 Plug 'vim-scripts/LargeFile'
 Plug 'vim-scripts/listmaps.vim'
