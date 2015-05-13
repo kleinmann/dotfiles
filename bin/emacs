@@ -1,38 +1,38 @@
 #!/bin/bash
+EMACSCLIENT=`which emacsclient`
+EMACS=`which emacs`
+
+visible_frames() {
+  ensure_server
+  emacsclient -a "" -e '(length (visible-frame-list))'
+}
+
+change_focus() {
+  ensure_server
+  emacsclient -n -e "(select-frame-set-input-focus (selected-frame))" > /dev/null
+}
+
+ensure_server() {
 if [[ `uname` == "Darwin" ]]; then
   if [[ $(ps -ef | grep "Emacs --daemon" | grep -v grep) == "" ]]; then
     /Applications/Emacs.app/Contents/MacOS/Emacs --daemon
   fi
-  if test -n "$DISPLAY"; then
-    SWITCHES='-n -c'
-    if [[ "$1" == "-t" ]]; then
-      SWITCHES='-t'
-    fi
-    if [[ $SWITCHES != '-t' ]]; then
-      echo "${@:2}"
-      /usr/local/bin/emacsclient $SWITCHES "$@"
-      exec osascript -e 'tell application "Emacs" to activate'
-    else
-      exec /usr/local/bin/emacsclient $SWITCHES "${@:2}"
-    fi
-  else
-    /usr/local/bin/emacsclient -t "$@"
-  fi
 else
   if [[ $(ps -ef | grep "emacs --daemon" | grep -v grep) == "" ]]; then
-    /usr/bin/emacs --daemon
+    $EMACS --daemon
   fi
-  if test -n "$DISPLAY"; then
-    SWITCHES='-n -c'
-    if [[ "$1" == "-t" ]]; then
-      SWITCHES='-t'
-    fi
-    if [[ $SWITCHES != '-t' ]]; then
-      emacsclient $SWITCHES "$@"
-    else
-      exec emacsclient $SWITCHES "${@:2}"
-    fi
-  else
-    emacsclient -t "$@"
-  fi
+fi
+}
+
+# try switching to the frame incase it is just minimized
+# will start a server if not running
+test "$(visible_frames)" -eq "1" && change_focus
+
+if [ "$(visible_frames)" -lt  "2" ]; then # need to create a frame
+  # -c $@ with no args just opens the scratch buffer
+  $EMACSCLIENT -n -c "$@" && change_focus
+else # there is already a visible frame besides the daemon, so
+  change_focus
+  # -n $@ errors if there are no args
+  test  "$#" -ne "0" && $EMACSCLIENT -n "$@"
 fi
