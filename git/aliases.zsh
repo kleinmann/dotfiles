@@ -1,3 +1,6 @@
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcp='git commit -p'
 alias gs='git status -sb'
 alias gd='git diff'
 alias gdc='git diff --cached'
