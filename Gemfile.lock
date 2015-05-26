@@ -21,7 +21,6 @@ GEM
       pager (~> 1.0)
     cloudapp_api (0.4.0)
       httparty
-      httparty
       mime-types
     coderay (1.1.0)
     colored (1.2)
