@@ -1,0 +1,4 @@
+#!/bin/bash
+TRIES=1
+until "$@"; do TRIES=$((TRIES+1)); echo "Try $TRIES"; done
+echo "Done in $TRIES" tries
