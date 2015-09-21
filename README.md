@@ -24,4 +24,8 @@ You need:
     rake install
     vim +PlugInstall +qall
 
+    brew tap Homebrew/bundle
+    cd ~/.dotfiles
+    brew bundle
+
 ## all done, enjoy working!
