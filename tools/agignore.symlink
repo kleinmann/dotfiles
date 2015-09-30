@@ -1,1 +1,3 @@
 tags
+var/log
+app/log
