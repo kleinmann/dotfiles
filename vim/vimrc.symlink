@@ -24,6 +24,7 @@ call plug#begin('~/.vim/bundle')
 " Github Repositories
 Plug 'rking/ag.vim'
 Plug 'KurtPreston/vim-autoformat-rails', { 'for': 'ruby' }
+Plug 'jordwalke/AutoComplPop'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'itchyny/calendar.vim'
@@ -50,14 +51,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-gtfo'
-Plug 'haya14busa/incsearch.vim'
 Plug 'vim-scripts/LargeFile'
 Plug 'vim-scripts/listmaps.vim'
 Plug 'hallison/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/vim-peekaboo'
 Plug 'spf13/PIV', { 'for': 'php' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'sheerun/vim-polyglot'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
@@ -77,11 +79,12 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TagHighlight'
 Plug 'vim-scripts/taglist.vim'
+Plug 'jordwalke/VimCloser'
+Plug 'jordwalke/VimCompleteLikeAModernEditor'
 Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
 Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'kana/vim-textobj-user'
 Plug 'beyondwords/vim-twig', { 'for': 'twig' }
-Plug 'webgefrickel/vim-typoscript'
 Plug 'tpope/vim-unimpaired'
 Plug 'mbbill/undotree'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -91,7 +94,7 @@ Plug 'amix/vim-zenroom2'
 " Snippets
 Plug 'honza/vim-snippets'
 Plug 'sirver/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
 " Themes
 Plug 'chriskempson/base16-vim'
@@ -102,6 +105,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'goirijo/vim-jgg-colorscheme'
 Plug 'nice/sweater'
 Plug 'romainl/Apprentice'
+Plug 'jordwalke/flatlandia'
 
 " Visuals
 Plug 'rainbow_parentheses.vim'
@@ -301,7 +305,7 @@ endif
 " Color scheme {{{
 
 syntax on
-set background=light
+set bg=light
 let base16colorspace=256
 colorscheme base16-solarized
 
@@ -454,8 +458,8 @@ nnoremap <space> za
 vnoremap <space> za
 
 " Save and load folding automatically
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+" au BufWinLeave ?* mkview
+" au BufWinEnter ?* silent loadview
 
 function! MyFoldText() " {{{
     let line = getline(v:foldstart)
@@ -675,6 +679,7 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+let g:airline#extensions#default#section_truncate_width = {}
 
 " }}}
 " Bufferline  {{{
@@ -798,13 +803,6 @@ augroup ft_fugitive
 augroup END
 
 " }}}
-" Incsearch.vim {{{
-let g:incsearch#magic = '\v'
-let g:incsearch#consistent_n_direction = 1
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-" }}}
 " Indent guides  {{{
 
 let g:indent_guides_enable_on_vim_startup=1
@@ -844,6 +842,11 @@ augroup ps_nerdtree
     au Filetype nerdtree nnoremap <buffer> L :vertical resize +10<cr>
     au Filetype nerdtree nnoremap <buffer> K :q<cr>
 augroup END
+
+" }}}
+" PIV {{{
+
+let g:DisableAutoPHPFolding = 1
 
 " }}}
 " Python {{{
@@ -1019,21 +1022,21 @@ let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets/UltiSnips'
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-let g:UltiSnipsListSnippets = '<C-Tab>'
+" let g:UltiSnipsListSnippets = '<C-Tab>'
 let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippetOrJump()
-  if g:ulti_expand_or_jump_res == 0
-    if pumvisible()
-      return "\<C-N>"
-    else
-      return "\<TAB>"
-    endif
-  endif
+" function! g:UltiSnips_Complete()
+"   call UltiSnips#ExpandSnippetOrJump()
+"   if g:ulti_expand_or_jump_res == 0
+"     if pumvisible()
+"       return "\<C-N>"
+"     else
+"       return "\<TAB>"
+"     endif
+"   endif
 
-  return ""
-endfunction
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"   return ""
+" endfunction
+" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " }}}
 " Undotree {{{
@@ -1042,9 +1045,9 @@ nnoremap <C-u> :UndotreeToggle<cr>
 
 " }}}
 " YouCompleteMe {{{
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_key_list_select_completion = ['<C-n>', '<TAB>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<S-TAB>']
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_key_list_select_completion = ['<C-n>', '<TAB>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<S-TAB>']
 
 " TODO: Make arrow keys not jump in result list but actually move around in the
 " file.
@@ -1224,7 +1227,9 @@ map <leader>header :call MakeBlockHeader()<cr>
 if has('gui_running')
     " GUI Vim
 
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    "set guifont=Source\ Code\ Pro\ for\ Powerline:h16
+    "set guifont=Monoid:h16
+    set guifont=Hack:h16
 
     " Remove all the UI cruft
     set go-=T
@@ -1241,8 +1246,8 @@ if has('gui_running')
 
     highlight SpellBad term=underline gui=undercurl guisp=Orange
 
-    color base16-solarized
-    set bg=light
+    color flatlandia
+    set bg=dark
 
     if has("gui_macvim")
         " Full screen means FULL screen
