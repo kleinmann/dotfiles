@@ -1,0 +1,26 @@
+#!/bin/bash
+# setup folders for our different stages
+#
+# Usage:
+#   ./clear-magento-project <path to source> <path to magento clean version> <path to destination>
+# Dependencies:
+#   * realpath
+START=`pwd`
+DIST=`realpath $1`/
+DIST_OLD=`realpath $2`/
+DIST_UPGRADE=`realpath $3`/
+cd $DIST
+list=`find . -type f | grep -vi -E '(media|var|git|downloader|includes|pkginfo|idea)'`
+for a in $list; do
+   if [ ! -f "$DIST_OLD$a" ]; then
+        #echo "cp --parents $a $DIST_UPGRADE"
+        cp --parents $a $DIST_UPGRADE
+      continue
+   fi
+   diff $a $DIST_OLD$a > /dev/null
+   if [[ "$?" == "1" ]]; then
+        # File exists but is different so copy changed file
+        cp --parents $a $DIST_UPGRADE
+        #echo "cp --parents $a $DIST_UPGRADE"
+   fi
+done
