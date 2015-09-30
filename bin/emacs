@@ -1,20 +1,23 @@
 #!/bin/bash
 EMACSCLIENT=`which emacsclient`
+if [[ `uname` == "Darwin" ]]; then
+  EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+fi
 EMACS=`which emacs`
 
 visible_frames() {
   ensure_server
-  emacsclient -a "" -e '(length (visible-frame-list))'
+  $EMACSCLIENT -a "" -e '(length (visible-frame-list))'
 }
 
 change_focus() {
   ensure_server
-  emacsclient -n -e "(select-frame-set-input-focus (selected-frame))" > /dev/null
+  $EMACSCLIENT -n -e "(select-frame-set-input-focus (selected-frame))" > /dev/null
 }
 
 ensure_server() {
 if [[ `uname` == "Darwin" ]]; then
-  if [[ $(ps -ef | grep "Emacs --daemon" | grep -v grep) == "" ]]; then
+  if [[ $(ps -ef | grep "Emacs" | grep "\-\-daemon") == "" ]]; then
     /Applications/Emacs.app/Contents/MacOS/Emacs --daemon
   fi
 else
@@ -26,9 +29,9 @@ fi
 
 # try switching to the frame incase it is just minimized
 # will start a server if not running
-test "$(visible_frames)" -eq "1" && change_focus
+test "$(visible_frames)" -eq 1 && change_focus
 
-if [ "$(visible_frames)" -lt  "2" ]; then # need to create a frame
+if [ "$(visible_frames)" -lt 2 ]; then # need to create a frame
   # -c $@ with no args just opens the scratch buffer
   $EMACSCLIENT -n -c "$@" && change_focus
 else # there is already a visible frame besides the daemon, so
