@@ -1,0 +1,14 @@
+function newrepo() {
+    # create random directory if no arguments given
+    local MKCD="$@"
+    if [[ -d "${MKCD}" ]]
+    then
+        echo "${MKCD} already exists"
+        return 1
+    fi
+    mkdir -p "${MKCD}" && cd "${MKCD}";
+    git init
+    touch README.md
+    git add README.md
+    git commit -m "Initial commit"
+}
