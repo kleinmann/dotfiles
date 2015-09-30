@@ -1,1 +1,2 @@
-[ `uname` = "Darwin" ] && eval `boot2docker shellinit 2>/dev/null`
+# docker-machine create --driver=virtualbox dev
+#[ `uname` = "Darwin" ] && eval `docker-machine env dev`
