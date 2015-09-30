@@ -26,8 +26,8 @@ then
 fi
 if [ -z "$VIM_APP_DIR" ]
 then
-	# binary="/usr/bin/vim"
-	binary="/usr/local/bin/nvim"
+	binary="/usr/bin/vim"
+	# binary="/usr/local/bin/nvim"
 else
 	# binary="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
 	binary="/usr/local/bin/nvim"
