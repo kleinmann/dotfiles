@@ -22,4 +22,6 @@ for config_file ($ZSH/**/completion.sh) source $config_file
 
 # Set zsh theme
 ZSH_THEME="asuka"
-source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
+# source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
+
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
