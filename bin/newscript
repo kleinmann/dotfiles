@@ -4,6 +4,6 @@ then
     echo "$1 already exists"
     exit
 fi
-echo -e "#!/bin/bash\n\n" > "$1"
+echo -e "#!/bin/bash\n\n# vim: set expandtab tabstop=4 shiftwidth=4 ft=sh :" > "$1"
 chmod a+x "$1"
 vim + "$1"
