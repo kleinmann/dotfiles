@@ -1,9 +1,9 @@
 ## Prerequisites
-I assume you're on a Mac, currently with Mac OS X Yosemite (10.10).
+I assume you're on a Mac, currently with Mac OS X El Capitan (10.11).
 
 You need:
 
-* Homebrew
+* [Homebrew](http://brew.sh/)
 
 ## clone & setup
     brew install zsh # I assume you're on a Mac
@@ -13,8 +13,8 @@ You need:
 
 ## install rbenv
     brew install rbenv ruby-build
-    rbenv install 2.2.0
-    rbenv global 2.2.0
+    rbenv install 2.2.3
+    rbenv global 2.2.3
     ~/.rbenv/shims/gem install bundler
 
 ## initialize
