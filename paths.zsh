@@ -19,15 +19,11 @@ export PATH=$JAVA_HOME/bin:$PATH
 # rbenv (non-homebrew)
 [ -d $HOME/.rbenv ] && export PATH=$HOME/.rbenv/bin:$PATH
 
-# add python bin
-export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
-export PATH=/usr/local/share/python:$PATH
-
 # haskell
 export PATH=$HOME/.cabal/bin:$PATH
 
 # various
-export PATH=/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin:$PATH
+export PATH=/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin:/Library/TeX/texbin:$PATH
 
 # npm
 export PATH=$HOME/node_modules/.bin:$PATH
