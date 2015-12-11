@@ -22,4 +22,5 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 ZSH_THEME="asuka"
 # source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
 
+powerline-daemon -q
 . /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
