@@ -38,6 +38,11 @@ nametrans = lambda folder: {'[Google Mail]/Entw&APw-rfe':     'drafts',
 folderfilter = lambda folder: folder not in ['[Google Mail]/Papierkorb',
                                              '[Google Mail]/Wichtig',
                                              '[Google Mail]/Spam',
+                                             '[Airmail].Done',
+                                             '[Airmail].Memo',
+                                             '[Airmail].To Do',
+                                             'Sent Messages',
+                                             'Deleted Messages',
                                              ]
 
 [Account kleinmann]
@@ -72,6 +77,11 @@ nametrans = lambda folder: {'[Gmail]/Entw&APw-rfe':     'drafts',
 folderfilter = lambda folder: folder not in ['[Gmail]/Papierkorb',
                                              '[Gmail]/Wichtig',
                                              '[Gmail]/Spam',
+                                             '[Airmail].Done',
+                                             '[Airmail].Memo',
+                                             '[Airmail].To Do',
+                                             'Sent Messages',
+                                             'Deleted Messages',
                                              ]
 
 [Account codekunst]
