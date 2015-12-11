@@ -1,0 +1,13 @@
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+AllCops:
+  RunRailsCops: true
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
