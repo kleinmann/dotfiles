@@ -27,7 +27,6 @@ Plug 'KurtPreston/vim-autoformat-rails', { 'for': 'ruby' }
 Plug 'jordwalke/AutoComplPop'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-Plug 'itchyny/calendar.vim'
 Plug 'tpope/vim-classpath', { 'for': ['clojure', 'java'] }
 Plug 'sjl/clam.vim'
 Plug 'tpope/vim-commentary'
@@ -39,23 +38,27 @@ Plug 'tacahiroy/ctrlp-funky'
 Plug 'rizzatti/dash.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-dispatch'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'tpope/vim-endwise'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elixir-lang/vim-elixir'
 Plug 'terryma/vim-expand-region'
 Plug 'Konfekt/FastFold'
 Plug 'kopischke/vim-fetch'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf.vim'
 Plug 'mattn/gist-vim', { 'on': 'Gist' }
 Plug 'junegunn/goyo.vim'
 Plug 'justinmk/vim-gtfo'
 Plug 'vim-scripts/LargeFile'
+Plug 'cohama/lexima.vim'
 Plug 'vim-scripts/listmaps.vim'
 Plug 'hallison/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'benekastah/neomake'
+Plug 'kassio/neoterm'
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/vim-peekaboo'
 Plug 'spf13/PIV', { 'for': 'php' }
@@ -67,18 +70,14 @@ Plug 'tpope/vim-rbenv',
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-Plug 't9md/vim-ruby-xmpfilter', { 'for': 'ruby' }
 Plug 'vim-scripts/scratch.vim'
+Plug 'ciaranm/securemodelines'
 Plug 'tpope/vim-sleuth'
-Plug 'jpalardy/vim-slime'
 Plug 'ajh17/Spacegray.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'sjl/splice.vim'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/TagHighlight'
-Plug 'vim-scripts/taglist.vim'
 Plug 'jordwalke/VimCloser'
 Plug 'jordwalke/VimCompleteLikeAModernEditor'
 Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
@@ -106,6 +105,7 @@ Plug 'goirijo/vim-jgg-colorscheme'
 Plug 'nice/sweater'
 Plug 'romainl/Apprentice'
 Plug 'jordwalke/flatlandia'
+Plug 'zenorocha/dracula-theme', { 'rtp': 'vim' }
 
 " Visuals
 Plug 'rainbow_parentheses.vim'
@@ -305,9 +305,9 @@ endif
 " Color scheme {{{
 
 syntax on
-set bg=light
+set bg=dark
 let base16colorspace=256
-colorscheme base16-solarized
+colorscheme jellybeans
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -355,12 +355,12 @@ set tags=./tags,~/tags,tags;,./TAGS,TAGS;
 
 " Jumping to tags. {{{
 "
-" Basically, <c-]> jumps to tags (like normal) and <c-\> opens the tag in a new
+" Basically, t jumps to tags (like normal) and <c-t> opens the tag in a new
 " split instead.
 "
 " Both of them will align the destination line to the upper middle part of the
 " screen.  Both will pulse the cursor line so you can see where the hell you
-" are.  <c-\> will also fold everything in the buffer and then unfold just
+" are.  <C-t> will also fold everything in the buffer and then unfold just
 " enough for you to see the destination line.
 function! JumpToTag()
     execute "normal! \<c-]>mzzvzz15\<c-e>"
@@ -450,8 +450,11 @@ noremap <leader>v <C-w>v
 " }}}
 " Folding ------------------------------------------------------------------ {{{
 
+set foldenable
 set foldcolumn=1
 set foldmethod=marker
+set foldnestmax=10
+set foldlevelstart=99
 
 " Toggle folds with space
 nnoremap <space> za
@@ -570,8 +573,7 @@ augroup END
 augroup ft_php
     au!
     au FileType php setlocal sw=4 sts=4 et
-    au FileType php setlocal foldmethod=indent
-    au FileType php normal zR
+    au FileType php setlocal foldmethod=syntax
 augroup END
 
 " }}}
@@ -598,9 +600,8 @@ augroup END
 
 augroup ft_ruby
     au!
-    au FileType ruby,haml,eruby,yaml setlocal ai sw=2 sts=2 et
+    au FileType ruby,haml,eruby,yaml setlocal ai sw=2 sts=2 expandtab
     au FileType ruby setlocal foldmethod=syntax
-    au FileType ruby normal zR
 
     au BufNewFile,BufReadPost Capfile setlocal filetype=ruby
     au BufNewFile,BufReadPost Cheffile setlocal filetype=ruby
@@ -631,6 +632,7 @@ augroup ft_vim
     au!
 
     au FileType vim setlocal foldmethod=marker
+    au FileType vim setlocal foldlevel=-1
     au FileType help setlocal textwidth=80
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
@@ -687,11 +689,6 @@ let g:airline#extensions#default#section_truncate_width = {}
 let g:bufferline_echo=0
 
 " }}}
-" Calendar  {{{
-
-let g:calendar_google_calendar = 1
-
-" }}}
 " Clam  {{{
 
 nnoremap ! :Clam<space>
@@ -737,25 +734,25 @@ augroup END
 " }}}
 " Ctrl-P  {{{
 
-nnoremap <Leader>t :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>. :CtrlPTag<CR>
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_dotfiles = 0
-let g:ctrlp_max_files = 0
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard', 'find %s "(" -type f -or -type l ")" -maxdepth 15 -not -path "*/\.*/*"']
-let g:ctrlp_use_caching = 1
-let g:ctrlp_dont_split = 'NERD_tree_2'
-let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_split_window = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_extensions = ['tag', 'funky']
-let g:ctrlp_funky_multi_buffers = 1
+"nnoremap <Leader>t :CtrlP<CR>
+"nnoremap <Leader>b :CtrlPBuffer<CR>
+"nnoremap <Leader>. :CtrlPTag<CR>
+"nnoremap <Leader>fu :CtrlPFunky<Cr>
+"let g:ctrlp_map = '<Leader>t'
+"let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+"let g:ctrlp_dotfiles = 0
+"let g:ctrlp_max_files = 0
+"let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+"let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard', 'find %s "(" -type f -or -type l ")" -maxdepth 15 -not -path "*/\.*/*"']
+"let g:ctrlp_use_caching = 1
+"let g:ctrlp_dont_split = 'NERD_tree_2'
+"let g:ctrlp_jump_to_buffer = 0
+"let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_match_window_reversed = 1
+"let g:ctrlp_split_window = 0
+"let g:ctrlp_max_height = 20
+"let g:ctrlp_extensions = ['tag', 'funky']
+"let g:ctrlp_funky_multi_buffers = 1
 
 " }}}
 " Dash.vim {{{
@@ -803,6 +800,15 @@ augroup ft_fugitive
 augroup END
 
 " }}}
+" fzf {{{
+
+set rtp+=/usr/local/opt/fzf
+
+nnoremap <Leader>t :GitFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>. :Tags<CR>
+
+" }}}
 " Indent guides  {{{
 
 let g:indent_guides_enable_on_vim_startup=1
@@ -812,6 +818,13 @@ let g:indent_guides_guide_size=1
 " LaTeX  {{{
 
 let g:tex_flavor='latex'
+
+" }}}
+" lexima.vim {{{
+
+let g:lexima_enable_basic_rules=1
+let g:exima_enable_newline_rules=1
+let g:lexima_enable_endwise_rules=1
 
 " }}}
 " NERDTree  {{{
@@ -842,6 +855,25 @@ augroup ps_nerdtree
     au Filetype nerdtree nnoremap <buffer> L :vertical resize +10<cr>
     au Filetype nerdtree nnoremap <buffer> K :q<cr>
 augroup END
+
+" }}}
+" Neomake {{{
+
+augroup neomake
+    au!
+    au BufWritePost *.rb,*.coffee,*.go,*.js,*.py,*.zsh,*.tex,*.vim,*.pp,*.lua,*.c,*.cpp,*.java,*.hs,*.sh,*.ex,*.html,*.less,*.scss,*.sass Neomake
+augroup END
+
+" }}}
+" neoterm {{{
+
+let g:neoterm_position = 'horizontal'
+let g:neoterm_automap_keys = ',tt'
+
+" hide/close terminal
+nnoremap <silent> <leader>th :call neoterm#close()<cr>
+" kills the current job (send a <c-c>)
+nnoremap <silent> <leader>tc :call neoterm#kill()<cr>
 
 " }}}
 " PIV {{{
@@ -910,15 +942,6 @@ if !empty($MY_RUBY_HOME)
 endif
 
 " }}}
-" Ruby XMPFilter  {{{
-
-autocmd FileType ruby nmap <buffer> <C-m> <Plug>(xmpfilter-mark)
-autocmd FileType ruby xmap <buffer> <C-m> <Plug>(xmpfilter-mark)
-
-autocmd FileType ruby nmap <buffer> <C-n> <Plug>(xmpfilter-run)
-autocmd FileType ruby xmap <buffer> <C-n> <Plug>(xmpfilter-run)
-
-" }}}
 " Scratch  {{{
 
 command! ScratchToggle call ScratchToggle()
@@ -955,12 +978,6 @@ endfunction
 " map <leader>f :call SelectaCommand("find $(git rev-parse --show-toplevel) -type f", ":e")<cr>
 
 " }}}
-" Slime {{{
-
-let g:slime_target = "tmux"
-let g:slime_default_config = { "socket_name": "default", "target_pane": "1" }
-
-" }}}
 " Splice {{{
 
 let g:splice_prefix = "-"
@@ -983,30 +1000,6 @@ let g:splice_initial_scrollbind_compare = 0
 let g:splice_initial_scrollbind_path = 0
 
 let g:splice_wrap = "nowrap"
-
-" }}}
-" SplitJoin  {{{
-
-nmap sj :SplitjoinSplit<CR>
-nmap sk :SplitjoinJoin<CR>
-
-" }}}
-" Syntastic  {{{
-
-nnoremap <Leader>s :SyntasticCheck<CR>
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump=0
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_mode_map = { 'mode': 'passive',
-                          \ 'active_filetypes': ['ruby'],
-                          \ 'passive_filetypes': ['java', 'html'] }
-let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-let g:syntastic_jsl_conf = '$HOME/.vim/config/jsl.conf'
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " }}}
 " taglist.vim  {{{
@@ -1073,10 +1066,6 @@ map <Leader>ct :!ctags -R *<CR>
 " Completion
 inoremap <C-c> <C-x><C-o>
 
-" Source
-vnoremap <leader>S y:execute @@<CR>
-nnoremap <leader>S ^vg_y:execute @@<CR>
-
 " Write with sudo
 cmap w!! w !sudo tee % >/dev/null
 
@@ -1085,9 +1074,6 @@ nnoremap <leader>V V`]
 
 " Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-
-" Switch to last buffer, like alt+tab
-nnoremap <Leader><Tab> :b#<CR>
 
 " Filetype switching {{{
 nnoremap _rb :set ft=ruby<CR>
