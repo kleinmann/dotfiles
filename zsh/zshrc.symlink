@@ -1,10 +1,12 @@
 # Path to dotfiles
 ZSH=$HOME/.dotfiles
 
+# Initialize autocomplete, otherwise functions won't be loaded
+autoload -U compinit compdef
+compinit -i
+
 # Source all .zsh files in my dotfiles
-for config_file ($ZSH/**/*.zsh); do
-  source $config_file
-done
+for config_file ($ZSH/**/*.zsh) [[ "$(basename $config_file)" == "completion.zsh" ]] || source $config_file
 
 # Include local configuration which doesn't go into the repo
 # (can also be machine-specific)
@@ -13,12 +15,8 @@ then
   source ~/.zshrc_local
 fi
 
-# Initialize autocomplete, otherwise functions won't be loaded
-autoload -U compinit
-compinit -i
-
 # Load all completion files in my dotfiles after autocomplete loads
-for config_file ($ZSH/**/completion.sh) source $config_file
+for config_file ($ZSH/**/completion.zsh) source $config_file
 
 # Set zsh theme
 ZSH_THEME="asuka"
