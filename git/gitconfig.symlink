@@ -81,3 +81,9 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+[commit]
+	template = /Users/uwe/.dotfiles/git/git_commit_msg.txt
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
