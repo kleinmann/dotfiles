@@ -4,6 +4,5 @@ name: mail
 root: ~/Mail
 
 windows:
-  - codekunst.com: mutt -F ~/.mutt/codekunst.muttrc
   - gmail: mutt -F ~/.mutt/gmail.muttrc
   - kleinmann.org: mutt -F ~/.mutt/kleinmann.muttrc
