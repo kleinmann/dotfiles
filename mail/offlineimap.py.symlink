@@ -7,7 +7,6 @@ def get_keychain_password(key):
 
 def get_imap_password(account):
   return {
-    "Gmail": get_keychain_password("Google Account"),
-    "kleinmann.org": get_keychain_password("Google Apps kleinmann.org"),
-    "codekunst": get_keychain_password("Google Apps codekunst")
+    "Gmail": get_keychain_password("Google Account offlineimap"),
+    "kleinmann.org": get_keychain_password("Google Apps kleinmann.org offlineimap")
   }.get(account, "")

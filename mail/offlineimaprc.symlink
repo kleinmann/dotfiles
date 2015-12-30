@@ -1,7 +1,7 @@
 [general]
 ui = ttyui
 pythonfile = ~/.offlineimap.py
-accounts = Gmail, kleinmann, codekunst
+accounts = Gmail, kleinmann
 socktimeout = 60
 maxsyncaccounts = 3
 fsync = false
@@ -82,38 +82,4 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Papierkorb',
                                              '[Airmail].To Do',
                                              'Sent Messages',
                                              'Deleted Messages',
-                                             ]
-
-[Account codekunst]
-localrepository = codekunstLocal
-remoterepository = codekunstRemote
-status_backend = sqlite
-postsynchook = NOTMUCH_CONFIG=~/.notmuch-config-codekunst notmuch new
-
-[Repository codekunstLocal]
-localfolders = ~/Mail/codekunst
-type = GmailMaildir
-nametrans = lambda folder: {'drafts':  '[Gmail]/Entw&APw-rfe',
-                            'sent':    '[Gmail]/Gesendet',
-                            'flagged': '[Gmail]/Markiert',
-                            'trash':   '[Gmail]/Papierkorb',
-                            'archive': '[Gmail]/Alle Nachrichten',
-                            }.get(folder, folder)
-
-[Repository codekunstRemote]
-type = Gmail
-maxconnections = 1
-remoteuser = uwe@codekunst.com
-remotepasseval = get_imap_password("codekunst")
-realdelete = no
-sslcacertfile = ~/.dotfiles/mail/CA.pem
-nametrans = lambda folder: {'[Gmail]/Entw&APw-rfe':     'drafts',
-                            '[Gmail]/Gesendet':         'sent',
-                            '[Gmail]/Markiert':         'flagged',
-                            '[Gmail]/Papierkorb':       'trash',
-                            '[Gmail]/Alle Nachrichten': 'archive',
-                            }.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Papierkorb',
-                                             '[Gmail]/Wichtig',
-                                             '[Gmail]/Spam',
                                              ]
