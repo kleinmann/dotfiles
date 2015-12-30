@@ -443,14 +443,11 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 ###############################################################################
-# SizeUp.app                                                                  #
+# Photos.app                                                                  #
 ###############################################################################
 
-# Start SizeUp at login
-defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
-
-# Don’t show the preferences window on next start
-defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
+# Disable opening of Photos.app when you plug in devices
+defaults write com.apple.ImageCapture disableHotPlug -bool YES
 
 ###############################################################################
 # Twitter.app                                                                 #
