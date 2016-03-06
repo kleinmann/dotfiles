@@ -12,7 +12,7 @@ highlight Find   background: #d6c149; color: #000;
 
 set runtimepath=/Users/uwe/.pentadactyl
 set editor='/Users/uwe/bin/vim -f +<line> <file>'
-set showtabline=never
+set showtabline=always
 set showstatuslinks=command
 
 " Sane reload
