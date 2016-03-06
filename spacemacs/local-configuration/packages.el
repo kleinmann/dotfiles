@@ -7,12 +7,13 @@
 ;;; License: GPLv3
 
 (setq local-configuration-packages
-  '(
-    ;; package local-configurations go here
-    editorconfig
-    graphviz-dot-mode
-    )
-  )
+      '(
+        ;; package local-configurations go here
+        editorconfig
+        graphviz-dot-mode
+        aggressive-indent-mode
+        )
+      )
 
 (setq local-configuration-excluded-packages '())
 
@@ -21,6 +22,10 @@
   )
 (defun local-configuration/init-editorconfig ()
   "Initialize editorconfig"
+  )
+(defun local-configuration/init-aggressive-indent-mode ()
+  "Initialize editorconfig"
+  (global-aggressive-indent-mode 1)
   )
 ;; For each package, define a function local-configuration/init-<package-local-configuration>
 ;;

@@ -94,7 +94,3 @@
 
 ;; Use winner-mode to switch between window configurations
 (winner-mode 1)
-
-;; fix PATH
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
