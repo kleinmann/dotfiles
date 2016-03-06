@@ -3,6 +3,7 @@
 .hg
 .netrwhist
 .idea
+.ropeproject
 
 # Mac OS X specific
 .DS_Store
