@@ -102,6 +102,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'CSApprox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'goirijo/vim-jgg-colorscheme'
+Plug 'morhetz/gruvbox'
 Plug 'nice/sweater'
 Plug 'romainl/Apprentice'
 Plug 'jordwalke/flatlandia'
@@ -307,7 +308,8 @@ endif
 syntax on
 set bg=dark
 let base16colorspace=256
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme gruvbox
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
