@@ -43,7 +43,7 @@ function battery_charge {
 # on two lines for easier vgrepping
 # entry in a nice long thread on the Arch Linux forums: http://bbs.archlinux.org/viewtopic.php?pid=521888#p521888
 PROMPT=$'$fill
-%{\e[0;34m%}%B┌─%{\e[0m%}%B[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;33m%}%m%{\e[0m%}%B]%b%{\e[0m%}:%b%{\e[0m%}%B[%b%{\e[1;32m%}%~%{\e[0m%}%B]%b%{\e[0m%} - %B(%b$(rbenv_prompt_info)%B)%b - %B[%b${vcs_info_msg_0_}%B]%b - %{\e[0;34m%}%B[%b%{\e[0;34m%}'%D{"%a %b %d, %I:%M:%S"}%b$'%{\e[0;34m%}%B]%b%{\e[0m%}
+%{\e[0;34m%}%B┌─%{\e[0m%}%B[%b%{\e[0m%}%{\e[1;32m%}%n%{\e[1;30m%}@%{\e[0m%}%{\e[0;33m%}%m%{\e[0m%}%B]%b%{\e[0m%}:%b%{\e[0m%}%B[%b%{\e[1;32m%}%~%{\e[0m%}%B]%b%{\e[0m%} - %B[%b${vcs_info_msg_0_}%B]%b - %{\e[0;34m%}%B[%b%{\e[0;34m%}'%D{"%a %b %d, %I:%M:%S"}%b$'%{\e[0;34m%}%B]%b%{\e[0m%}
 %{\e[0;34m%}%B└─${RECYCLE}%{\e[0m%}%{\e[0;37m%}%{\e[0m%}%b '
 PS2=$'%{\e[0;34m%}%B└─%{\e[0;34m%}%B(%b%{\e[0m%}%_%B)>%{\e[0m%}%b '
 
