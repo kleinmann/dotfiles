@@ -1,0 +1,4 @@
+# Fetch local weather
+function weather() {
+  curl -s http://wttr.in/$@
+}
