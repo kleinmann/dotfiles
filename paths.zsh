@@ -16,9 +16,6 @@ export PATH=$HOME/bin:$PATH
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
-# rbenv (non-homebrew)
-[ -d $HOME/.rbenv ] && export PATH=$HOME/.rbenv/bin:$PATH
-
 # haskell
 export PATH=$HOME/.cabal/bin:$PATH
 
