@@ -2,7 +2,7 @@
 	name = Uwe Kleinmann
 	email = uwe@kleinmann.org
 [core]
-	pager = less
+	pager = "diff-so-fancy | less --tabs=4 -RFX"
 	excludesfile = ~/.gitignore
 	editor = ~/bin/vim
 [http]
@@ -50,6 +50,7 @@
 	default = simple
 [diff]
 	algorithm = patience
+	compactionHeuristic = true
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
