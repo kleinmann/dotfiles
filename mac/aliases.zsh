@@ -9,3 +9,5 @@
 
 # Sniff network info.
 [ `uname` = "Darwin" ] && alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+
+[ `uname` = "Darwin" ] && alias pdfmerge="'/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py' -o"
