@@ -1,25 +1,13 @@
-;;; packages.el --- local-configuration Layer packages File for Spacemacs
-;;
-;; Author: Uwe Kleinmann <uwe@kleinmann.org>
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-
 (setq local-configuration-packages
       '(
         ;; package local-configurations go here
         editorconfig
-        graphviz-dot-mode
         aggressive-indent-mode
         )
       )
 
 (setq local-configuration-excluded-packages '())
 
-(defun local-configuration/init-graphviz-dot-mode ()
-  "Initialize graphviz-dot-mode"
-  )
 (defun local-configuration/init-editorconfig ()
   "Initialize editorconfig"
   )

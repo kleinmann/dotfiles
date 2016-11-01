@@ -1,12 +1,3 @@
-;;; extensions.el --- local-configuration Layer config File for Spacemacs
-;;
-;; Author: Uwe Kleinmann <uwe@kleinmann.org>
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-(setq paradox-github-token (getenv "PARADOX_GITHUB_TOKEN"))
-
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
 (setq ispell-extra-args '("--sug-mode=fast"))
