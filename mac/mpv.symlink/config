@@ -17,9 +17,9 @@ screenshot-template=~/mpv-screenshot%n
 # Subtitles setup
 
 # disable retarded VSFilter compatibility
-ass-force-style=Kerning=yes
-sub-text-font="Hack-Regular"
-sub-text-font-size=48
+sub-ass-force-style=Kerning=yes
+sub-font="Hack-Regular"
+sub-font-size=48
 
 ################################################################################
 # On Screen Display
@@ -44,8 +44,6 @@ osd-border-color='#99000000'
 ################################################################################
 # Audio
 
-# epic immersion for the poor
-af-add=bs2b
 
 ################################################################################
 # Languages
