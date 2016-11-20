@@ -1,0 +1,4 @@
+$latex = 'latex -interaction=nonstopmode -shell-escape --synctex=1';
+$pdflatex = 'xelatex -interaction=nonstopmode -shell-escape --synctex=1';
+$pdf_previewer = 'open -a /Applications/Preview.app';
+$pdf_mode = 1
