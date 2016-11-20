@@ -84,8 +84,11 @@ GEM
     method_source (0.8.2)
     mime-types (1.19)
     mini_portile2 (2.0.0)
+    msgpack (1.0.2)
     multi_xml (0.5.5)
     mustache (0.99.8)
+    neovim (0.3.1)
+      msgpack (~> 1.0)
     netrc (0.11.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -177,6 +180,7 @@ DEPENDENCIES
   hpricot
   interactive_editor
   mdless
+  neovim
   pry
   pry-doc
   pry-theme
@@ -193,4 +197,4 @@ DEPENDENCIES
   wirble
 
 BUNDLED WITH
-   1.11.2
+   1.13.6
