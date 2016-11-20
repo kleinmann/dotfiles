@@ -18,6 +18,9 @@ Icon
 Thumbs.db
 Desktop.ini
 
-# ctags / etags
+# ctags / etags / global
 TAGS
 tags
+GPATH
+GTAGS
+GRTAGS
