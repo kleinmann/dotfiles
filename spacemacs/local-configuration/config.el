@@ -32,6 +32,8 @@
               (cons "M-y" 'term-send-raw-meta)
               (cons "C-y" 'term-send-raw))))
 
+(global-set-key (kbd "C-x C-n") #'kleinmann/narrow-or-widen-dwim)
+
 ; GRB: split the windows
 ;(add-hook 'after-make-frame-functions
 ;          'kleinmann-default-windows)

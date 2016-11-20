@@ -22,6 +22,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ansible
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
@@ -29,6 +30,7 @@ values."
      ansible
      better-defaults
      bibtex
+     dash
      docker
      elixir
      emacs-lisp
@@ -37,19 +39,29 @@ values."
      graphviz
      git
      github
-                                        ; gtags
      helm
      html
      javascript
      latex
-     markdown
+     (markdown
+      :variables
+      markdown-enable-wiki-links t
+      markdown-italic-underscore t
+      markdown-make-gfm-checkboxes-buttons t
+      markdown-gfm-additional-languages '("sh"))
      nginx
      org
      osx
+     pandoc
      php
-     ruby
+     (ruby
+      :variables
+      ruby-enable-enh-ruby-mode t
+      ruby-insert-encoding-magic-comment nil
+      enh-ruby-add-encoding-comment-on-save nil)
      ruby-on-rails
-     (semantic :disabled-for emacs-lisp)
+     search-engine
+     semantic
      shell
      shell-scripts
      (spell-checking :variables spell-checking-enable-by-default nil)
@@ -61,16 +73,21 @@ values."
 
      ;; Personal layers
      local-configuration
-     local-org)
+     local-org
+     typing-games)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages
    '(editorconfig
+     gruvbox-theme
      helm-flycheck
      nameless
-     org-projectile)
+     ob-php
+     org-id
+     org-projectile
+     zerodark-theme)
    dotspacemacs-excluded-packages '()
    dotspacemacs-frozen-packages '()
    dotspacemacs-install-packages 'used-only))
@@ -90,27 +107,28 @@ values."
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
    dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+                      (projects . 7))
    dotspacemacs-startup-buffer-responsive t
    dotspacemacs-scratch-mode 'org-mode
    dotspacemacs-themes '(
-                         flatland
-                         monokai
-                         solarized-light
-                         solarized-dark
-                         ;; leuven
-                         gruvbox
-                         spacegray
-                         zenburn)
+               flatland
+               monokai
+               solarized-light
+               solarized-dark
+               gruvbox
+               spacegray
+               zenburn
+               zerodark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                               :size 14
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+                     :size 14
+                     :weight normal
+                     :width normal
+                     :powerline-scale 1.1)
    dotspacemacs-leader-key "SPC"
    dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-ex-command-key ":"
+   dotspacemacs-command-key "SPC"
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
@@ -207,7 +225,14 @@ you should place your code here."
       (setq ns-command-modifier 'meta))
   (if (boundp 'ns-option-modifier)
       (setq ns-option-modifier nil))
+
+  (set-language-environment 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (set-locale-environment "de_DE.UTF-8")
+
   (spacemacs/toggle-golden-ratio)
+
   (setq magit-repository-directories '("~/code/"))
   (global-git-commit-mode t)
 
@@ -296,6 +321,9 @@ you should place your code here."
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(custom-safe-themes
+   (quote
+    ("93fdf264bc14b42d0d1d25dacf932f09850e812395400d76d9c67ba18541ce9b" "d320493111089afba1563bc3962d8ea1117dd2b3abb189aeebdc8c51b5517ddb" default)))
  '(evil-want-Y-yank-to-eol t)
  '(fci-rule-color "#073642" t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
@@ -325,10 +353,10 @@ you should place your code here."
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
- '(org-directory "~/Dropbox/org-mode")
+ '(org-export-backends (quote (ascii beamer html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (typo origami web-mode vimrc-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode nameless magit-gh-pulls helm-flycheck helm-css-scss haml-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht emmet-mode dactyl-mode company-web web-completion-data flatland-theme gruvbox-theme spacegray-theme monokai-theme helm-gtags ggtags emoji-cheat-sheet-plus company-emoji zenburn-theme smeargle orgit org-ref key-chord ivy nginx-mode magit-gitflow macrostep jinja2-mode helm-gitignore helm-bibtex parsebib gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fasd grizzl evil-magit magit elisp-slime-nav dockerfile-mode docker tablist magit-popup docker-tramp biblio biblio-core auto-compile packed ansible-doc ansible ob-elixir minitest insert-shebang hide-comnt uuidgen request osx-dictionary org-projectile org-download mwim livid-mode link-hint flyspell-correct-helm flyspell-correct flycheck-mix eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-shell column-enforce-mode clojure-snippets yaml-mode xterm-color ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling skewer-less shell-pop rvm ruby-tools ruby-test-mode ruby-end rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters quelpa projectile-rails popwin phpunit phpcbf php-extras php-auto-yasnippets persp-mode pbcopy paradox page-break-lines osx-trash org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc lorem-ipsum linum-relative leuven-theme less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag graphviz-dot-mode google-translate golden-ratio gnuplot git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help editorconfig drupal-mode diff-hl define-word company-tern company-statistics company-quickhelp company-auctex coffee-mode clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (dash-functional pandoc-mode ox-pandoc org-ac auto-complete-pcmp yaxception engine-mode typing speed-type ox-tufte ob-php spinner rake zerodark-theme all-the-icons font-lock+ tree-mode sx helm-dash dash-at-point auctex org highlight projectile git-commit dash enh-ruby-mode multiple-cursors auto-complete iedit smartparens git-gutter flycheck helm helm-core async yasnippet js2-mode typo origami web-mode vimrc-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode nameless magit-gh-pulls helm-flycheck helm-css-scss haml-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht emmet-mode dactyl-mode company-web web-completion-data flatland-theme gruvbox-theme spacegray-theme monokai-theme helm-gtags ggtags emoji-cheat-sheet-plus company-emoji zenburn-theme smeargle orgit org-ref key-chord ivy nginx-mode magit-gitflow macrostep jinja2-mode helm-gitignore helm-bibtex parsebib gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fasd grizzl evil-magit magit elisp-slime-nav dockerfile-mode docker tablist magit-popup docker-tramp biblio biblio-core auto-compile packed ansible-doc ansible ob-elixir minitest insert-shebang hide-comnt uuidgen request osx-dictionary org-projectile org-download mwim livid-mode link-hint flyspell-correct-helm flyspell-correct flycheck-mix eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-shell column-enforce-mode clojure-snippets yaml-mode xterm-color ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling skewer-less shell-pop rvm ruby-tools ruby-test-mode ruby-end rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters quelpa projectile-rails popwin phpunit phpcbf php-extras php-auto-yasnippets persp-mode pbcopy paradox page-break-lines osx-trash org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc lorem-ipsum linum-relative leuven-theme less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag graphviz-dot-mode google-translate golden-ratio gnuplot git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help editorconfig drupal-mode diff-hl define-word company-tern company-statistics company-quickhelp company-auctex coffee-mode clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
