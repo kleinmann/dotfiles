@@ -4,3 +4,4 @@
 # $ sudo pip install livestreamer
 
 livestreamer -p mpv -n "$1" best
+#livestreamer -p mpv --player-fifo -n "$1" best

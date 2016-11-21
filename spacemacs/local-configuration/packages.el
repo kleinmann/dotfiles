@@ -1,14 +1,9 @@
-(setq local-configuration-packages
-      '(
-        ;; package local-configurations go here
-        evil
-        evil-unimpaired
-        hippie-exp
-        sx
-        )
-      )
-
-(setq local-configuration-excluded-packages '())
+(defconst local-configuration-packages
+  '(evil
+    evil-unimpaired
+    hippie-exp
+    sx
+    ))
 
 (defun local-configuration/init-sx ())
 
@@ -29,12 +24,3 @@
 (defun local-configuration/post-init-hippie-exp ()
   (kleinmann/define-key evil-insert-state-map
                  (kbd "C-SPC") 'hippie-expand))
-;; For each package, define a function local-configuration/init-<package-local-configuration>
-;;
-;; (defun local-configuration/init-my-package ()
-;;   "Initialize my package"
-;;   )
-;;
-;; Often the body of an initialize function uses `use-package'
-;; For more info on `use-package', see readme:
-;; https://github.com/jwiegley/use-package

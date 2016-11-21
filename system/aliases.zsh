@@ -11,8 +11,8 @@ if [[ -x "`which src-hilite-lesspipe.sh`" ]]; then
 fi
 
 # screen aliases
-alias s='screen -rxA'
-alias sn='screen -t $@'
+#alias s='screen -rxA'
+#alias sn='screen -t $@'
 
 # tmux aliases
 alias t='tmux attach'
