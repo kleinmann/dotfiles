@@ -1021,9 +1021,9 @@ map <leader>header :call MakeBlockHeader()<cr>
 if has('gui_running')
     " GUI Vim
 
-    "set guifont=Source\ Code\ Pro\ for\ Powerline:h16
-    "set guifont=Monoid:h16
-    set guifont=Hack:h16
+    "set guifont=Hack:h16
+    set macligatures
+    set guifont=Fira\ Code:h16
 
     " Remove all the UI cruft
     set go-=T
