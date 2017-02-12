@@ -1,7 +1,6 @@
 #!/bin/bash
-# Using https://github.com/chrippa/livestreamer
+# Using https://github.com/streamlink/streamlink
 #
-# $ sudo pip install livestreamer
+# $ pip install streamlink
 
-livestreamer -p mpv -n "$1" best
-#livestreamer -p mpv --player-fifo -n "$1" best
+streamlink -p mpv -n "$1" best
