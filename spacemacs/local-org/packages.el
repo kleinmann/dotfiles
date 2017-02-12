@@ -3,9 +3,11 @@
             org
             org-ac
             ox-tufte
+            skeleton
             ))
 
-(defun local-org/init-jot-mode ())
+(defun local-org/init-jot-mode ()
+  (use-package jot-mode))
 
 (defun local-org/init-ox-tufte ()
   (use-package ox-tufte
@@ -106,14 +108,16 @@
                '(:shebang . "#!/usr/bin/env ruby"))
 
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+  (setq org-html-head-include-default-style nil)
 
   (setq org-publish-project-alist
-        `(;; Main website at http://codeventure.de
+        `(;; Main website at https://codeventure.de
           ("codeventure-org"
            :base-directory ,(file-truename "~/Dropbox/org-mode/codeventure.de/")
            :base-extension "org"
-           :publishing-directory "/ssh:codeventure:~/www/"
+           :publishing-directory "/ssh:codeventure:/var/www/codeventure.de/"
            :publishing-function (org-html-publish-to-tufte-html)
+           :recursive t
            :with-toc nil
            :html-preamble t
            :html-head-extra
@@ -123,34 +127,38 @@
            ("codeventure-rss"
             :base-directory ,(file-truename  "~/Dropbox/org-mode/codeventure.de")
             :base-extension "org"
-            :publishing-directory "/ssh:codeventure:~/www/"
+            :publishing-directory "/ssh:codeventure:/var/www/codeventure.de/"
             :publishing-function org-rss-publish-to-rss
-            :html-link-home "http://codeventure.de/"
+            :html-link-home "https://codeventure.de/"
+            :recursive t
             :exclude ".*"
             :include ("posts.org")
             :html-link-use-abs-url t)
            ("codeventure-images"
             :base-directory ,(file-truename  "~/Dropbox/org-mode/codeventure.de/images")
             :base-extension "png\\|jpg\\|gif"
-            :publishing-directory "/ssh:codeventure:~/www/images"
-            :publishing-function org-publish-attachment)
+            :publishing-directory "/ssh:codeventure:/var/www/codeventure.de/images"
+            :publishing-function org-publish-attachment
+            :recursive t)
            ("codeventure-files"
             :base-directory ,(file-truename  "~/Dropbox/org-mode/codeventure.de/files")
             :base-extension "*"
-            :publishing-directory "/ssh:codeventure:~/www/files/"
-            :publishing-function org-publish-attachment)
-           ("codeventure" :components ("writequit-org"
-                                       "writequit-images"
-                                       "writequit-files"
-                                       "writequit-rss"))
+            :publishing-directory "/ssh:codeventure:/var/www/codeventure.de/files/"
+            :publishing-function org-publish-attachment
+            :recursive t)
+           ("codeventure" :components ("codeventure-org"
+                                       "codeventure-images"
+                                       "codeventure-files"
+                                       "codeventure-rss"))
 
            ;; Org-mode files for ~/.emacs.d/settings.org
            ("dotfiles"
-            :base-directory ,(file-truename "~/.dotfiles/../")
+            :base-directory ,(file-truename "~/.dotfiles/")
             :base-extension "org\\|html"
             :publishing-directory
-            "/ssh:codeventure:~/www/org/"
+            "/ssh:codeventure:/var/www/codeventure.de/org/"
             :publishing-function org-html-publish-to-html
+            :recursive t
             :with-toc t
             :html-preamble t)
 
@@ -159,7 +167,7 @@
             :base-directory ,(file-truename "~/Dropbox/org-mode/")
             :base-extension "org\\|html"
             :publishing-directory
-            "/ssh:codeventure:~/www/org/"
+            "/ssh:codeventure:/var/www/codeventure.de/org/"
             :publishing-function org-html-publish-to-tufte-html
             :with-toc t
             :html-preamble t)
@@ -167,9 +175,20 @@
             :base-directory ,(file-truename "~/Dropbox/org-mode/images")
             :base-extension "png\\|jpg"
             :publishing-directory
-            "/ssh:codeventure:~/www/org/images"
+            "/ssh:codeventure:/var/www/codeventure.de/org/images"
             :publishing-function org-publish-attachment)
-           ("org" :components ("org-org" "org-images"))))
+           ("org" :components ("org-org"
+                               "org-images"))
+           ("org-studies-org"
+            :base-directory ,(file-truename "~/Dropbox/org-mode/studies/")
+            :base-extension "org\\|html"
+            :publishing-directory
+            "/ssh:codeventure:/var/www/codeventure.de/org/studies/"
+            :publishing-function org-html-publish-to-tufte-html
+            :recursive t
+            :with-toc nil
+            :html-preamble t)
+           ("org-studies" :components ("org-studies-org"))))
 
         (add-to-list 'org-latex-packages-alist '("" "minted" nil))
         ;; remove "inputenc" from default packages as it clashes with xelatex
@@ -210,3 +229,23 @@
                        ("\\paragraph{%s}" . "\\paragraph*{%s}")
                        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
     )
+
+(defun local-org/init-skeleton ()
+  (use-package skeleton
+    :ensure t
+    :init (require 'skeleton))
+  (define-skeleton kleinmann/org-header
+    "Insert a standard header for org-mode files"
+    "Title: "
+    "#+TITLE: " str \n
+    "#+AUTHOR: " (user-full-name) \n
+    "#+EMAIL: " user-mail-address \n
+    "#+SETUPFILE: ~/.dotfiles/spacemacs/local-org/setupfiles/tufte.setup
+
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d)}}} |
+
+* Introduction
+" \n)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "ih" 'kleinmann/org-header))

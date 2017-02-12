@@ -1,4 +1,4 @@
-(defun kleimann/org-custom-id-get (&optional pom create prefix)
+(defun kleinmann/org-custom-id-get (&optional pom create prefix)
   "Get the CUSTOM_ID property of the entry at point-or-marker POM.
    If POM is nil, refer to the entry at point. If the entry does
    not have an CUSTOM_ID, the function returns nil. However, when
