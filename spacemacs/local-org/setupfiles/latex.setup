@@ -1,0 +1,7 @@
+# -*- mode: org; -*-
+
+#+LANGUAGE: en
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil ^:{}
+#+STARTUP: fninline fold nodlcheck lognotestate content
+#+LaTeX_CLASS_OPTIONS: [kleinmann-article]

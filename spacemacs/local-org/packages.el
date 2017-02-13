@@ -17,20 +17,14 @@
     (customize-set-variable 'org-export-backends
                             (cons 'tufte org-export-backends))))
 
-(defun local-org/init-ox-latex ()
-  (use-package ox-latex
-               :ensure t
-               :init (require 'ox-latex)))
-
 (defun local-org/init-org-ac ()
   (use-package org-ac)
   (org-ac/config-default))
 
-(defun  local-org/post-init-ox-gfm ()
+(defun local-org/post-init-ox-gfm ()
   (when (boundp 'org-export-backends)
     (customize-set-variable 'org-export-backends
                             (cons 'gfm org-export-backends))))
-
 
 (defun local-org/post-init-org ()
   (setq-default
@@ -190,45 +184,62 @@
             :html-preamble t)
            ("org-studies" :components ("org-studies-org"))))
 
-        (add-to-list 'org-latex-packages-alist '("" "minted" nil))
-        ;; remove "inputenc" from default packages as it clashes with xelatex
-        (setf org-latex-default-packages-alist
-              (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
-        ;; use package caption instead of capt-of which clashes with minted
-        (setf org-latex-default-packages-alist
-              (remove '("" "capt-of" t) org-latex-default-packages-alist))
-        (add-to-list 'org-latex-default-packages-alist
-                     `("", "caption" nil) t)
-        ;; Set a nicer default style for the hyperref package
-        (setf org-latex-default-packages-alist
-              (remove '("" "hyperref" nil) org-latex-default-packages-alist))
-        (add-to-list 'org-latex-default-packages-alist
-                     `("colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=darkgray, anchorcolor=teal", "hyperref" nil))
-        ;; add fontspec package for utf8 characters w ith xelatex
-        (add-to-list 'org-latex-default-packages-alist
-                     `("", "fontspec" nil) t)
-        (setq org-latex-listings 'minted
-              org-latex-minted-options '(("frame" "lines")
-                                         ("frontsize" "\\scriptsize")
-                                         ("linenos" ""))
-              org-latex-table-caption-above nil
-              org-html-table-caption-above nil)
-        ;; setup of latex processing
-        (setq org-latex-pdf-process '("latexmk %f"))
-        (add-to-list 'org-latex-classes
-                     '("article"
-                       "\\documentclass{article}
-                       \\usepackage{geometry}
-                       \\geometry{a4paper, textwidth=6.5in, textheight=10in, marginparsep=7pt, marginparwidth=.6in}
-                       \\usepackage{tabulary}
-                       \\usepackage{minted}
-                       \\usepackage{natbib}"
-                       ("\\section{%s}" . "\\section*{%s}")
-                       ("\\subsection{%s}" . "\\subsection*{%s}")
-                       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-    )
+  ;; remove "inputenc" from default packages as it clashes with xelatex
+  (setf org-latex-default-packages-alist
+        (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
+
+  ;; use package caption instead of capt-of which clashes with minted
+  (setf org-latex-default-packages-alist
+        (remove '("" "capt-of" t) org-latex-default-packages-alist))
+  (add-to-list 'org-latex-default-packages-alist
+               `("", "caption" nil) t)
+
+  ;; Set a nicer default style for the hyperref package
+  (setf org-latex-default-packages-alist
+        (remove '("" "hyperref" nil) org-latex-default-packages-alist))
+  (add-to-list 'org-latex-default-packages-alist
+               `("linktoc=all, pdfstartview=FitH, colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=darkgray, anchorcolor=teal, filecolor=teal, menucolor=teal", "hyperref" nil))
+
+  ;; add fontspec package for utf8 characters with xelatex
+  (add-to-list 'org-latex-default-packages-alist
+               `("", "fontspec" nil) t)
+
+  (setq org-latex-listings 'minted
+        org-src-preserve-indentation t
+        org-latex-minted-options '(("frame" "lines")
+                                   ("frontsize" "\\scriptsize")
+                                   ("linenos" ""))
+        org-latex-packages-alist '(
+                                   ("" "minted" nil)
+                                   ("hyperref=true, backref=true, maxcitenames=3, url=true, backend=biber, natbib=true" "biblatex" nil)
+                                   ("" "tabulary" nil)
+                                   ("" "url" nil)
+                                   ("" "amsmath" nil)
+                                   ("" "pdfpages" nil)
+                                   )
+        org-latex-table-caption-above nil
+        org-html-table-caption-above nil)
+
+  ;; setup of latex processing
+  (setq org-latex-pdf-process '("latexmk -pdflatex='xelatex -shell-escape' -f -pdf %f"
+                                "latexmk -pdflatex='xelatex -shell-escape' -f -pdf %f"))
+  (add-to-list 'org-latex-classes
+               '("kleinmann-article"
+                 "\\documentclass[a4,11pt]{scrartcl}
+                 \\usepackage{geometry}
+                 \\geometry{a4paper, textwidth=6.5in, textheight=10in, marginparsep=7pt, marginparwidth=.6in}
+[DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]
+\\setmonofont[Mapping=tex-text,Scale=0.85]{Source Code Pro Light}
+\\addbibresource{bibliography.bib}"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+  )
 
 (defun local-org/init-skeleton ()
   (use-package skeleton
@@ -247,5 +258,36 @@
 
 * Introduction
 " \n)
+
+  (define-skeleton kleinmann/org-latex-header
+    "Insert a standard LaTeX header for org-mode files"
+    "Title: "
+    "#+TITLE: " str \n
+    "#+AUTHOR: " (user-full-name) \n
+    "#+EMAIL: " user-mail-address \n
+    "#+SETUPFILE: ~/.dotfiles/spacemacs/local-org/setupfiles/latex.setup
+
+\\newpage
+#+BEGIN_abstract
+Abstract for this article.
+#+END_abstract
+
+\newpage
+\tableofcontents
+
+\\thispagestyle{empty}
+\\clearpage
+\\setcounter{page}{1}
+* Introduction
+
+\\newpage
+\\printbibliography
+
+* build								   :noexport:
+
+[[elisp:(org-open-file (org-latex-export-to-pdf))]]
+" \n)
   (spacemacs/set-leader-keys-for-major-mode 'org-mode
-    "ih" 'kleinmann/org-header))
+    "ihd" 'kleinmann/org-header)
+  (spacemacs/set-leader-keys-for-major-mode 'org-mode
+    "ihl" 'kleinmann/org-latex-header))
