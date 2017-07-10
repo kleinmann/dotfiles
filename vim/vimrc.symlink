@@ -43,7 +43,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-scripts/LargeFile'
 Plug 'cohama/lexima.vim'
 Plug 'vim-scripts/listmaps.vim'
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'neomake/neomake'
@@ -51,7 +51,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'spf13/PIV', { 'for': 'php' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'rainbow_parentheses.vim'
+Plug 'vim-scripts/rainbow_parentheses.vim'
 Plug 'tpope/vim-rbenv',
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
@@ -63,7 +63,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'beyondwords/vim-twig', { 'for': 'twig' }
 Plug 'mbbill/undotree'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'xmledit', { 'for': ['html', 'xml'] }
+Plug 'vim-scripts/xmledit', { 'for': ['html', 'xml'] }
 
 " Snippets
 Plug 'jordwalke/AutoComplPop'
@@ -73,9 +73,9 @@ Plug 'jordwalke/VimCompleteLikeAModernEditor'
 
 " Themes
 Plug 'chriskempson/base16-vim'
-Plug 'Zenburn'
+Plug 'vim-scripts/Zenburn'
 Plug 'altercation/vim-colors-solarized'
-Plug 'CSApprox'
+Plug 'vim-scripts/CSApprox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'goirijo/vim-jgg-colorscheme'
 Plug 'morhetz/gruvbox'
