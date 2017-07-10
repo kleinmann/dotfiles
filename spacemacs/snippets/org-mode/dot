@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+#name : dot
+# --
+#+BEGIN_SRC dot
+digraph {
+  rankdir=LR;
+  splines=true;
+  node [shape=box];
+
+  $1
+}
+#+END_SRC
