@@ -28,3 +28,4 @@ alias cdgo='cd "$GOPATH"'
 
 alias ip6="curl -6 icanhazip.com"
 alias ip4="curl -4 icanhazip.com"
+alias p8="ping 8.8.8.8"
