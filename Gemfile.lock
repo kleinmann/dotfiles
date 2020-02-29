@@ -120,7 +120,7 @@ GEM
       rack
     rainbow (2.0.0)
     rak (1.4)
-    rake (10.5.0)
+    rake (12.3.3)
     rcodetools (0.8.5.0)
     redcarpet (3.3.4)
     rest-client (1.8.0)
