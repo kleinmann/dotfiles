@@ -13,7 +13,7 @@ export PATH=$HOME/bin:$PATH
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_11.jdk/Contents/Home
 #export
 #JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
 
 # haskell
@@ -25,9 +25,11 @@ export PATH=/Applications/Network:/opt/local/bin:/opt/local/sbin:/usr/texbin:/Li
 # npm
 export PATH=$HOME/node_modules/.bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/opt/node@10/bin:$PATH
 
 # php
-[[ -x `which brew` ]] && export PATH=/usr/local/opt/php54/bin:$PATH
+[[ -d /Applications/MAMP ]] && export PATH=/Applications/MAMP/bin/php/php7.3.9/bin:$PATH
+export PATH="$HOME/.symfony/bin:$PATH"
 
 # go
 export GOPATH=$HOME/code/go

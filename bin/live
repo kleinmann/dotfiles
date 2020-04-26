@@ -3,4 +3,4 @@
 #
 # $ pip install streamlink
 
-streamlink -p mpv -n "$1" best
+streamlink --plugin-dirs /Users/uwe/code/checkout/streamlink-plugins -p "iina --keep-running" -n "$1" 1080p,best
