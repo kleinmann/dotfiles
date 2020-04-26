@@ -32,6 +32,7 @@ Plug 'rhysd/committia.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'tpope/vim-db'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
@@ -84,6 +85,7 @@ Plug 'romainl/Apprentice'
 Plug 'jordwalke/flatlandia'
 Plug 'dracula/dracula-theme', { 'rtp': 'vim' }
 Plug 'ajh17/Spacegray.vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -261,6 +263,12 @@ syntax on
 set bg=dark
 let base16colorspace=256
 colorscheme gruvbox
+
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+let g:nord_cursor_line_number_background = 1
+set termguicolors
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
