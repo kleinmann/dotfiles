@@ -11,3 +11,6 @@ if type atool > /dev/null 2>&1 ; then
 else
   alias xx="smartextract"
 fi
+
+# Replacement for ls
+[[ -x "`which exa`" ]] && alias ls='exa'

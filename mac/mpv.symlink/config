@@ -52,3 +52,4 @@ slang=eng,en,de
 alang=jp,jpn,en,eng,de,deu
 
 ytdl
+ytdl-format=bestvideo[height<=?1080]+bestaudio/best[height<=?1080]/best
