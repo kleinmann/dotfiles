@@ -34,6 +34,11 @@
 
 (global-set-key (kbd "C-x C-n") #'kleinmann/narrow-or-widen-dwim)
 
+(global-set-key (kbd "M--") 'hippie-expand)
+
+(add-hook 'latex-mode-hook (lambda () (set (make-local-variable 'compile-command) (format "make all" (get-closest-pathname)))))
+(global-set-key (kbd "<f5>") 'recompile-quietly)
+
 ; GRB: split the windows
 ;(add-hook 'after-make-frame-functions
 ;          'kleinmann-default-windows)

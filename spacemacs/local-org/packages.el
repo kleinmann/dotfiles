@@ -30,6 +30,7 @@
   (setq-default
     org-return-follows-link t
     org-fontify-whole-heading-line t
+    org-html-htmlize-output-type 'css
     org-tags-column -80
     org-export-coding-system 'utf-8
     org-footnote-define-inline t
@@ -72,7 +73,8 @@
     org-modules (quote (org-bibtex
                          org-crypt
                          org-id
-                         org-info)))
+                         org-info
+                         org-exp-blocks)))
 
   (org-babel-do-load-languages
     'org-babel-load-languages '((C . t)
@@ -82,8 +84,9 @@
                                 (php . t)
                                 (python . t)
                                 (ruby . t)
-                                (sh . t)
                                 (shell . t)))
+
+  (add-to-list 'org-src-lang-modes '("dot" . graphviz-dot-mode))
 
   ;; ensure this variable is defined
   (unless (boundp 'org-babel-default-header-args:sh)
@@ -207,7 +210,7 @@
   (setq org-latex-listings 'minted
         org-src-preserve-indentation t
         org-latex-minted-options '(("frame" "lines")
-                                   ("frontsize" "\\scriptsize")
+                                   ("fontsize" "\\scriptsize")
                                    ("linenos" ""))
         org-latex-packages-alist '(
                                    ("" "minted" nil)

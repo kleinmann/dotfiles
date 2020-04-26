@@ -46,8 +46,9 @@
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
 
 ;; use solarized-light as the default theme
-(load-theme 'solarized-dark t)
-(set-frame-font "Inconsolata 12")
+;(load-theme 'solarized-dark t)
+(load-theme 'nord t)
+(set-frame-font "Fira Code 16")
 
 (setq-default indent-tabs-mode nil)   ;; don't use tabs to indent
 (setq-default tab-width 2)            ;; but maintain correct appearance

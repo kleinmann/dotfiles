@@ -14,7 +14,7 @@ values."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '("~/.dotfiles/spacemacs/")
-   dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-enable-lazy-installation 'unused
    dotspacemacs-ask-for-lazy-installation nil
    dotspacemacs-configuration-layers
    '(
@@ -22,12 +22,10 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ansible
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
       auto-completion-private-snippets-directory "~/.dotfiles/spacemacs/snippets")
-     ansible
      better-defaults
      bibtex
      dash
@@ -36,6 +34,7 @@ values."
      emacs-lisp
      emoji
      fasd
+     finance
      graphviz
      git
      github
@@ -43,6 +42,7 @@ values."
      html
      javascript
      latex
+     lua
      (markdown
       :variables
       markdown-enable-wiki-links t
@@ -63,10 +63,10 @@ values."
       enh-ruby-add-encoding-comment-on-save nil)
      ruby-on-rails
      search-engine
-     semantic
      shell
      shell-scripts
      (spell-checking :variables spell-checking-enable-by-default nil)
+     sql
      (syntax-checking :variables syntax-checking-enable-by-default nil)
      typography
      version-control
@@ -88,6 +88,7 @@ values."
      gruvbox-theme
      helm-flycheck
      nameless
+     nord-theme
      ob-php
      org-projectile
      zerodark-theme)
@@ -119,11 +120,12 @@ values."
                solarized-light
                solarized-dark
                gruvbox
+               nord
                spacegray
                zenburn
                zerodark)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Hack"
+   dotspacemacs-default-font '("Fira Code"
                      :size 14
                      :weight normal
                      :width normal
@@ -181,7 +183,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (set-default-font "Fira Code-16")
+  (set-default-font "Fira Code-14")
 
 
 ;;; Fira code
@@ -387,11 +389,6 @@ you should place your code here."
   (remove-hook 'prog-mode-hook 'spacemacs//show-trailing-whitespace)
 
 
-  ;; Semantic
-  (with-eval-after-load 'semantic
-    (setq semantic-default-submodes
-          (remove 'global-semantic-stickyfunc-mode semantic-default-submodes)))
-
   ;; Diminish
   (spacemacs|diminish holy-mode)
   (spacemacs|diminish hybrid-mode)
@@ -494,10 +491,10 @@ you should place your code here."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(org-export-backends
    (quote
-    (tufte tufte tufte tufte tufte tufte gfm ascii beamer html icalendar latex md odt)))
+    (tufte tufte tufte tufte gfm ascii beamer html icalendar latex md odt)))
  '(package-selected-packages
    (quote
-    (simple-httpd elixir-mode alert autothemer tern markdown-mode bind-key bind-map php-mode with-editor inf-ruby company skewer-mode inflections pcre2el powerline ox-latex ox-gfm org-page git mustache blog-admin names ctable hydra dash-functional pandoc-mode ox-pandoc org-ac auto-complete-pcmp yaxception engine-mode typing speed-type ox-tufte ob-php spinner rake zerodark-theme all-the-icons font-lock+ tree-mode sx helm-dash dash-at-point auctex org highlight projectile git-commit dash enh-ruby-mode multiple-cursors auto-complete iedit smartparens git-gutter flycheck helm helm-core async yasnippet js2-mode typo origami web-mode vimrc-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode nameless magit-gh-pulls helm-flycheck helm-css-scss haml-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht emmet-mode dactyl-mode company-web web-completion-data flatland-theme gruvbox-theme spacegray-theme monokai-theme helm-gtags ggtags emoji-cheat-sheet-plus company-emoji zenburn-theme smeargle orgit org-ref key-chord ivy nginx-mode magit-gitflow macrostep jinja2-mode helm-gitignore helm-bibtex parsebib gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fasd grizzl evil-magit magit elisp-slime-nav dockerfile-mode docker tablist magit-popup docker-tramp biblio biblio-core auto-compile packed ansible-doc ansible ob-elixir minitest insert-shebang hide-comnt uuidgen request osx-dictionary org-projectile org-download mwim livid-mode link-hint flyspell-correct-helm flyspell-correct flycheck-mix eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-shell column-enforce-mode clojure-snippets yaml-mode xterm-color ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling skewer-less shell-pop rvm ruby-tools ruby-test-mode ruby-end rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters quelpa projectile-rails popwin phpunit phpcbf php-extras php-auto-yasnippets persp-mode pbcopy paradox page-break-lines osx-trash org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc lorem-ipsum linum-relative leuven-theme less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag graphviz-dot-mode google-translate golden-ratio gnuplot git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help editorconfig drupal-mode diff-hl define-word company-tern company-statistics company-quickhelp company-auctex coffee-mode clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (dash-docs lv transient treepy graphql gntp parent-mode fringe-helper git-gutter+ pos-tip flx anzu json-snatcher json-reformat pkg-info popup nord-theme lua-mode eval-sexp-fu ghub let-alist epl org-mime goto-chg s org-category-capture pdf-tools undo-tree diminish memoize log4e f winum unfill fuzzy flycheck-credo company-ansible ledger-mode flycheck-ledger sql-indent evil avy simple-httpd elixir-mode alert autothemer tern markdown-mode bind-key bind-map php-mode with-editor inf-ruby company skewer-mode inflections pcre2el powerline ox-latex ox-gfm org-page git mustache blog-admin names ctable hydra dash-functional pandoc-mode ox-pandoc org-ac auto-complete-pcmp yaxception engine-mode typing speed-type ox-tufte ob-php spinner rake zerodark-theme all-the-icons font-lock+ tree-mode sx helm-dash dash-at-point auctex org highlight projectile git-commit dash enh-ruby-mode multiple-cursors auto-complete iedit smartparens git-gutter flycheck helm helm-core async yasnippet js2-mode typo origami web-mode vimrc-mode tagedit stickyfunc-enhance srefactor slim-mode scss-mode sass-mode pug-mode nameless magit-gh-pulls helm-flycheck helm-css-scss haml-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht emmet-mode dactyl-mode company-web web-completion-data flatland-theme gruvbox-theme spacegray-theme monokai-theme helm-gtags ggtags emoji-cheat-sheet-plus company-emoji zenburn-theme smeargle orgit org-ref key-chord ivy nginx-mode magit-gitflow macrostep jinja2-mode helm-gitignore helm-bibtex parsebib gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fasd grizzl evil-magit magit elisp-slime-nav dockerfile-mode docker tablist magit-popup docker-tramp biblio biblio-core auto-compile packed ansible-doc ansible ob-elixir minitest insert-shebang hide-comnt uuidgen request osx-dictionary org-projectile org-download mwim livid-mode link-hint flyspell-correct-helm flyspell-correct flycheck-mix eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-shell column-enforce-mode clojure-snippets yaml-mode xterm-color ws-butler window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe use-package toc-org spacemacs-theme spaceline solarized-theme smooth-scrolling skewer-less shell-pop rvm ruby-tools ruby-test-mode ruby-end rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters quelpa projectile-rails popwin phpunit phpcbf php-extras php-auto-yasnippets persp-mode pbcopy paradox page-break-lines osx-trash org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc lorem-ipsum linum-relative leuven-theme less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag graphviz-dot-mode google-translate golden-ratio gnuplot git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flx-ido fish-mode fill-column-indicator feature-mode fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eshell-prompt-extras esh-help editorconfig drupal-mode diff-hl define-word company-tern company-statistics company-quickhelp company-auctex coffee-mode clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby bundler buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")

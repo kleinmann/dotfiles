@@ -5,7 +5,12 @@
 #+PROPERTY: header-args:sh :eval no
 #+HTML_HEAD: <link rel="stylesheet" href="https://codeventure.de/css/org-spec.css" type="text/css" />
 #+HTML_HEAD: <link rel="stylesheet" href="/css/org-spec.css" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" href="https://codeventure.de/css/org-src.css" type="text/css" />
+#+HTML_HEAD: <link rel="stylesheet" href="/css/org-src.css" type="text/css" />
+#+HTML_HEAD: <link href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css" />
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+OPTIONS: H:4 num:nil toc:t \n:nil @:t ::t |:t ^:{} -:t f:t *:t
-#+OPTIONS: skip:nil d:(HIDE) tags:not-in-toc html-postamble:nil
+#+OPTIONS: skip:nil d:(HIDE) tags:not-in-toc html-postamble:nil tex:t
+#+OPTIONS: prop:("VERSION")
+#+HTML_DOCTYPE: <!DOCTYPE html>
 #+STARTUP: fold nodlcheck lognotestate content
