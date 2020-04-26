@@ -1,5 +1,0 @@
-#!/bin/sh -e
-#
-# https://github.com/rtomayko/dotfiles/blob/rtomayko/bin/latest-ack
-curl http://beyondgrep.com/ack-1.96-single-file > ~/bin/ack
-chmod +x ~/bin/ack
