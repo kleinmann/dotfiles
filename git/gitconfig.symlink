@@ -2,8 +2,8 @@
 	name = Uwe Kleinmann
 	email = uwe@kleinmann.org
 [core]
-	pager = "diff-so-fancy | less --tabs=4 -RFX"
-	excludesfile = ~/.gitignore
+	#pager = "diff-so-fancy | less --tabs=4 -RFX"
+	excludesfile = /Users/uwe/.gitignore
 	editor = ~/bin/vim
 [http]
 	sslVerify = true
@@ -14,7 +14,7 @@
 	cob = checkout -b
 	s = status -sb
 	prebase = !rebaser.py $*
-	count    = "!git shortlog -sn"
+	count-who    = shortlog -sn
 	assume   = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
 	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
@@ -22,8 +22,9 @@
 	clear = stash --keep-index --include-untracked
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-	standup-legacy = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)"  ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
 	submodule-update = !"git pull --recurse-submodules && git submodule update --recursive"
+	authors = shortlog --summary --numbered --email
+	count = rev-list --no-merges --count HEAD
 [color]
 	diff = 1
 	status = 1
@@ -78,17 +79,16 @@
   insteadOf = "gist:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
-[init]
-  templatedir = ~/.git_template
 [rerere]
 	enabled = true
 	autoupdate = true
 [commit]
 	template = /Users/uwe/.dotfiles/git/git_commit_msg.txt
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [color "diff-highlight"]
 	oldHighlight = red bold 52
 	newNormal = green bold
