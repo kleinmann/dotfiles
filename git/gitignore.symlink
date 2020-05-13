@@ -1,14 +1,7 @@
-.svn
-*~
-.hg
-.netrwhist
-.idea
-.ropeproject
+.idea/
 
 # Mac OS X specific
 .DS_Store
-# Thumbnails
-._*
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
@@ -16,10 +9,3 @@
 # Windows specific
 Thumbs.db
 Desktop.ini
-
-# ctags / etags / global
-TAGS
-tags
-GPATH
-GTAGS
-GRTAGS
