@@ -15,7 +15,7 @@
                :init (require 'ox-tufte))
   (when (boundp 'org-export-backends)
     (customize-set-variable 'org-export-backends
-                            (cons 'tufte org-export-backends))))
+                            (add-to-list 'org-export-backends 'tufte))))
 
 (defun local-org/init-org-ac ()
   (use-package org-ac)
@@ -24,7 +24,7 @@
 (defun local-org/post-init-ox-gfm ()
   (when (boundp 'org-export-backends)
     (customize-set-variable 'org-export-backends
-                            (cons 'gfm org-export-backends))))
+                            (add-to-list 'org-export-backends 'gfm))))
 
 (defun local-org/post-init-org ()
   (setq-default
