@@ -34,7 +34,7 @@
   (make-local-variable 'eldoc-documentation-function)
   (setq eldoc-documentation-function
         'phpactor-hover)
-  (define-transient-command php-transient-menu ()
+  (transient-define-prefix php-transient-menu ()
     "Php"
     [["Class"
       ("cc" "Copy" phpactor-copy-class)

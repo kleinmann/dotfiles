@@ -68,6 +68,9 @@
 (custom-set-faces!
   `(markdown-code-face :background ,(doom-darken 'bg 0.075)))
 
+(setq vc-follow-symlinks t)
+(setq default-fill-column 120)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

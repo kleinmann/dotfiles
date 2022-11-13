@@ -5,7 +5,6 @@
 ;; the command line, then restart Emacs for the changes to take effect.
 ;; Alternatively, use M-x doom/reload.
 
-
 ;; Doom's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...
 ;(unpin! pinned-package)
