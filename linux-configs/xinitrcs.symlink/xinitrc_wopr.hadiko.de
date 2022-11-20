@@ -1,5 +1,0 @@
-#!/bin/bash
-
-[ -z `pgrep urxvtd` ] && urxvtd -q -o -f
-
-awsetbg ~/.config/awesome/zenburn/zenburn-background.png

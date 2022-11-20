@@ -1,9 +1,0 @@
-#!/bin/bash
-setxkbmap -layout de -model macbook79
-xkb-switch -s macintosh_vndr
-
-if [[ -z `lsusb | grep 'Apple, Inc. Aluminum Keyboard'` ]]; then
-	xmodmap $HOME/.dotfiles/neo_de.xmodmap && xset -r 51
-else
-	xmodmap $HOME/.dotfiles/neo_de_home.xmodmap && xset -r 51
-fi
