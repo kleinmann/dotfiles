@@ -14,3 +14,4 @@ fi
 
 # Replacement for ls
 [[ -x "`which exa`" ]] && alias ls='exa'
+[[ -x "`which exa`" ]] && alias l='exa -labF --color auto --git'
