@@ -19,8 +19,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 15))
+(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 15)
+      doom-big-font (font-spec :family "Fira Code" :size 24 :weight 'medium))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -35,7 +36,9 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;(setq display-line-numbers-type t)
+;; Line numbers have a significant performance penalty
+(setq display-line-numbers-type nil)
 
 (if (boundp 'ns-alternate-modifier)
     (setq ns-alternate-modifier 'none))
@@ -50,9 +53,6 @@
 (set-default-coding-systems 'utf-8)
 (set-selection-coding-system 'utf-8)
 (set-locale-environment "de_DE.UTF-8")
-
-;; Line numbers have a significant performance penalty
-(setq display-line-numbers-type nil)
 
 ;; Prevents some flickering
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
