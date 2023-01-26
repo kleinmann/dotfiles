@@ -30,8 +30,8 @@ Plug 'tpope/vim-bundler', { 'for': 'ruby' }
 Plug 'tpope/vim-commentary'
 Plug 'rhysd/committia.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher', { 'do': './install.sh' }
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-db'
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
@@ -63,7 +63,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'kana/vim-textobj-user'
 Plug 'beyondwords/vim-twig', { 'for': 'twig' }
 Plug 'mbbill/undotree'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimproc.vim', { 'do': 'make ARCHS=\"x86_64 arm64\"' }
 Plug 'vim-scripts/xmledit', { 'for': ['html', 'xml'] }
 
 " Snippets
@@ -83,7 +83,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nice/sweater'
 Plug 'romainl/Apprentice'
 Plug 'jordwalke/flatlandia'
-Plug 'dracula/dracula-theme', { 'rtp': 'vim' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ajh17/Spacegray.vim'
 Plug 'arcticicestudio/nord-vim'
 
@@ -585,7 +585,7 @@ augroup ft_vim
     au!
 
     au FileType vim setlocal foldmethod=marker
-    au FileType vim setlocal foldlevel=-1
+    au FileType vim setlocal foldlevel=0
     au FileType help setlocal textwidth=80
     au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
@@ -616,6 +616,7 @@ augroup END
 
 " Airline  {{{
 
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -676,7 +677,7 @@ let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_max_files = 0
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard', 'find %s "(" -type f -or -type l ")" -maxdepth 15 -not -path "*/\.*/*"']
 let g:ctrlp_use_caching = 1
 let g:ctrlp_dont_split = 'NERD_tree_2'

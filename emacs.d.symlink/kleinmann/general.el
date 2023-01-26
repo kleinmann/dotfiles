@@ -1,5 +1,6 @@
 ;; -*- coding: utf-8 -*-
 (push "/usr/local/bin" exec-path)
+(push "/opt/homebrew/bin" exec-path)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (delete-selection-mode t)

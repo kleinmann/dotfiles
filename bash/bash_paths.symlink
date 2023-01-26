@@ -3,7 +3,7 @@
 # PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # standard order
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH
@@ -26,7 +26,7 @@ export PATH=$PATH:$HOME/play
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man
 
-export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
+export MANPATH=/opt/homebrew/man:/opt/homebrew/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
 
 
 export ECLIPSE_HOME='/Applications/eclipse'

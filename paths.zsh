@@ -4,7 +4,7 @@
 # standard order
 # PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 #
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/opt/homebrew/sbin:/opt/homebrew/bin:/sbin:$PATH
 
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH
@@ -32,7 +32,7 @@ export PATH=/usr/local/opt/go/bin:$PATH
 
 # original $MANPATH
 # usr/share/man:/usr/local/share/man:/usr/X11/man
-export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
+export MANPATH=/opt/homebrew/manpages:/opt/homebrew/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/X11/man
 
 export ECLIPSE_HOME='/Applications/eclipse'
 
@@ -40,3 +40,5 @@ export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"

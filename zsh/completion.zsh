@@ -17,4 +17,4 @@ zstyle ':completion:*' insert-tab pending
 
 unsetopt nomatch
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/usr/local/share/zsh-completions /opt/homebrew/share/zsh-completions $fpath)

@@ -1,6 +1,6 @@
 alias gc='git commit'
 alias gs='git status -sb'
-alias gbdm='git branch --merged | egrep -v "(^\*|master|staging|develop)" | xargs git branch -d'
+alias gbdm='git branch --merged | egrep -v "(^\*|main|master|staging|develop)" | xargs git branch -d'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git merge --no-ff --no-commit'

@@ -1,2 +1,2 @@
 # Load rbenv here, so it will be available in non-interactive sessions
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/opt/homebrew/bin:$PATH
