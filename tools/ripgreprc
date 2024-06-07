@@ -1,0 +1,11 @@
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+# But ignore .git directories
+--glob=!.git/
+
+# Because who cares about case!?
+--smart-case

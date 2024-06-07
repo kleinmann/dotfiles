@@ -24,6 +24,9 @@ ZSH_THEME="asuka"
 
 powerline-daemon -q
 [ -d /usr/local/lib/python3.8/site-packages/powerline ] && . /usr/local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+[ -d /usr/local/lib/python3.9/site-packages/powerline ] && . /usr/local/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
 [ -d /opt/homebrew/lib/python3.10/site-packages/powerline ] && . /opt/homebrew/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
+[ -d /opt/homebrew/lib/python3.11/site-packages/powerline ] && . /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/zsh/powerline.zsh
+[ -d /opt/homebrew/lib/python3.12/site-packages/powerline ] && . /opt/homebrew/lib/python3.12/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

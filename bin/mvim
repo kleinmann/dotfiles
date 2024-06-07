@@ -27,10 +27,10 @@ fi
 if [ -z "$VIM_APP_DIR" ]
 then
 	#binary="/usr/bin/vim"
-	binary="/usr/local/bin/nvim"
+	binary="/opt/homebrew/bin/nvim"
 else
 	#binary="$VIM_APP_DIR/MacVim.app/Contents/MacOS/Vim"
-	binary="/usr/local/bin/nvim"
+	binary="/opt/homebrew/bin/nvim"
 fi
 
 # Next, peek at the name used to invoke this script, and set options

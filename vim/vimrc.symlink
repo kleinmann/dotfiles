@@ -84,7 +84,6 @@ Plug 'nice/sweater'
 Plug 'romainl/Apprentice'
 Plug 'jordwalke/flatlandia'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'ajh17/Spacegray.vim'
 Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
@@ -229,7 +228,6 @@ set shiftround
 set expandtab
 set wrap
 set whichwrap+=<,>,h,l,[,] " Backspace and cursors wrap lines
-set textwidth=120
 set formatoptions=qrn1j
 set colorcolumn=+1
 
@@ -840,7 +838,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets/UltiSnips'
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-" let g:UltiSnipsListSnippets = '<C-Tab>'
+let g:UltiSnipsListSnippets = '<C-Tab>'
 let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 " function! g:UltiSnips_Complete()
 "   call UltiSnips#ExpandSnippetOrJump()
@@ -1031,7 +1029,7 @@ if has('gui_running')
     " GUI Vim
 
     "set guifont=Hack:h16
-    set macligatures
+    "set macligatures
     set guifont=Fira\ Code:h16
 
     " Remove all the UI cruft

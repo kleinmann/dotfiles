@@ -1,0 +1,45 @@
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "rust"
+rulers = [100]
+
+[[language]]
+name = "css"
+auto-format = false
+
+[[language]]
+name = "html"
+auto-format = false
+
+[[language]]
+name = "json"
+auto-format = false
+
+[[language]]
+name = "javascript"
+auto-format = false
+
+[[language]]
+name = "jsx"
+auto-format = false
+
+[[language]]
+name = "php"
+auto-format = false
+
+[[language]]
+name = "typescript"
+auto-format = false
+
+[[language]]
+name = "tsx"
+auto-format = false
+
+[language-server.rust-analyzer.config]
+check.command = "clippy"
+
+[language-server.yaml-language-server.config]
+yaml.keyOrdering = false

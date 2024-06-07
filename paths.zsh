@@ -9,6 +9,9 @@ export PATH=/usr/local/sbin:/usr/local/bin:/opt/homebrew/sbin:/opt/homebrew/bin:
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH
 
+# pipx
+export PATH=$HOME/.local/bin:$PATH
+
 # add java bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
 export PATH=$JAVA_HOME/bin:$PATH
