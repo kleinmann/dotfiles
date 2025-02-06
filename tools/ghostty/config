@@ -1,0 +1,26 @@
+background-opacity = 0.95
+bold-is-bright = false
+copy-on-select = clipboard
+
+font-family = Fira Code
+font-size = 15
+
+keybind = global:ctrl+<=toggle_visibility
+keybind = super+right=next_tab
+keybind = super+left=previous_tab
+
+minimum-contrast = 1.1
+
+quick-terminal-animation-duration=0.1
+
+shell-integration-features=no-cursor,sudo,title
+
+theme = catppuccin-mocha
+
+window-inherit-working-directory = false
+window-new-tab-position = end
+window-padding-x = 25
+window-padding-y = 25
+window-save-state = always
+
+working-directory = home
