@@ -28,5 +28,6 @@ powerline-daemon -q
 [ -d /opt/homebrew/lib/python3.10/site-packages/powerline ] && . /opt/homebrew/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
 [ -d /opt/homebrew/lib/python3.11/site-packages/powerline ] && . /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/zsh/powerline.zsh
 [ -d /opt/homebrew/lib/python3.12/site-packages/powerline ] && . /opt/homebrew/lib/python3.12/site-packages/powerline/bindings/zsh/powerline.zsh
+[ -d /opt/homebrew/lib/python3.13/site-packages/powerline ] && . /opt/homebrew/lib/python3.13/site-packages/powerline/bindings/zsh/powerline.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
