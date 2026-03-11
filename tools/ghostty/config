@@ -15,8 +15,9 @@ quick-terminal-animation-duration=0.1
 
 shell-integration-features=no-cursor,sudo,title
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
+tab-inherit-working-directory = false
 window-inherit-working-directory = false
 window-new-tab-position = end
 window-padding-x = 25
