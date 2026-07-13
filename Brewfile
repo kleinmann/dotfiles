@@ -1,481 +1,369 @@
-tap "buo/cask-upgrade"
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "eugenmayer/dockersync"
-tap "homebrew/apache"
-tap "homebrew/binary"
-tap "homebrew/boneyard"
+tap "cloudflare/cloudflare", trusted: true
+tap "docker/tap", trusted: true
+tap "grishka/grishka", trusted: true
 tap "homebrew/bundle"
-tap "homebrew/core"
-tap "homebrew/dupes"
-tap "homebrew/games"
-tap "homebrew/headonly"
-tap "homebrew/php"
-tap "homebrew/python"
+tap "homebrew/cask-fonts"
 tap "homebrew/services"
-tap "homebrew/versions"
-tap "homebrew/x11"
-tap "monochromegane/pt"
-tap "mopidy/mopidy"
-tap "mpv-player/mpv"
-tap "neomutt/neomutt"
-tap "neovim/neovim"
-tap "osx-cross/avr"
-tap "universal-ctags/universal-ctags"
-cask "java"
-cask "xquartz"
-brew "ack"
-brew "aiccu"
-brew "openssl"
-brew "readline"
-brew "aircrack-ng"
-brew "libyaml"
-brew "python"
-brew "ansible"
-brew "ant"
-brew "ant-contrib"
-brew "apr"
-brew "apr-util"
-brew "aria2"
-brew "libnet"
-brew "arping"
-brew "docbook"
-brew "asciidoc", args: ["with-docbook-xsl"]
-brew "clasp"
-brew "gringo"
-brew "aspcud"
-brew "aspell"
-brew "freetype"
-brew "fontconfig"
-brew "glib"
-brew "pixman"
-brew "cairo"
-brew "git"
-brew "atk"
-brew "atool"
-brew "automake"
-brew "mpfr"
-brew "libmpc"
-brew "osx-cross/avr/avr-binutils"
-brew "osx-cross/avr/avr-gcc"
-brew "avr-libc"
-brew "libelf"
-brew "libusb-compat"
-brew "libftdi0"
-brew "avrdude"
-brew "awscli"
-brew "bash"
-brew "bash-completion"
-brew "bchunk"
-brew "bdw-gc"
-brew "bison"
-brew "bltool"
-brew "boost", args: ["with-icu4c"]
-brew "burl"
-brew "ghc"
-brew "cabal-install"
-brew "camlp4"
-brew "cataclysm"
-brew "ccd2iso"
-brew "cloc"
-brew "cmake"
-brew "cmatrix"
-brew "contacts"
-brew "coreutils"
-brew "cscope"
-brew "ctags"
-brew "zeromq"
-brew "czmq"
-brew "dbus"
-brew "dfu-programmer"
-brew "diff-so-fancy"
-brew "pth"
-brew "dirmngr"
-brew "dnsmasq", restart_service: true
-brew "docbook-xsl"
-brew "docutils"
-brew "dos2unix"
-brew "duck"
-brew "editorconfig"
-brew "jpeg"
-brew "wxmac"
-brew "erlang"
-brew "exa"
-brew "faac"
-brew "faad2"
-brew "fasd"
-brew "fcgi"
-brew "fdupes"
-brew "giflib"
-brew "imlib2"
-brew "libexif"
-brew "feh"
-brew "lame"
-brew "libogg"
-brew "x264"
-brew "xvid"
-brew "ffmpeg", args: ["with-libvpx", "with-opus", "with-rtmpdump", "with-theora", "with-x265"]
-brew "findutils"
-brew "pcre2"
-brew "fish"
-brew "flac", args: ["with-libogg"]
-brew "fluid-synth"
-brew "icu4c"
-brew "libtool"
-brew "fontforge"
-brew "fribidi"
-brew "fswatch"
-brew "fzf"
-brew "isl"
-brew "gcc"
-brew "gd"
-brew "gdk-pixbuf"
-brew "gifsicle"
-brew "git-cal"
-brew "git-game"
-brew "glew"
-brew "gsettings-desktop-schemas"
-brew "glib-networking"
-brew "glm"
-brew "global", args: ["with-ctags", "with-pygments"]
-brew "gmime"
-brew "gnome-doc-utils"
-brew "gnupg"
-brew "lua"
-brew "gnuplot"
-brew "sdl2"
-brew "sdl2_image"
-brew "gource"
-brew "gpg-agent"
-brew "graphviz"
-brew "grc"
-brew "orc"
-brew "gst-plugins-bad", args: ["with-faad2", "with-libmms", "with-opus"]
-brew "gstreamer@0.10"
-brew "gst-plugins-base@0.10", args: ["with-libogg", "with-libvorbis", "with-theora"]
-brew "libmms"
-brew "libsndfile"
-brew "gst-plugins-bad@0.10"
-brew "vala"
-brew "libsoup"
-brew "theora"
-brew "gst-plugins-good", args: ["with-flac", "with-libshout", "with-speex", "with-taglib"]
-brew "gst-plugins-good@0.10", args: ["with-flac", "with-jpeg", "with-libshout", "with-libsoup", "with-speex", "with-taglib"]
-brew "gst-plugins-ugly", args: ["with-flac", "with-lame", "with-libmms", "with-libshout", "with-libvorbis", "with-mad", "with-theora", "with-two-lame"]
-brew "gst-plugins-ugly@0.10", args: ["with-flac", "with-lame", "with-libmms", "with-libvorbis", "with-mad", "with-theora", "with-two-lame"]
-brew "py2cairo"
-brew "pygobject3"
-brew "gst-python"
-brew "hicolor-icon-theme"
-brew "shared-mime-info"
-brew "gtk+"
-brew "gtk-doc"
-brew "hashcat"
-brew "heroku"
-brew "highlight"
-brew "hledger"
-brew "html-xml-utils"
-brew "htop-osx"
-brew "httpie"
-brew "hub"
-brew "id3lib"
-brew "iftop"
-brew "imagemagick"
-brew "imagesnap"
-brew "intltool"
-brew "ipcalc"
-brew "itstool"
-brew "jemalloc"
-brew "jpeg-turbo"
-brew "jpegoptim"
-brew "oniguruma"
-brew "jq"
-brew "json-c"
-brew "jsonpp"
-brew "lastpass-cli"
-brew "ledger"
-brew "lesspipe"
-brew "libidn"
-brew "lftp"
-brew "libass"
-brew "libcaca"
-brew "libebml"
-brew "libevent"
-brew "libid3tag"
-brew "libmagic"
-brew "libmatroska"
-brew "memcached", restart_service: true
-brew "libmemcached"
-brew "libmpdclient"
-brew "libpng@1.2"
-brew "libpqxx"
-brew "libsamplerate"
-brew "libshout"
-brew "libsodium"
-brew "libssh2"
-brew "libstfl"
-brew "libtermkey"
-brew "libuv"
-brew "libvo-aacenc"
-brew "libvterm"
-brew "libxslt"
-brew "little-cms2"
-brew "lnav"
-brew "lynx"
-brew "mackup"
-brew "mad"
-brew "makedepend"
-brew "makeicns"
-brew "mas"
-brew "mhash"
-brew "mcrypt"
-brew "md5sha1sum"
-brew "mercurial"
-brew "mitmproxy"
-brew "mkvtoolnix"
-brew "mobile-shell"
-brew "moreutils"
-brew "mozilla-addon-sdk"
-brew "mp4v2"
-brew "mpg123"
-brew "mpv", args: ["with-bundle"]
-brew "msgpack"
-brew "msmtp"
-brew "mtr"
-brew "multitail"
-brew "mycli"
-brew "mysql"
-brew "ncdu"
-brew "ncurses"
-brew "taglib"
-brew "ncmpcpp"
-brew "screenresolution"
-brew "neofetch"
-brew "unibilium"
-brew "neovim", args: ["HEAD"]
-brew "netcat"
-brew "newsbeuter"
-brew "nmap"
-brew "talloc"
-brew "notmuch"
-brew "numpy"
-brew "offlineimap"
-brew "sdl"
-brew "sdl_net"
-brew "open-tyrian"
-brew "optipng"
-brew "ossp-uuid"
-brew "p7zip"
-brew "pandoc"
-brew "pgcli"
-brew "phantomjs"
-brew "pidof"
-brew "plantuml"
-brew "platformio"
-brew "portaudio"
-brew "portmidi"
-brew "progress", args: ["HEAD"]
-brew "pv"
-brew "pwgen"
-brew "pyenv"
-brew "pygobject"
-brew "pygtk"
-brew "q"
-brew "qt"
-brew "qcachegrind"
-brew "qemu"
-brew "qt@5.5"
-brew "ruby-build"
-brew "rbenv"
-brew "reattach-to-user-namespace"
-brew "redis", restart_service: true
-brew "rsync"
-brew "rust"
-brew "s-lang"
-brew "screenfetch"
-brew "sdl_image"
-brew "sdl_mixer"
-brew "sdl_ttf"
-brew "selecta"
-brew "shellcheck"
-brew "siege"
-brew "sip"
-brew "slurm"
-brew "socat"
-brew "source-highlight"
-brew "sox"
-brew "speedtest-cli"
-brew "ssh-copy-id"
-brew "stormssh"
-brew "streamlink"
-brew "subversion"
-brew "ta-lib"
-brew "teensy_loader_cli"
-brew "texi2html"
-brew "the_silver_searcher"
-brew "thefuck"
-brew "tidy-html5"
-brew "tig"
-brew "tmux"
-brew "toilet"
-brew "tokyo-cabinet"
-brew "tomee-plus"
-brew "trash"
+tap "noborus/tap", trusted: true
+tap "railwaycat/emacsmacport", trusted: true
+tap "symfony-cli/tap", trusted: true
+tap "zkondor/dist", trusted: true
+# Simple, modern, secure file encryption
+brew "age"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
-brew "tsung"
-brew "two-lame"
-brew "ucl"
-brew "unison"
-brew "unixodbc"
-brew "unrar"
-brew "urlview"
-brew "utf8proc"
-brew "vifm"
-brew "w3m"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Library for manipulating PNG images
+brew "libpng"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# MPEG-4 command-line tool
+brew "atomicparsley"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Parser generator
+brew "bison"
+# Shell script wrapper that offers helpful shortcuts for curl(1)
+brew "burl"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Cross-platform make
+brew "cmake"
+# Command-line tool to manage cert-manager
+brew "cmctl"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Good-lookin' diffs with diff-highlight and more
+brew "diff-so-fancy"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq", restart_service: :changed
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# SDL2 compatibility layer that uses SDL3 behind the scenes
+brew "sdl2-compat"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg@6"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# GitHub command-line tool
+brew "gh"
+# GIF image/animation creator/editor
+brew "gifsicle"
+# Highest-quality GIF encoder based on pngquant
+brew "gifski"
+# Distributed revision control system
+brew "git"
+# OpenGL Extension Wrangler Library
+brew "glew"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Version Control Visualization Tool
+brew "gource"
+# Post-modern modal text editor
+brew "helix"
+# Kubernetes package manager
+brew "helm"
+# Convert source code to formatted text with syntax highlighting
+brew "highlight"
+# Improved top (interactive process viewer)
+brew "htop"
+# Apache HTTP server
+brew "httpd"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Add GitHub support to git on the command-line
+brew "hub"
+# Display an interface's bandwidth usage
+brew "iftop"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Tool to unpack installers created by Inno Setup
+brew "innoextract"
+# Interactive JSON filter using jq
+brew "jnv"
+# Image manipulation library
+brew "jpeg"
+# Utility to optimize JPEG files
+brew "jpegoptim"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Input filter for the pager less
+brew "lesspipe"
+# Sophisticated file transfer program
+brew "lftp"
+# Conversion library
+brew "libiconv"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Remote terminal application
+brew "mosh"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
+# NCurses Disk Usage
+brew "ncdu"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# JSON for modern C++
+brew "nlohmann-json"
+# Tiny, lightning fast, feature-packed file manager
+brew "nnn"
+# Open source Jazz Jackrabit engine
+brew "openjazz"
+# PNG file optimizer
+brew "optipng"
+# General-purpose scripting language
+brew "php"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Coreutils progress viewer
+brew "progress"
+# Monitor data's progress through a pipe
+brew "pv"
+# Password generator
+brew "pwgen"
+# Easily download, build, install, upgrade, and uninstall Python packages
+brew "python-setuptools"
+# Generate C-based recognizers from regular expressions
+brew "re2c"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Tools for Multiple Arcade Machine Emulator
+brew "rom-tools"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Fast and accurate code counter with complexity and COCOMO estimates
+brew "scc"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
+# Editor of encrypted files
+brew "sops"
+# Source-code syntax highlighter
+brew "source-highlight"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# CLI for extracting streams from various websites to a video player
+brew "streamlink"
+# Code-search similar to ack
+brew "the_silver_searcher"
+# Improved tinyxml (in memory efficiency and size)
+brew "tinyxml2"
+# Terminal multiplexer
+brew "tmux"
+# CLI tool that moves files or folder to the trash
+brew "trash", link: true
+# Split screen video comparison tool using FFmpeg and SDL2
+brew "video-compare"
+# Ogg Vorbis CODEC tools
+brew "vorbis-tools"
+# Executes a program periodically, showing output fullscreen
 brew "watch"
+# Internet file retriever
 brew "wget"
-brew "x265"
-brew "zsh"
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
-brew "eugenmayer/dockersync/unox"
-brew "homebrew/apache/httpd24"
-brew "homebrew/php/php56", args: ["with-httpd24", "with-thread-safety"]
-brew "homebrew/php/boris"
-brew "homebrew/php/composer"
-brew "homebrew/php/igbinary"
-brew "homebrew/php/php56-igbinary"
-brew "homebrew/php/php56-intl"
-brew "homebrew/php/php56-lzf"
-brew "homebrew/php/php56-mcrypt"
-brew "homebrew/php/php56-memcache"
-brew "homebrew/php/php56-memcached"
-brew "homebrew/php/php56-oauth"
-brew "homebrew/php/php56-pthreads"
-brew "homebrew/php/php56-twig"
-brew "homebrew/php/php70", args: ["with-httpd24", "with-pear"]
-brew "homebrew/php/php70-igbinary"
-brew "homebrew/php/php70-imagick"
-brew "homebrew/php/php70-intl"
-brew "homebrew/php/php70-ioncubeloader"
-brew "homebrew/php/php70-lzf"
-brew "homebrew/php/php70-mcrypt"
-brew "homebrew/php/php70-oauth"
-brew "homebrew/php/php70-opcache"
-brew "homebrew/php/php71", args: ["with-httpd24", "with-pear", "with-thread-safety"]
-brew "homebrew/php/php71-igbinary"
-brew "homebrew/php/php71-imagick"
-brew "homebrew/php/php71-lzf"
-brew "homebrew/php/php71-mcrypt"
-brew "homebrew/php/php71-oauth"
-brew "monochromegane/pt/pt"
-brew "neomutt/neomutt/neomutt"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-cask "1password"
-cask "alfred"
-cask "arduino"
-cask "atom"
-cask "bartender"
-cask "bettertouchtool"
-cask "betterzipql"
-cask "bit-slicer"
+# Binary diff, differential compression tools
+brew "xdelta"
+# Feature rich terminal pager
+brew "noborus/tap/ov", trusted: true
+# YAMAMOTO Mitsuharu's Mac port of GNU Emacs
+brew "railwaycat/emacsmacport/emacs-mac@29", args: ["with-imagemagick", "with-librsvg", "with-mac-metal", "with-native-compilation", "with-no-title-bars", "with-starter", "with-xwidgets"], trusted: true
+# Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
+brew "symfony-cli/tap/symfony-cli", trusted: true
+# Web browser focusing on privacy
+cask "brave-browser"
+# E-books management software
 cask "calibre"
-cask "chicken"
-cask "cord"
+# Server and cloud storage browser
 cask "cyberduck"
-cask "dash"
-cask "docker"
-cask "dropbox"
-cask "emacs"
-cask "epichrome"
+# Browser for SQLite databases
+cask "db-browser-for-sqlite"
+# Visually compare and merge files
+cask "diffmerge"
+# Run Stable Diffusion locally
+cask "diffusionbee"
+# Voice and text chat software
+cask "discord"
+# System-wide audio equaliser
+cask "eqmac"
+# Multi-platform multi-messaging app
+cask "ferdium"
+# Web browser
 cask "firefox"
-cask "flightgear"
-cask "fluid"
-cask "flux"
+# Clipboard manager for developers
 cask "flycut"
+cask "font-commit-mono"
+cask "font-commit-mono-nerd-font"
 cask "font-fira-code"
-cask "franz"
-cask "google-chrome"
-cask "google-drive"
-cask "google-hangouts"
-cask "gpgtools"
+cask "font-hack-nerd-font"
+cask "font-ibm-plex-mono"
+cask "font-ibm-plex-sans"
+cask "font-ibm-plex-sans-condensed"
+cask "font-ibm-plex-serif"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# 2D and 3D game engine
+cask "godot"
+# Open-source video transcoder
+cask "handbrake-app"
+# Hex editor focussing on speed
 cask "hex-fiend"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# Free and open-source media player
+cask "iina"
+# Tool to optimise images to a smaller size
 cask "imageoptim"
-cask "integrity"
-cask "intel-power-gadget"
-cask "iterm2"
-cask "jdownloader"
+# Menu bar calendar
+cask "itsycal"
+# Open-source re-implementation of Jazz Jackrabbit 2 game engine
+cask "jazz2-resurrection"
+# JetBrains tools manager
 cask "jetbrains-toolbox"
-cask "karabiner-elements"
-cask "keepingyouawake"
+# Free and Open Source Video Editor
+cask "kdenlive"
+# End-to-end encryption software
 cask "keybase"
-cask "kindlegen"
-cask "lastpass"
-cask "libreoffice"
-cask "macdown"
-cask "mactex"
-cask "macvim"
-cask "mendeley-desktop"
-cask "ngrok"
-cask "openemu"
-cask "paparazzi"
-cask "pdfsam-basic"
-cask "postgres"
-cask "postico"
-cask "qlcolorcode"
-cask "qlimagesize"
+# GPU-based terminal emulator
+cask "kitty"
+# App to manage software development and track bugs
+cask "linear"
+# Open-source cross-platform alternative to AirDrop
+cask "localsend"
+# Trims video and audio files losslessly
+cask "losslesscut"
+# Clipboard manager
+cask "maccy"
+# Controls and monitors all fans on Apple computers
+cask "macs-fan-control"
+# Text editor
+cask "macvim-app"
+# CSV editor
+cask "modern-csv"
+# Tool for editing metadata of audio files including MP3, FLAC, OGG, and more
+cask "mp3tag"
+# File patching utility
+cask "multipatch"
+# Open-source node-graph based video compositing software
+cask "natron"
+# Neovim Client
+cask "neovide-app"
+# App to write, plan, collaborate, and get organised
+cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Finds large, unwanted files and deletes them
+cask "omnidisksweeper"
+# Cross-platform video editor
+cask "openshot-video-editor"
+# Replacement for Docker Desktop
+cask "orbstack"
+# WebKit based web browser
+cask "orion"
+# Headless web browser
+cask "phantomjs"
+# Music player focusing on visuals
+cask "plexamp"
+# Physics sandbox game
+cask "powder"
+# Quick Look generator for Markdown files
 cask "qlmarkdown"
-cask "qlprettypatch"
-cask "qlstephen"
-cask "quicklook-csv"
-cask "quicklook-json"
-cask "rdm"
-cask "screenhero"
-cask "sequel-pro"
+# Archive manager for data compression and backups
+cask "rar"
+# Record analysis and transformation tool
+cask "rq"
+# Build, run, and govern agents across the software development lifecycle
+cask "docker/tap/sbx", trusted: true
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
+# Comic viewer/reader
 cask "simple-comic"
-cask "skim"
-cask "sourcetree"
-cask "spectacle"
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
 cask "spotify"
-cask "suspicious-package"
-cask "sweet-home3d"
-cask "teamspeak-client"
-cask "torbrowser"
-cask "transmit"
-cask "tunnelblick"
-cask "tuntap"
-cask "tuxguitar"
-cask "ubersicht"
-cask "vagrant"
-cask "virtualbox"
-cask "vlc"
-cask "wineskin-winery"
-cask "wireshark"
-cask "wwdc"
-cask "zoomus"
-mas "Alternote", id: 974971992
-mas "CloudApp", id: 417602904
-mas "Controllers Lite", id: 673660806
-mas "ForkLift", id: 412448059
-mas "GarageBand", id: 408980954
-mas "GarageBand", id: 682658836
-mas "Helium", id: 1054607607
-mas "iMovie", id: 408981434
-mas "Key Codes", id: 414568915
-mas "Keynote", id: 409183694
-mas "Kuvva", id: 451557061
-mas "LastPass", id: 926036361
-mas "Monosnap", id: 540348655
-mas "Numbers", id: 409203825
-mas "Outbank", id: 1094255754
-mas "Pages", id: 409201541
-mas "Parcel", id: 639968404
-mas "Reeder", id: 880001334
-mas "Skitch", id: 425955336
-mas "Soulver", id: 413965349
-mas "Telegram", id: 747648890
-mas "The Unarchiver", id: 425424353
-mas "Tweetbot", id: 557168941
-mas "Veertu", id: 1024069033
-mas "Wunderlist", id: 410628904
-mas "Xcode", id: 497799835
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin"
+# Epub reader
+cask "thorium"
+# Open-source code editor
+cask "visual-studio-code"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# Multiplayer code editor
+cask "zed"
+# A tool to toggle Macbook's infamous notch in one click with automation support
+cask "zkondor/dist/znotch"
+# Video communication and virtual meeting platform
+cask "zoom"
+vscode "alex-c.code-canvas-app"
+vscode "antfu.iconify"
+vscode "bmewburn.vscode-intelephense-client"
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "ckolkman.vscode-postgres"
+vscode "continue.continue"
+vscode "dbaeumer.vscode-eslint"
+vscode "devsense.composer-php-vscode"
+vscode "devsense.intelli-php-vscode"
+vscode "devsense.phptools-vscode"
+vscode "devsense.profiler-php-vscode"
+vscode "eamodio.gitlens"
+vscode "editorconfig.editorconfig"
+vscode "evidence.evidence-vscode"
+vscode "geequlim.godot-tools"
+vscode "github.vscode-github-actions"
+vscode "golang.go"
+vscode "llvm-vs-code-extensions.vscode-clangd"
+vscode "lokalise.i18n-ally"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.makefile-tools"
+vscode "phpactor.vscode-phpactor"
+vscode "redhat.vscode-xml"
+vscode "svelte.svelte-vscode"
+vscode "usernamehw.errorlens"
+vscode "vscodevim.vim"
+vscode "vue.volar"
+vscode "zokugun.cron-tasks"
+vscode "zokugun.sync-settings"
+npm "corepack"
