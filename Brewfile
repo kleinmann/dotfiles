@@ -55,6 +55,10 @@ brew "ffmpeg@6"
 brew "findutils"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Command-line downloader for image-hosting site galleries and collections
+brew "gallery-dl"
 # GNU compiler collection
 brew "gcc"
 # Graphics library to dynamically manipulate images
@@ -191,6 +195,10 @@ brew "noborus/tap/ov", trusted: true
 brew "railwaycat/emacsmacport/emacs-mac@29", args: ["with-imagemagick", "with-librsvg", "with-mac-metal", "with-native-compilation", "with-no-title-bars", "with-starter", "with-xwidgets"], trusted: true
 # Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure
 brew "symfony-cli/tap/symfony-cli", trusted: true
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Memory training application
+cask "anki"
 # Web browser focusing on privacy
 cask "brave-browser"
 # E-books management software
@@ -205,6 +213,8 @@ cask "diffmerge"
 cask "diffusionbee"
 # Voice and text chat software
 cask "discord"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
 # System-wide audio equaliser
 cask "eqmac"
 # Multi-platform multi-messaging app
@@ -241,6 +251,8 @@ cask "itsycal"
 cask "jetbrains-toolbox"
 # Free and Open Source Video Editor
 cask "kdenlive"
+# File archiver
+cask "keka"
 # GPU-based terminal emulator
 cask "kitty"
 # App to manage software development and track bugs
@@ -285,6 +297,10 @@ cask "powder"
 cask "qlmarkdown"
 # Archive manager for data compression and backups
 cask "rar"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Remote management solution
+cask "royal-tsx"
 # Record analysis and transformation tool
 cask "rq"
 # Build, run, and govern agents across the software development lifecycle
@@ -308,7 +324,7 @@ cask "wezterm"
 # Multiplayer code editor
 cask "zed"
 # A tool to toggle Macbook's infamous notch in one click with automation support
-cask "zkondor/dist/znotch"
+cask "zkondor/dist/znotch", trusted: true
 vscode "alex-c.code-canvas-app"
 vscode "antfu.iconify"
 vscode "bmewburn.vscode-intelephense-client"
@@ -331,6 +347,7 @@ vscode "llvm-vs-code-extensions.vscode-clangd"
 vscode "lokalise.i18n-ally"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-python-envs"
 vscode "ms-toolsai.jupyter"
@@ -349,4 +366,3 @@ vscode "vscodevim.vim"
 vscode "vue.volar"
 vscode "zokugun.cron-tasks"
 vscode "zokugun.sync-settings"
-npm "corepack"
