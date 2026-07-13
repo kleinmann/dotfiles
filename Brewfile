@@ -1,9 +1,6 @@
 tap "cloudflare/cloudflare", trusted: true
 tap "docker/tap", trusted: true
 tap "grishka/grishka", trusted: true
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
 tap "noborus/tap", trusted: true
 tap "railwaycat/emacsmacport", trusted: true
 tap "symfony-cli/tap", trusted: true
@@ -26,8 +23,6 @@ brew "atomicparsley"
 brew "bat"
 # Parser generator
 brew "bison"
-# Shell script wrapper that offers helpful shortcuts for curl(1)
-brew "burl"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Cross-platform make
@@ -242,14 +237,10 @@ cask "iina"
 cask "imageoptim"
 # Menu bar calendar
 cask "itsycal"
-# Open-source re-implementation of Jazz Jackrabbit 2 game engine
-cask "jazz2-resurrection"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # Free and Open Source Video Editor
 cask "kdenlive"
-# End-to-end encryption software
-cask "keybase"
 # GPU-based terminal emulator
 cask "kitty"
 # App to manage software development and track bugs
@@ -286,8 +277,6 @@ cask "openshot-video-editor"
 cask "orbstack"
 # WebKit based web browser
 cask "orion"
-# Headless web browser
-cask "phantomjs"
 # Music player focusing on visuals
 cask "plexamp"
 # Physics sandbox game
@@ -312,8 +301,6 @@ cask "spotify"
 cask "temurin"
 # Epub reader
 cask "thorium"
-# Open-source code editor
-cask "visual-studio-code"
 # Binary releases of VS Code without MS branding/telemetry/licensing
 cask "vscodium"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
@@ -322,8 +309,6 @@ cask "wezterm"
 cask "zed"
 # A tool to toggle Macbook's infamous notch in one click with automation support
 cask "zkondor/dist/znotch"
-# Video communication and virtual meeting platform
-cask "zoom"
 vscode "alex-c.code-canvas-app"
 vscode "antfu.iconify"
 vscode "bmewburn.vscode-intelephense-client"
@@ -346,8 +331,6 @@ vscode "llvm-vs-code-extensions.vscode-clangd"
 vscode "lokalise.i18n-ally"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
-vscode "ms-python.debugpy"
-vscode "ms-python.isort"
 vscode "ms-python.python"
 vscode "ms-python.vscode-python-envs"
 vscode "ms-toolsai.jupyter"
