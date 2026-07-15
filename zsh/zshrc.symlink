@@ -22,12 +22,21 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 ZSH_THEME="asuka"
 # source "$ZSH/zsh/themes/$ZSH_THEME.zsh-theme"
 
-powerline-daemon -q
-[ -d /usr/local/lib/python3.8/site-packages/powerline ] && . /usr/local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-[ -d /usr/local/lib/python3.9/site-packages/powerline ] && . /usr/local/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
-[ -d /opt/homebrew/lib/python3.10/site-packages/powerline ] && . /opt/homebrew/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
-[ -d /opt/homebrew/lib/python3.11/site-packages/powerline ] && . /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/zsh/powerline.zsh
-[ -d /opt/homebrew/lib/python3.12/site-packages/powerline ] && . /opt/homebrew/lib/python3.12/site-packages/powerline/bindings/zsh/powerline.zsh
-[ -d /opt/homebrew/lib/python3.13/site-packages/powerline ] && . /opt/homebrew/lib/python3.13/site-packages/powerline/bindings/zsh/powerline.zsh
+PROMPT_MODE="starship" # starship | powerline
+
+if [[ $PROMPT_MODE == "powerline" ]]; then
+  powerline-daemon -q
+  [ -d /usr/local/lib/python3.8/site-packages/powerline ] && . /usr/local/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /usr/local/lib/python3.9/site-packages/powerline ] && . /usr/local/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.10/site-packages/powerline ] && . /opt/homebrew/lib/python3.10/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.11/site-packages/powerline ] && . /opt/homebrew/lib/python3.11/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.12/site-packages/powerline ] && . /opt/homebrew/lib/python3.12/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.13/site-packages/powerline ] && . /opt/homebrew/lib/python3.13/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.14/site-packages/powerline ] && . /opt/homebrew/lib/python3.14/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d /opt/homebrew/lib/python3.14/site-packages/powerline ] && . /opt/homebrew/lib/python3.14/site-packages/powerline/bindings/zsh/powerline.zsh
+  [ -d $HOME/.local/pipx/venvs/powerline-status/lib/python3.14/site-packages/powerline ] && . $HOME/.local/pipx/venvs/powerline-status/lib/python3.14/site-packages/powerline/bindings/zsh/powerline.zsh
+elif [[ $PROMPT_MODE == "starship" ]]; then
+  eval "$(starship init zsh)"
+fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
