@@ -3,11 +3,12 @@ bold-is-bright = false
 copy-on-select = clipboard
 
 font-family = Fira Code
-font-size = 15
+font-size = 16
 
 keybind = global:ctrl+<=toggle_visibility
 keybind = super+right=next_tab
 keybind = super+left=previous_tab
+keybind = shift+enter=text:\x1b\r
 
 minimum-contrast = 1.1
 

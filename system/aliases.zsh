@@ -20,7 +20,7 @@ alias t='tmux attach'
 # cd aliases
 alias ..='cd .. ; '
 alias ...='cd ../.. ; '
-alias cdw='cd "$HOME/code/k10r"'
+alias cdw='cd "$HOME/code/frontstack"'
 alias cdp='cd "$HOME/code"'
 alias cdc='cd "$HOME/code/checkout"'
 alias cdd='cd "$HOME/.dotfiles"'
