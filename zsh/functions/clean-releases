@@ -1,0 +1,13 @@
+# A "safe" function for removing folders, always keeping at least the num_to_keep youngest
+# It only works on files directly in the given directory, no nested structures
+# see https://stackoverflow.com/a/52230709
+remove_old_releases() {
+  local num_to_keep=$1
+  local directory="$2"
+
+  if [ $num_to_keep -lt 0 ]; then # Clamp to zero, because head does not like negative counts :)
+    num_to_keep=0
+  fi
+
+  /usr/bin/env find "$directory" -maxdepth 1 -mindepth 1 -type d -printf '%T@ %p\n' | sort -n | head -n -$num_to_keep | cut -d ' ' -f2 | xargs -r rm -r
+}

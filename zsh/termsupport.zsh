@@ -69,8 +69,8 @@ timingprompt() { eval 'echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\
 
 precmd_functions+=(prompt_hook timingprompt)
 
-_Z_NO_RESOLVE_SYMLINKS=1
-. $HOME/bin/z
+#_Z_NO_RESOLVE_SYMLINKS=1
+#. $HOME/bin/z
 
 # Appears at the beginning of (and during) of command execution
 function preexec {

@@ -1,0 +1,20 @@
+--write-thumbnail
+--embed-thumbnail
+--add-metadata
+--embed-subs
+--write-sub
+--sub-lang en
+--no-overwrites
+--no-post-overwrites
+--no-continue
+--ignore-errors
+--match-filter "playlist_title !=? 'Liked videos' & playlist_title !=? 'Favorites'"
+--write-info-json
+--retries 10
+--merge-output-format mkv
+--restrict-filenames
+--trim-filenames=138
+-t sleep
+--sponsorblock-mark all
+#--sponsorblock-remove sponsor
+--prefer-free-formats

@@ -3,4 +3,4 @@
 #
 # $ pip install streamlink
 
-streamlink --plugin-dirs /Users/uwe/code/checkout/streamlink-plugins -p "iina" --player-args "--stdin" "$1" 1080p,best
+streamlink --plugin-dirs /Users/uwe/code/checkout/streamlink-plugins -p "iina" -a "--stdin --keep-running" "$1" 1080p,best

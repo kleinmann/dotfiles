@@ -3,13 +3,24 @@
 	email = uwe@kleinmann.org
 [core]
 	#pager = "diff-so-fancy | less --tabs=4 -RFX"
-        pager = "diff-so-fancy | ov -F"
+        #pager = "diff-so-fancy | ov -F"
+        #pager = "delta --pager='ov -F'"
 	excludesfile = /Users/uwe/.gitignore
 	editor = ~/bin/vim
 [pager]
-        diff = "ov -F --section-delimiter '^diff' --section-header"
-        log = "ov -F --section-delimiter '^commit' --section-header-num 3"
-        show = "ov -F --header 3"
+        #diff = "ov -F --section-delimiter '^diff' --section-header"
+        #log = "ov -F --section-delimiter '^commit' --section-header-num 3"
+        show = "delta --pager='ov -F --header 3'"
+        diff = delta --features ov-diff
+        log = delta --features ov-log
+[delta]
+        navigate = true
+        side-by-side = false
+        file-style = yellow
+[delta "ov-diff"]
+        pager = ov -F --section-delimiter '^(commit|added:|removed:|renamed:|Δ)' --section-header --pattern '•'
+[delta "ov-log"]
+        pager=ov -F --section-delimiter '^commit' --section-header-num 3
 [http]
 	sslVerify = true
 [branch]
