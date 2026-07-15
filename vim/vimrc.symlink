@@ -112,7 +112,9 @@ set laststatus=2
 set history=1000
 set undofile
 set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+if !has('ide')
+    set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+endif
 set lazyredraw
 set matchtime=3
 set showbreak=↪
@@ -176,11 +178,13 @@ augroup END
 " Trailing whitespace {{{
 " Only shown when not in insert mode so I don't go insane.
 
-augroup trailing
-    au!
-    au InsertEnter * :set listchars-=trail:⌴
-    au InsertLeave * :set listchars+=trail:⌴
-augroup END
+if !has('ide')
+    augroup trailing
+        au!
+        au InsertEnter * :set listchars-=trail:⌴
+        au InsertLeave * :set listchars+=trail:⌴
+    augroup END
+endif
 
 " }}}
 
@@ -209,13 +213,15 @@ set wildignore+=*.orig                           " Merge resolution files
 
 " Make sure Vim returns to the same line when you reopen a file.
 " Thanks, Amit
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
+if !has('ide')
+    augroup line_return
+        au!
+        au BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \     execute 'normal! g`"zvzz' |
+            \ endif
+    augroup END
+endif
 
 " }}}
 
@@ -437,7 +443,9 @@ set foldtext=MyFoldText()
 " All ---------------------------------------------------------------------- {{{
 
 " Remove trailing whitespaces and \^M chars
-autocmd BufWritePre * :%s/\s\+$//e
+if !has('ide')
+    autocmd BufWritePre * :%s/\s\+$//e
+endif
 
 " }}}
 " CSS ---------------------------------------------------------------------- {{{

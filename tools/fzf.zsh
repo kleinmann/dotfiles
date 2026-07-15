@@ -1,1 +1,1 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -x `which fzf` ]] &> /dev/null && source <(fzf --zsh)

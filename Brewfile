@@ -129,6 +129,8 @@ brew "ninja"
 brew "nlohmann-json"
 # Tiny, lightning fast, feature-packed file manager
 brew "nnn"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
 # Open source Jazz Jackrabit engine
 brew "openjazz"
 # PNG file optimizer
