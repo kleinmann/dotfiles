@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+$HOME/code/checkout/offpunk/venv/bin/python $HOME/code/checkout/offpunk/offpunk.py $@
