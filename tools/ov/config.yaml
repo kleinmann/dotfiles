@@ -1,3 +1,402 @@
-DisableMouse: true
-SmartCaseSensitive: true
-RegexpSearch: true
+# This is the ov config file.
+# Copy it to `$XDG_CONFIG_HOME/ov/config.yaml` or start it with `ov --config ov.yaml`.
+#
+# QuitSmall: false # Quit if the file size is smaller than the terminal size.
+# IsWriteOriginal: false # Write the original content when exiting.
+# BeforeWriteOriginal: 0 # Extra lines above the current view to output on exit.
+# AfterWriteOriginal: 0 # Extra lines below the current view to output on exit.
+#
+# CaseSensitive: false # Case sensitive search.
+SmartCaseSensitive: true # Case-insensitive unless the search pattern contains uppercase letters.
+RegexpSearch: true # Treat search patterns as regular expressions.
+# Incsearch: true # Incremental search.
+#
+# MemoryLimit: -1 # Maximum chunks to keep in memory (-1 for unlimited).
+# MemoryLimitFile: 100 # Maximum chunks to keep in memory per file.
+#
+DisableMouse: true # Disable mouse support.
+# DisableColumnCycle: false # Keep column cursor from wrapping to the first column.
+# DisableStickyFollow: false # Disable sticky follow mode.
+#
+# ViewMode: markdown # Default view mode.
+#
+# For ClipboardMethod.
+# specify "auto" (default) is "OSC52" if the terminal supports it, otherwise it falls back to "system".
+# specify "OSC52" to copy using OSC52.
+# Specify "system" to copy using the system clipboard.
+# ClipboardMethod: "default" # Clipboard method. Options: "auto", "OSC52", "system".
+#
+# SidebarWidth: 20% # Width of the sidebar. Can be specified in percentage or fixed width (e.g., "30" for 30 columns).
+# SidebarMode: "none" # Open sidebar with this content. Options: "help", "marks", "documents", "sections", "styles", "none".
+
+# Editor: "vim +%d %f" # Editor command. %d is line number, %f is file name.
+#
+# SetTerminalTitle: false # Update the terminal title bar with the current file name.
+#
+# Debug: false # Debug mode.
+#
+
+# ShrinkChar: '…' # Characters displayed when the column is shrinking.
+
+# ReadWaitTime: 1s # Time to wait for a search while reading. 1s is the default.
+
+General:
+  TabWidth: 8
+  Header: 0
+  AlternateRows: false
+  ColumnMode: false
+  LineNumMode: false
+  Wrap: "character" # Wrap mode. Options: "character", "word", "none".
+  ColumnDelimiter: ","
+  MarkStyleWidth: 1
+# HScrollWidth: 10%
+# VScrollLines: 2
+  Prompt:
+    Normal:
+#      ShowFilename: true # Show the filename.
+#      InvertColor: true # Invert the color of the prompt.
+#      ProcessOfCount: true # Show the process of count.
+#      CursorType: 0 # Cursor type for the normal prompt.
+    Input:
+#      CursorType: 1 # Cursor type for the input prompt.
+
+#  SectionDelimiter: "^#"
+  # Style
+  # String of the color name: Foreground, Background, UnderlineColor
+  # Boolean: Bold, Blink, Dim, Italic, Underline
+  # Number: UnderlineStyle
+  Style:
+    Alternate:
+      Background: "gray"
+    Header:
+      Bold: true
+    Body:
+      # Add appropriate styles here
+    LineNumber:
+      Bold: true
+    SearchHighlight:
+      Reverse: true
+    ColumnHighlight:
+      Reverse: true
+    MarkLine:
+      Background: "darkgoldenrod"
+    SectionLine:
+      Background: "slateblue"
+    VerticalHeader:
+      # Add appropriate styles here
+    Ruler:
+      Background: "#333333"
+      Foreground: "#CCCCCC"
+      Bold: true
+    HeaderBorder:
+      # Add appropriate styles here
+    SectionHeaderBorder:
+      # Add appropriate styles here
+    VerticalHeaderBorder:
+      Background: "#c0c0c0"
+    MultiColorHighlight:
+      - Foreground: "red"
+      - Foreground: "aqua"
+      - Foreground: "yellow"
+      - Foreground: "fuchsia"
+      - Foreground: "lime"
+      - Foreground: "blue"
+      - Foreground: "gray"
+    ColumnRainbow:
+      - Foreground: "white"
+      - Foreground: "crimson"
+      - Foreground: "aqua"
+      - Foreground: "lightsalmon"
+      - Foreground: "lime"
+      - Foreground: "blue"
+      - Foreground: "yellowgreen"
+    JumpTargetLine:
+      Underline: true
+
+StyleOverStrike:
+  Bold: true
+StyleOverLine:
+  Underline: true
+
+# Keybind
+# Special key
+#   "Enter","Backspace","Tab","Backtab","Esc",
+#   "Delete", "Insert",
+#   "Up", "Down", "Left", "Right", "Home", "End",
+#   "F1...F64"
+# Modifier key
+#   "ctrl", "alt", "meta", "shift"
+# Connect with modifier key + key
+#   "ctrl+c"
+KeyBind:
+    align_format:
+        - "ctrl+alt+f"
+    alter_rows_mode:
+        - "C"
+    backsearch:
+        - "?"
+    begin_left:
+        - "shift+Home"
+    bottom:
+        - "End"
+        - ">"
+        - "G"
+    cancel:
+        - "ctrl+c"
+    close_all_filter:
+        - "ctrl+alt+k"
+    close_doc:
+        - "alt+k"
+    close_file:
+        - "ctrl+F9"
+        - "ctrl+alt+s"
+    column_mode:
+        - "c"
+    column_width:
+        - "alt+o"
+    convert_type:
+        - "ctrl+alt+t"
+    delimiter:
+        - "F8"
+    down:
+        - "e"
+        - "ctrl+e"
+        - "j"
+        - "J"
+        - "ctrl+j"
+        - "Enter"
+        - "Down"
+    edit:
+        - "v"
+    end_right:
+        - "shift+End"
+    exit:
+        - "Escape"
+        - "q"
+    filter:
+        - "&"
+    fixed_column:
+        - "alt+f"
+    follow_all:
+        - "ctrl+a"
+    follow_mode:
+        - "F"
+    follow_section:
+        - "F2"
+    goto:
+        - ":"
+    half_left:
+        - "ctrl+left"
+    half_right:
+        - "ctrl+right"
+    header:
+        - "H"
+    header_column:
+        - "ctrl+alt+d"
+    help:
+        - "h"
+        - "ctrl+alt+c"
+    hide_other:
+        - "alt+-"
+    input_casesensitive:
+        - "alt+c"
+    input_copy:
+        - "ctrl+c"
+    input_incsearch:
+        - "alt+i"
+    input_next:
+        - "Down"
+    input_non_match:
+        - "!"
+    input_paste:
+        - "ctrl+v"
+    input_previous:
+        - "Up"
+    input_regexp_search:
+        - "alt+r"
+    input_smart_casesensitive:
+        - "alt+s"
+    jump_target:
+        - "alt+j"
+    last_section:
+        - "9"
+    left:
+        - "left"
+    line_number_mode:
+        - "alt+n"
+    logdoc:
+        - "ctrl+alt+e"
+    mark:
+        - "m"
+    mark_by_pattern:
+        - "*"
+    mark_number:
+        - ","
+    multi_color:
+        - "."
+    next_backsearch:
+        - "N"
+    next_doc:
+        - "]"
+    next_mark:
+        - "alt+>"
+    next_search:
+        - "n"
+    next_section:
+        - "space"
+    page_down:
+        - "PageDown"
+        - "ctrl+v"
+        - "alt+space"
+        - "f"
+        - "z"
+    page_half_down:
+        - "d"
+        - "ctrl+d"
+    page_half_up:
+        - "u"
+        - "ctrl+u"
+    page_up:
+        - "PageUp"
+        - "b"
+        - "alt+v"
+    plain_mode:
+        - "ctrl+F7"
+    previous_doc:
+        - "["
+    previous_mark:
+        - "alt+<"
+    previous_section:
+        - "^"
+    rainbow_mode:
+        - "ctrl+F4"
+    raw_format:
+        - "ctrl+alt+g"
+    reload:
+        - "R"
+        - "ctrl+r"
+    remove_all_mark:
+        - "ctrl+delete"
+    remove_mark:
+        - "M"
+    right:
+        - "right"
+    right_align:
+        - "alt+a"
+    save_buffer:
+        - "s"
+    search:
+        - "/"
+    section_delimiter:
+        - "alt+d"
+    section_header_num:
+        - "F7"
+    section_start:
+        - "ctrl+F3"
+        - "alt+s"
+    set_view_mode:
+        - "p"
+        - "P"
+    set_write_exit:
+        - "ctrl+q"
+    shrink_column:
+        - "alt+x"
+    sidebar_doc_list:
+        - "alt+l"
+    sidebar_down:
+        - "shift+Down"
+    sidebar_help:
+        - "alt+h"
+    sidebar_left:
+        - "shift+Left"
+    sidebar_marks:
+        - "alt+m"
+    sidebar_right:
+        - "shift+Right"
+    sidebar_sections:
+        - "alt+u"
+    sidebar_styles:
+        - "alt+y"
+    sidebar_up:
+        - "shift+Up"
+    skip_lines:
+        - "ctrl+s"
+    status_line:
+        - "ctrl+F10"
+    style_toggle:
+        - "o"
+    suspend:
+        - "ctrl+z"
+    sync:
+        - "r"
+        - "ctrl+l"
+    tabwidth:
+        - "t"
+    toggle_mouse:
+        - "ctrl+F8"
+        - "ctrl+alt+r"
+    toggle_ruler:
+        - "alt+shift+F9"
+    top:
+        - "Home"
+        - "g"
+        - "<"
+    up:
+        - "y"
+        - "Y"
+        - "ctrl+y"
+        - "k"
+        - "K"
+        - "ctrl+k"
+        - "Up"
+    vertical_header:
+        - "ctrl+alt+b"
+    watch:
+        - "T"
+        - "ctrl+alt+w"
+    watch_interval:
+        - "ctrl+w"
+    width_left:
+        - "alt+left"
+    width_right:
+        - "alt+right"
+    word_wrap_mode:
+        - "alt+w"
+    wrap_mode:
+        - "w"
+        - "W"
+    write_exit:
+        - "Q"
+    write_original:
+        - "alt+shift+F8"
+
+
+# View mode specific settings
+# The "General" setting can be overridden in view mode.
+Mode:
+  markdown:
+    SectionDelimiter: "^#"
+    Wrap: "word"
+    Style:
+      SectionLine:
+        Background: "blue"
+  psql:
+    Header: 2
+    AlternateRows: true
+    ColumnMode: true
+    LineNumMode: false
+    Wrap: "character"
+    ColumnDelimiter: "|"
+  mysql:
+    Header: 3
+    AlternateRows: true
+    ColumnMode: true
+    LineNumMode: false
+    Wrap: "character"
+    ColumnDelimiter: "|"
+  ps:
+    Header: 1
+    ColumnMode: true
+    ColumnRainbow: true
+    ColumnWidth: true
+    Wrap: "none"

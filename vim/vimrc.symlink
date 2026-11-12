@@ -843,6 +843,7 @@ endfunction
 " }}}
 " UltiSnips  {{{
 
+let g:python3_host_prog = '~/.venv/neovim/bin/python'
 let g:UltiSnipsSnippetsDir = '~/.vim/bundle/vim-snippets/UltiSnips'
 let g:UltiSnipsExpandTrigger = '<Tab>'
 let g:UltiSnipsJumpForwardTrigger = '<Tab>'
@@ -1047,10 +1048,12 @@ if has('gui_running')
     set go-=L
     set go-=r
     set go-=R
-    set go+=a
-    set go+=A
-    set go+=c
-    set go+=e
+    if !exists("g:neovide")
+        set go+=a
+        set go+=A
+        set go+=c
+        set go+=e
+    end
 
     set showtabline=0
 
