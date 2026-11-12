@@ -50,7 +50,7 @@
 
   //   "terminal" : {
   //     "resumeCommands" : [
-  // 
+  //
   //     ],
   //     "textBoxSubmitActions" : [
   //       {
@@ -124,10 +124,10 @@
   //     "paneFlash" : true,
   //     "paneFlashThemeColor" : false,
   //     "hooks" : [
-  // 
+  //
   //     ],
   //     "soundOverrides" : {
-  // 
+  //
   //     },
   //     "customSoundFilePath" : "",
   //     "paneFlashOnTyping" : true,
@@ -170,7 +170,7 @@
   //     "showBranchDirectory" : true,
   //     "stackBranchDirectory" : false,
   //     "compactStatusIcons" : {
-  // 
+  //
   //     },
   //     "pathLastSegmentOnly" : false
   //   },
@@ -234,11 +234,11 @@
   //     "hiddenWebViewDiscardDelaySeconds" : 300,
   //     "autoRestoreUnloadedPages" : true,
   //     "hostsToOpenInEmbeddedBrowser" : [
-  // 
+  //
   //     ],
   //     "hiddenWebViewMemoryBudgetMB" : 2048,
   //     "urlsToAlwaysOpenExternally" : [
-  // 
+  //
   //     ],
   //     "showImportHintOnBlankTabs" : true,
   //     "reactGrabVersion" : "0.1.29",
@@ -488,6 +488,8 @@
       "nextSidebarTab": "ctrl+tab",
       "prevSidebarTab": "ctrl+shift+tab",
       "showHideAllWindows": "ctrl+<",
+      "selectSurfaceByNumber": "cmd+1",
+      "selectWorkspaceByNumber": "ctrl+1",
     }
   }
 }
