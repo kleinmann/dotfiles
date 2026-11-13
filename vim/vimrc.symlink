@@ -64,7 +64,7 @@ Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 Plug 'kana/vim-textobj-user'
 Plug 'beyondwords/vim-twig', { 'for': 'twig' }
 Plug 'mbbill/undotree'
-Plug 'Shougo/vimproc.vim', { 'do': 'make ARCHS=\"x86_64 arm64\"' }
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'vim-scripts/xmledit', { 'for': ['html', 'xml'] }
 
 " Snippets
