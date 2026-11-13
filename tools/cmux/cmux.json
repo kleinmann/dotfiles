@@ -19,7 +19,7 @@
   //     "preferredEditor" : "",
   //     "tabBarVisibility" : "always",
   //     "warnBeforeClosingTabXButton" : false,
-  //     "reorderOnNotification" : true,
+       "reorderOnNotification" : false,
   //     "defaultWorkspacePath" : "",
   //     "appIcon" : "automatic",
   //     "equalizeSplitsOnCreate" : false,
@@ -251,7 +251,7 @@
   //       "0.0.0.0",
   //       "*.localtest.me"
   //     ],
-  //     "interceptTerminalOpenCommandInCmuxBrowser" : true,
+       "interceptTerminalOpenCommandInCmuxBrowser" : false,
   //     "insecureHttpHostsAllowedInEmbeddedBrowser" : [
   //       "localhost",
   //       "*.localhost",
@@ -260,7 +260,7 @@
   //       "0.0.0.0",
   //       "*.localtest.me"
   //     ],
-  //     "openTerminalLinksInCmuxBrowser" : true,
+       "openTerminalLinksInCmuxBrowser" : false,
   //     "askWhereToSaveDownloads" : false,
   //     "defaultZoomLevel" : 1,
   //     "customSearchEngineName" : "",
