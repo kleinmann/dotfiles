@@ -485,8 +485,8 @@
     "bindings": {
       "nextSurface": "cmd+right",
       "prevSurface": "cmd+left",
-      "nextSidebarTab": "ctrl+tab",
-      "prevSidebarTab": "ctrl+shift+tab",
+      "nextSidebarTab": "cmd+down",
+      "prevSidebarTab": "cmd+up",
       "showHideAllWindows": "ctrl+<",
       "selectSurfaceByNumber": "cmd+1",
       "selectWorkspaceByNumber": "ctrl+1",
